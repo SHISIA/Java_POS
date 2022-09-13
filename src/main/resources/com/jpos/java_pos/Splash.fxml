@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="613.0" prefWidth="844.0" spacing="20.0" style="-fx-background-color: white; -fx-border-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jpos.java_pos.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <HBox alignment="TOP_CENTER" prefHeight="286.0" prefWidth="984.0" VBox.vgrow="ALWAYS">
+      <children>
+         <ImageView fx:id="splashLogo" fitHeight="344.0" fitWidth="831.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+            <HBox.margin>
+               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </HBox.margin>
+            <image>
+               <Image url="@../../../images/pos.png" />
+            </image>
+         </ImageView>
+         <JFXButton prefHeight="26.0" prefWidth="25.0" ripplerFill="#eb070700" style="-fx-border-color: black; -fx-border-radius: 14; -fx-background-color: transparent; -fx-background-radius: 14;" text="X" textFill="#fc0707" HBox.hgrow="ALWAYS">
+            <tooltip>
+               <Tooltip text="Close POS" />
+            </tooltip>
+            <HBox.margin>
+               <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+            </HBox.margin>
+         </JFXButton>
+      </children>
+   </HBox>
+   <JFXComboBox fx:id="dropDown" labelFloat="true" prefHeight="27.0" prefWidth="281.0" promptText="Select a Database" VBox.vgrow="ALWAYS">
+      <VBox.margin>
+         <Insets left="100.0" right="100.0" top="15.0" />
+      </VBox.margin></JFXComboBox>
+   <JFXButton fx:id="connectDBBtn" prefHeight="36.0" prefWidth="156.0" text="Connect" VBox.vgrow="ALWAYS">
+      <VBox.margin>
+         <Insets left="100.0" right="100.0" top="15.0" />
+      </VBox.margin>
+      <tooltip>
+         <Tooltip text="Connect to Choosen Database" />
+      </tooltip>
+   </JFXButton>
+   <Hyperlink fx:id="loadDBlink" text="Add New Database" textFill="#0a62cd" visited="true" wrapText="true" VBox.vgrow="ALWAYS">
+      <VBox.margin>
+         <Insets bottom="30.0" left="100.0" right="100.0" />
+      </VBox.margin>
+   </Hyperlink>
+</VBox>
