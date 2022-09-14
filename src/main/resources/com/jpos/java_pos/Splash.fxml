@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="613.0" prefWidth="844.0" spacing="20.0" style="-fx-background-color: white; -fx-border-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jpos.java_pos.HelloController">
+<VBox alignment="CENTER" prefHeight="613.0" prefWidth="844.0" spacing="20.0" style="-fx-background-color: white; -fx-border-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jpos.java_pos.Controller.SplashController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -37,18 +37,21 @@
    <JFXComboBox fx:id="dropDown" labelFloat="true" prefHeight="27.0" prefWidth="281.0" promptText="Select a Database" VBox.vgrow="ALWAYS">
       <VBox.margin>
          <Insets left="100.0" right="100.0" top="15.0" />
-      </VBox.margin></JFXComboBox>
-   <JFXButton fx:id="connectDBBtn" prefHeight="36.0" prefWidth="156.0" text="Connect" VBox.vgrow="ALWAYS">
+      </VBox.margin>
+      <tooltip>
+         <Tooltip maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Choose Database to use" />
+      </tooltip></JFXComboBox>
+   <JFXButton fx:id="connectDBBtn" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="36.0" prefWidth="156.0" text="Connect" VBox.vgrow="ALWAYS">
       <VBox.margin>
-         <Insets left="100.0" right="100.0" top="15.0" />
+         <Insets left="300.0" right="300.0" top="15.0" />
       </VBox.margin>
       <tooltip>
          <Tooltip text="Connect to Choosen Database" />
       </tooltip>
    </JFXButton>
-   <Hyperlink fx:id="loadDBlink" text="Add New Database" textFill="#0a62cd" visited="true" wrapText="true" VBox.vgrow="ALWAYS">
+   <Hyperlink fx:id="loadDBlink" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Add New Database" textFill="#0a62cd" visited="true" wrapText="true" VBox.vgrow="ALWAYS">
       <VBox.margin>
-         <Insets bottom="30.0" left="100.0" right="100.0" />
+         <Insets bottom="30.0" left="300.0" right="300.0" />
       </VBox.margin>
    </Hyperlink>
 </VBox>
