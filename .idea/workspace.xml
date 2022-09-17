@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3cbce7a9-e94a-4b3d-b76b-47e73dc1b1c2" name="Changes" comment="Added the controller">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Controller/HomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Controller/LoginScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Model/DBManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Model/DBSelector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Model/ScreenLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Model/SplashModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/pos_icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Controller/SplashController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Controller/SplashController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Model/DbConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Model/DbConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Splash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Splash.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/jpos/java_pos/BarCodeEntry.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/jpos/pos/BarCodeEntry.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/jpos/java_pos/Calculator.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/jpos/pos/Calculator.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/jpos/java_pos/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/jpos/pos/Home.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/jpos/java_pos/LoginScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/jpos/pos/LoginScreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/jpos/java_pos/SalesPOS.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/jpos/pos/SalesPOS.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/jpos/java_pos/Setttings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/jpos/pos/Settings.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/jpos/java_pos/SideBar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/jpos/pos/SideBar.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/jpos/java_pos/Splash.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/jpos/pos/Splash.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2EetgYy5BhH9yJlNIVCh5mbbQSi" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/com/jpos/pos" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Splash" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.jpos.java_pos.Splash" />
+      <module name="Java_POS" />
+      <option name="VM_PARAMETERS" value="--module-path=$USER_HOME$/Downloads/javafx-sdk-18.0.1/lib --add-modules javafx.controls,javafx.fxml,javafx.media,javafx.graphics --add-exports=javafx.controls/com.sun.javafx.scene.control.behavior=ALL-UNNAMED --add-exports=javafx.controls/com.sun.javafx.scene.control=ALL-UNNAMED --add-exports javafx.controls/com.sun.javafx.scene.control.behavior=com.jfoenix --add-exports javafx.controls/com.sun.javafx.scene.control=com.jfoenix --add-exports javafx.base/com.sun.javafx.binding=com.jfoenix --add-exports javafx.graphics/com.sun.javafx.stage=com.jfoenix --add-exports javafx.base/com.sun.javafx.event=com.jfoenix" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jpos.java_pos.Controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Splash" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3cbce7a9-e94a-4b3d-b76b-47e73dc1b1c2" name="Changes" comment="" />
+      <created>1662967994411</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1662967994411</updated>
+    </task>
+    <task id="LOCAL-00001" summary="The First Commit with UI updates and skeletons">
+      <created>1663056720067</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1663056720068</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added the controller">
+      <created>1663136228808</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1663136228808</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="The First Commit with UI updates and skeletons" />
+    <MESSAGE value="Added the controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the controller" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

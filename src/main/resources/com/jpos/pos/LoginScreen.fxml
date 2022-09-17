@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="732.0" prefWidth="1023.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jpos.java_pos.Controller.LoginScreen">
+   <children>
+      <ImageView fx:id="logo" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
+         <VBox.margin>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+         </VBox.margin>
+      </ImageView>
+      <VBox alignment="CENTER" spacing="40.0" VBox.vgrow="ALWAYS">
+         <children>
+            <JFXTextField labelFloat="true" promptText="Enter Your Username" VBox.vgrow="ALWAYS">
+               <padding>
+                  <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="30.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField labelFloat="true" promptText="Enter Your Password" VBox.vgrow="ALWAYS">
+               <padding>
+                  <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+         </children>
+         <VBox.margin>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+         </padding>
+      </VBox>
+      <HBox alignment="CENTER" prefHeight="76.0" prefWidth="354.0" VBox.vgrow="ALWAYS">
+         <children>
+            <JFXButton fx:id="loginBtn" alignment="CENTER" contentDisplay="CENTER" onAction="#logIn" prefHeight="64.0" prefWidth="206.0" text="Login" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="closeBtn" alignment="CENTER" contentDisplay="CENTER" onAction="#closeWindow" prefHeight="52.0" prefWidth="207.0" text="Close" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+            </JFXButton>
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" left="200.0" right="200.0" />
+         </VBox.margin>
+      </HBox>
+      <Label fx:id="passStatus" prefHeight="39.0" prefWidth="347.0" text="Status : " VBox.vgrow="ALWAYS">
+         <VBox.margin>
+            <Insets bottom="50.0" left="50.0" right="50.0" />
+         </VBox.margin>
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+   </children>
+   <padding>
+      <Insets bottom="150.0" left="150.0" right="150.0" top="50.0" />
+   </padding>
+</VBox>

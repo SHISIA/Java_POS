@@ -7,8 +7,11 @@ module com.jpos.java_pos {
     requires com.dlsc.formsfx;
     requires org.kordamp.ikonli.javafx;
     requires com.jfoenix;
+    requires java.sql;
+    requires mysql.connector.java;
+    requires java.desktop;
 
-    opens com.jpos.java_pos to javafx.fxml;
+    opens com.jpos.java_pos to javafx.fxml, javafx.controls,com.jfoenix;
     exports com.jpos.java_pos;
     exports com.jpos.java_pos.Controller;
     opens com.jpos.java_pos.Controller to javafx.fxml;

@@ -24,7 +24,7 @@
                <Image url="@../../../images/pos.png" />
             </image>
          </ImageView>
-         <JFXButton prefHeight="26.0" prefWidth="25.0" ripplerFill="#eb070700" style="-fx-border-color: black; -fx-border-radius: 14; -fx-background-color: transparent; -fx-background-radius: 14;" text="X" textFill="#fc0707" HBox.hgrow="ALWAYS">
+         <JFXButton fx:id="closeBtn" prefHeight="26.0" prefWidth="25.0" ripplerFill="#eb070700" style="-fx-border-color: black; -fx-border-radius: 14; -fx-background-color: transparent; -fx-background-radius: 14;" text="X" textFill="#fc0707" HBox.hgrow="ALWAYS">
             <tooltip>
                <Tooltip text="Close POS" />
             </tooltip>

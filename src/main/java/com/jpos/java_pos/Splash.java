@@ -11,7 +11,7 @@ import java.io.IOException;
 public class Splash extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Splash.class.getResource("Splash.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Splash.class.getResource("/com/jpos/pos/Splash.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.setScene(scene);
