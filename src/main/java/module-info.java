@@ -10,9 +10,13 @@ module com.jpos.java_pos {
     requires java.sql;
     requires mysql.connector.java;
     requires java.desktop;
+    requires escpos.coffee;
 
     opens com.jpos.java_pos to javafx.fxml, javafx.controls,com.jfoenix;
+    opens com.jpos.java_pos.Model to javafx.fxml;
+
     exports com.jpos.java_pos;
+    exports com.jpos.java_pos.Model;
     exports com.jpos.java_pos.Controller;
     opens com.jpos.java_pos.Controller to javafx.fxml;
 }
