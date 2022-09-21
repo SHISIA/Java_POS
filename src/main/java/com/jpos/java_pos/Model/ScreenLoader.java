@@ -18,7 +18,6 @@ public class ScreenLoader {
     public Stage load(String fxmlPath,boolean maximized,StageStyle stageStyle,String imIcon){
         Stage stage=new Stage();
         try {
-//            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
             Parent root =FXMLLoader.load(Objects.requireNonNull(ScreenLoader.class.getResource(fxmlPath)));
             Scene scene = new Scene(root);
             stage.setMaximized(maximized);

@@ -5,6 +5,7 @@ import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.StageStyle;
 
 import java.util.List;
 
@@ -88,7 +89,7 @@ public class SalesPOSModel {
         List<Product> products = this.products;
         for (Product product : products){
             Button deleteBtn= product.getDelete();
-            deleteBtn.setOnAction(e-> System.out.println("Position "));
+            deleteBtn.setOnAction(e-> new ScreenLoader().load("/com/jpos/pos/ProductEditUI.fxml",false, StageStyle.TRANSPARENT,"/images/product.png"));
         }
     }
 

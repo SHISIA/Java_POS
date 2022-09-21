@@ -1,10 +1,8 @@
 package com.jpos.java_pos.Controller;
 
 import com.jfoenix.controls.JFXButton;
-import com.jpos.java_pos.Model.SalesPOSModel;
 import com.jpos.java_pos.Model.Product;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+import com.jpos.java_pos.Model.SalesPOSModel;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
