@@ -5,7 +5,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.control.Button;
 
-public class Table {
+public class Product {
     private SimpleIntegerProperty count;
     private SimpleStringProperty productName;
     private SimpleDoubleProperty total;
@@ -30,7 +30,7 @@ public class Table {
 
     private Button delete;
 
-    public Table(String productName, int count, Double price,Double total,Button edit,Button delete) {
+    public Product(String productName, int count, Double price, Double total, Button edit, Button delete) {
         this.count = new SimpleIntegerProperty(count);
         this.productName = new SimpleStringProperty(productName);
         this.price = new SimpleDoubleProperty(price);

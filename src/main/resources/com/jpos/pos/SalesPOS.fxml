@@ -41,7 +41,7 @@
       </HBox>
       <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
          <children>
-            <TableView fx:id="productsTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="461.0" prefWidth="840.0" HBox.hgrow="ALWAYS">
+            <TableView fx:id="productsTable" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="461.0" prefWidth="840.0" tableMenuButtonVisible="true" HBox.hgrow="ALWAYS">
               <columns>
                 <TableColumn fx:id="nameCol" maxWidth="1.7976931348623157E308" prefWidth="303.0" text="Product Name" />
                 <TableColumn fx:id="countCol" minWidth="0.0" prefWidth="127.0" text="Count" />
@@ -310,7 +310,7 @@
          <children>
             <HBox VBox.vgrow="ALWAYS">
                <children>
-                  <TableView maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="342.0" prefWidth="736.0" HBox.hgrow="ALWAYS">
+                  <TableView fx:id="smartList" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="342.0" prefWidth="736.0" HBox.hgrow="ALWAYS">
                     <columns>
                       <TableColumn prefWidth="175.0" text="SmartList" />
                         <TableColumn prefWidth="541.0" text="C1" />

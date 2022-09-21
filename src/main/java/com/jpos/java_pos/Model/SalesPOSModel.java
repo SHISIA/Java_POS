@@ -1,21 +1,12 @@
 package com.jpos.java_pos.Model;
 
 import com.jfoenix.controls.JFXButton;
-import com.mysql.cj.protocol.Resultset;
-import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import javax.xml.transform.Result;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
 
 public class SalesPOSModel {
 
@@ -28,33 +19,34 @@ public class SalesPOSModel {
      
     public JFXButton logOutBtn;
      
-    public TableView<Table> productsTable;
+    public TableView<Product> productsTable;
      
-    public TableColumn<Table,String> nameCol;
+    public TableColumn<Product,String> nameCol;
      
-    public TableColumn<Table,Number> countCol;
+    public TableColumn<Product,Number> countCol;
      
-    public TableColumn<Table,Number> priceCol;
+    public TableColumn<Product,Number> priceCol;
      
-    public TableColumn<Table,Number> totalCol;
+    public TableColumn<Product,Number> totalCol;
      
-    public TableColumn<Table, Button> deleteCol;
+    public TableColumn<Product, Button> deleteCol;
      
-    public TableColumn<Table,Button> editCol;
+    public TableColumn<Product,Button> editCol;
      
     public TextField barcodeSearch;
      
     public Button findBtn;
 
     DbConnector connector=new DbConnector();
-    ObservableList<Table> products;
+    ObservableList<Product> products;
 
-    public SalesPOSModel(TableView<Table> productsTable,TableColumn<Table,String> nameCol,TableColumn<Table,Number> countCol, TableColumn<Table,Number> priceCol
-            , TableColumn<Table,Number> totalCol,TableColumn<Table,Button> editCol,TableColumn<Table, Button> deleteCol,TextField barcodeSearch) {
+    public SalesPOSModel(TableView<Product> productsTable, TableColumn<Product,String> nameCol, TableColumn<Product,Number> countCol, TableColumn<Product,Number> priceCol
+            , TableColumn<Product,Number> totalCol, TableColumn<Product,Button> editCol, TableColumn<Product, Button> deleteCol, TextField barcodeSearch, Button findBtn) {
         this.productsTable=productsTable;
         this.nameCol=nameCol;
         this.countCol=countCol;
         this.priceCol=priceCol;
+        this.findBtn=findBtn;
         this.totalCol=totalCol;
         this.editCol=editCol;
         this.deleteCol=deleteCol;
@@ -63,6 +55,10 @@ public class SalesPOSModel {
     }
 
     public void loadData(){
+        //add your data to the table here.
+        products=connector.loadProducts("select * from biz_hub_product_master;");
+        productsTable.setItems(products);
+
         nameCol.setCellValueFactory(cellData -> cellData.getValue().productNameProperty());
         countCol.setCellValueFactory(cell -> cell.getValue().countProperty());
         priceCol.setCellValueFactory(cell -> cell.getValue().priceProperty());
@@ -70,13 +66,8 @@ public class SalesPOSModel {
         editCol.setCellValueFactory(new PropertyValueFactory<>("Edit"));
         deleteCol.setCellValueFactory(new PropertyValueFactory<>("Delete"));
 
-        //add your data to the table here.
-        products=connector.loadProducts("select * from biz_hub_product_master");
-
-        productsTable.setItems(products);
-
         // add your data here from any source
-        products.addListener((ListChangeListener<? super Table>) change -> {
+        products.addListener((ListChangeListener<? super Product>) change -> {
             while (change.next()) {
                 if (change.wasAdded()) {
                     System.out.println(change.getAddedSubList().get(0)
@@ -88,15 +79,15 @@ public class SalesPOSModel {
             }
         });
         deleteProduct();
-        products.add(new Table("e2q3r",2000,22322.,232334.,new Button("edit"),new Button("delete")));
+        findProductByCode();
     }
 
 
     public void deleteProduct(){
         System.out.println("erfjk4nrgvd");
-        List<Table> tables= products;
-        for (Table table:tables){
-            Button deleteBtn=table.getDelete();
+        List<Product> products = this.products;
+        for (Product product : products){
+            Button deleteBtn= product.getDelete();
             deleteBtn.setOnAction(e-> System.out.println("Position "));
         }
     }
@@ -106,7 +97,8 @@ public class SalesPOSModel {
         findBtn.setOnAction(e->{
             String code=barcodeSearch.getText();
             if (!code.isEmpty()){
-                products=connector.loadProducts("select * from biz_hub_product_master where code ="+Integer.parseInt(code)+";");
+                products=connector.loadProducts("select * from biz_hub_product_master where barcode ="+code+";");
+                productsTable.getItems().clear();
                 productsTable.setItems(products);
             }
             System.out.println("Empty");

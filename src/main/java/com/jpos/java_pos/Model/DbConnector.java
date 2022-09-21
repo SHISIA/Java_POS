@@ -35,7 +35,6 @@ public class DbConnector {
             Class.forName("com.mysql.cj.jdbc.Driver");
              connection= DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/JavaPOS",getUserName(),getPassword());
-            System.out.println("wefodicuh");
             System.out.println("Connected to database");
 
         }catch (Exception e){
@@ -59,8 +58,9 @@ public class DbConnector {
 
     }
 
-    public ObservableList<Table> loadProducts(String sql){
-        ObservableList<Table> products = null;
+    public ObservableList<Product> loadProducts(String sql){
+        ObservableList<Product> products = FXCollections.observableArrayList(
+        );
         try {
             ResultSet rs=getConnection().createStatement().executeQuery(sql);;
             while (rs.next()){
@@ -68,8 +68,7 @@ public class DbConnector {
                 int quantity=rs.getInt(3);
                 double price= rs.getInt(4);
                 double total=price*quantity;
-                products = FXCollections.observableArrayList(
-                        new Table(name,quantity, price,total,new Button("Edit"),new Button("Delete")));
+                products.add(new Product(name,quantity, price,total,new Button("Edit"),new Button("Delete")));
             }
             connection.close();
         } catch (SQLException e) {
