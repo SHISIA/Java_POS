@@ -257,7 +257,7 @@
                                           <Font name="System Bold" size="20.0" />
                                        </font>
                                     </Label>
-                                    <JFXTextField HBox.hgrow="ALWAYS">
+                                    <JFXTextField fx:id="serverDbHostField" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="30.0" right="100.0" top="5.0" />
                                        </HBox.margin>
@@ -270,12 +270,12 @@
                                           <Font name="System Bold" size="20.0" />
                                        </font>
                                     </Label>
-                                    <JFXTextField layoutX="135.0" layoutY="10.0" prefHeight="27.0" prefWidth="220.0" HBox.hgrow="ALWAYS">
+                                    <JFXTextField fx:id="serverSchemaField" layoutX="135.0" layoutY="10.0" prefHeight="27.0" prefWidth="220.0" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="30.0" right="100.0" top="5.0" />
                                        </HBox.margin>
                                     </JFXTextField>
-                                    <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="81.0" text="Test" HBox.hgrow="ALWAYS">
+                                    <Button fx:id="serverTestBtn" mnemonicParsing="false" prefHeight="27.0" prefWidth="81.0" text="Test" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </HBox.margin>
@@ -295,7 +295,7 @@
                                           <Font name="System Bold" size="20.0" />
                                        </font>
                                     </Label>
-                                    <JFXTextField HBox.hgrow="ALWAYS">
+                                    <JFXTextField fx:id="serverUsernameField" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="30.0" right="100.0" top="5.0" />
                                        </HBox.margin>
@@ -308,12 +308,12 @@
                                           <Font name="System Bold" size="20.0" />
                                        </font>
                                     </Label>
-                                    <JFXTextField layoutX="135.0" layoutY="10.0" prefHeight="27.0" prefWidth="220.0" HBox.hgrow="ALWAYS">
+                                    <JFXTextField fx:id="serverPasswordField" layoutX="135.0" layoutY="10.0" prefHeight="27.0" prefWidth="220.0" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="30.0" right="100.0" top="5.0" />
                                        </HBox.margin>
                                     </JFXTextField>
-                                    <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="81.0" text="Save" HBox.hgrow="ALWAYS">
+                                    <Button fx:id="serverCredBtn" mnemonicParsing="false" prefHeight="27.0" prefWidth="81.0" text="Save" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </HBox.margin>

@@ -9,6 +9,26 @@ import java.sql.*;
 public class DbConnector {
     String userName="";
 
+    public String getSchema() {
+        return schema;
+    }
+
+    public void setSchema(String schema) {
+        this.schema = schema;
+    }
+
+    String schema="";
+
+    public String getHostName() {
+        return hostName;
+    }
+
+    public void setHostName(String hostName) {
+        this.hostName = hostName;
+    }
+
+    String hostName="";
+
     public String getUserName() {
         return userName;
     }
@@ -30,17 +50,16 @@ public class DbConnector {
 
     public Connection getConnection() {
         try {
-            setPassword("Pw517uE");
+            setPassword("pw517ue");
             setUserName("root");
             Class.forName("com.mysql.cj.jdbc.Driver");
              connection= DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/JavaPOS",getUserName(),getPassword());
+                    "jdbc:mysql://"+getHostName()+":3306/"+getSchema(),getUserName(),getPassword());
             System.out.println("Connected to database");
 
         }catch (Exception e){
             e.printStackTrace();
         }
-
         return connection;
     }
 
