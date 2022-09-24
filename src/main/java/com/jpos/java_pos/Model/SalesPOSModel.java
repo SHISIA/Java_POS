@@ -48,7 +48,7 @@ public class SalesPOSModel {
      
     public JFXButton logOutBtn;
 
-    public Button checkoutBtn;
+    public JFXButton checkoutBtn;
      
     public TableView<Product> productsTable;
      
@@ -72,7 +72,7 @@ public class SalesPOSModel {
     ObservableList<Product> products;
 
     public SalesPOSModel(TableView<Product> productsTable, TableColumn<Product,String> nameCol, TableColumn<Product,Number> countCol, TableColumn<Product,Number> priceCol
-            , TableColumn<Product,Number> totalCol, TableColumn<Product,Button> editCol, TableColumn<Product, Button> deleteCol, TextField barcodeSearch, Button findBtn, Button checkout,
+            , TableColumn<Product,Number> totalCol, TableColumn<Product,Button> editCol, TableColumn<Product, Button> deleteCol, TextField barcodeSearch, Button findBtn, JFXButton checkout,
                          Button plusBtn,Button minusBtn,TableView smartList,Button multiply,Button zero, Button one,Button two,
                          Button three,Button four,Button five,Button six,Button seven,Button eight,Button nine,Button doubleO,JFXButton clearBtn,JFXButton backSpaceBtn) {
         this.productsTable=productsTable;

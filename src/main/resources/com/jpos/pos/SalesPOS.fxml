@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="900.0" prefWidth="1167.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jpos.java_pos.Controller.POSController">
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="711.0" prefWidth="1167.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jpos.java_pos.Controller.POSController">
    <children>
-      <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="200.0" spacing="20.0" VBox.vgrow="ALWAYS">
+      <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="8.0" prefWidth="1165.0" spacing="20.0">
          <children>
             <JFXButton fx:id="deleteTicket" prefHeight="35.0" prefWidth="108.0" text="Delete Ticket" HBox.hgrow="ALWAYS">
                <HBox.margin>
@@ -39,7 +39,7 @@
             <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
          </VBox.margin>
       </HBox>
-      <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+      <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
          <children>
             <TableView fx:id="productsTable" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="461.0" prefWidth="840.0" tableMenuButtonVisible="true" HBox.hgrow="ALWAYS">
               <columns>
@@ -303,24 +303,29 @@
             <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
          </VBox.margin>
       </HBox>
-      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="217.0" prefWidth="1163.0" VBox.vgrow="ALWAYS">
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="1163.0">
          <VBox.margin>
             <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
          </VBox.margin>
          <children>
-            <HBox VBox.vgrow="ALWAYS">
+            <HBox>
                <children>
-                  <TableView fx:id="smartList" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="342.0" prefWidth="736.0" HBox.hgrow="ALWAYS">
+                  <TableView prefHeight="150.0" prefWidth="534.0" HBox.hgrow="ALWAYS">
                     <columns>
-                      <TableColumn prefWidth="175.0" text="SmartList" />
-                        <TableColumn prefWidth="541.0" text="C1" />
+                      <TableColumn prefWidth="949.9999847412109" text="SmartList" />
                     </columns>
-                  </TableView>
-                  <Button fx:id="checkout" mnemonicParsing="false" prefHeight="59.0" prefWidth="121.0" text="Check Out" HBox.hgrow="ALWAYS">
                      <HBox.margin>
-                        <Insets bottom="100.0" left="100.0" right="100.0" top="150.0" />
+                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                      </HBox.margin>
-                  </Button>
+                     <padding>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </padding>
+                  </TableView>
+                  <JFXButton fx:id="checkout" prefHeight="33.0" prefWidth="109.0" text="Checkout" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+                     </HBox.margin>
+                  </JFXButton>
                </children>
             </HBox>
          </children></VBox>

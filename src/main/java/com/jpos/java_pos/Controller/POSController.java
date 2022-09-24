@@ -40,24 +40,42 @@ public class POSController implements Initializable {
     public TextField barcodeSearch;
     @FXML
     public Button findBtn;
+    @FXML
     public JFXButton backSpaceBtn;
+    @FXML
     public JFXButton clearBtn;
+    @FXML
     public Button one;
+    @FXML
     public Button two;
+    @FXML
     public Button three;
+    @FXML
     public Button four;
+    @FXML
     public Button five;
+    @FXML
     public Button six;
+    @FXML
     public Button seven;
+    @FXML
     public Button eight;
+    @FXML
     public Button nine;
+    @FXML
     public Button doubleO;
+    @FXML
     public Button zero;
+    @FXML
     public Button multiply;
+    @FXML
     public Button plusBtn;
+    @FXML
     public Button minusBtn;
+    @FXML
     public TableView smartList;
-    public Button checkout;
+    @FXML
+    public JFXButton checkout;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
