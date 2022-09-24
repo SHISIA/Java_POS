@@ -124,7 +124,11 @@ public class SalesPOSModel {
         seven.setOnAction(e -> barcodeSearch.appendText("7"));
         eight.setOnAction(e -> barcodeSearch.appendText("8"));
         nine.setOnAction(e -> barcodeSearch.appendText("9"));
-        clearBtn.setOnAction(e -> barcodeSearch.clear());
+        clearBtn.setOnAction(e -> {
+            barcodeSearch.clear();
+            loadData();
+          }
+        );
         add_minusCount();
     }
 

@@ -9,32 +9,32 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="674.0" prefWidth="919.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jpos.java_pos.Controller.LoginScreen">
+<VBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="537.0" prefWidth="784.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jpos.java_pos.Controller.LoginScreen">
    <children>
       <ImageView fx:id="logo" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
          <VBox.margin>
-            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+            <Insets bottom="2.0" left="2.0" right="2.0" top="110.0" />
          </VBox.margin>
       </ImageView>
-      <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" spacing="40.0" VBox.vgrow="ALWAYS">
+      <VBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="148.0" prefWidth="663.0" spacing="40.0" VBox.vgrow="ALWAYS">
          <children>
-            <JFXTextField alignment="CENTER" labelFloat="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" promptText="Enter Your Username" VBox.vgrow="ALWAYS">
+            <JFXTextField alignment="CENTER" labelFloat="true" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="0.0" promptText="Enter Your Username" VBox.vgrow="ALWAYS">
                <padding>
                   <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
                </padding>
                <VBox.margin>
-                  <Insets bottom="2.0" left="100.0" right="100.0" top="30.0" />
+                  <Insets bottom="10.0" left="80.0" right="80.0" top="10.0" />
                </VBox.margin>
                <font>
                   <Font size="16.0" />
                </font>
             </JFXTextField>
-            <JFXTextField alignment="CENTER" labelFloat="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" promptText="Enter Your Password" VBox.vgrow="ALWAYS">
+            <JFXTextField alignment="CENTER" labelFloat="true" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="0.0" promptText="Enter Your Password" VBox.vgrow="ALWAYS">
                <padding>
                   <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
                </padding>
                <VBox.margin>
-                  <Insets bottom="5.0" left="100.0" right="100.0" top="5.0" />
+                  <Insets bottom="10.0" left="80.0" right="80.0" top="5.0" />
                </VBox.margin>
                <font>
                   <Font size="16.0" />
@@ -42,13 +42,13 @@
             </JFXTextField>
          </children>
          <VBox.margin>
-            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+            <Insets top="67.0" />
          </VBox.margin>
          <padding>
             <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
          </padding>
       </VBox>
-      <HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="76.0" prefWidth="354.0" VBox.vgrow="ALWAYS">
+      <HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="61.0" prefWidth="300.0" VBox.vgrow="ALWAYS">
          <children>
             <JFXButton fx:id="loginBtn" alignment="CENTER" contentDisplay="CENTER" onAction="#logIn" prefHeight="64.0" prefWidth="226.0" text="Login" HBox.hgrow="ALWAYS">
                <HBox.margin>
@@ -71,7 +71,7 @@
             <Insets bottom="10.0" left="170.0" right="170.0" top="10.0" />
          </VBox.margin>
       </HBox>
-      <Label fx:id="passStatus" prefHeight="35.0" prefWidth="347.0" text="Status : " VBox.vgrow="ALWAYS">
+      <Label fx:id="passStatus" prefHeight="35.0" prefWidth="347.0" text="Status : ">
          <VBox.margin>
             <Insets bottom="50.0" left="50.0" right="50.0" top="10.0" />
          </VBox.margin>
