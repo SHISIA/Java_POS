@@ -3,14 +3,33 @@ package com.jpos.java_pos.Model;
 import com.jfoenix.controls.JFXButton;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.StageStyle;
 
 import java.util.List;
 
 public class SalesPOSModel {
-
+    public JFXButton backSpaceBtn;
+    public JFXButton clearBtn;
+    public Button one;
+    public Button two;
+    public Button three;
+    public Button four;
+    public Button five;
+    public Button six;
+    public Button seven;
+    public Button eight;
+    public Button nine;
+    public Button doubleO;
+    public Button zero;
+    public Button multiply;
+    public Button plusBtn;
+    public Button minusBtn;
+    public TableView smartList;
 
     public JFXButton deleteTicket;
      
@@ -19,6 +38,8 @@ public class SalesPOSModel {
     public JFXButton priceCheckBtn;
      
     public JFXButton logOutBtn;
+
+    public Button checkoutBtn;
      
     public TableView<Product> productsTable;
      
@@ -42,7 +63,9 @@ public class SalesPOSModel {
     ObservableList<Product> products;
 
     public SalesPOSModel(TableView<Product> productsTable, TableColumn<Product,String> nameCol, TableColumn<Product,Number> countCol, TableColumn<Product,Number> priceCol
-            , TableColumn<Product,Number> totalCol, TableColumn<Product,Button> editCol, TableColumn<Product, Button> deleteCol, TextField barcodeSearch, Button findBtn) {
+            , TableColumn<Product,Number> totalCol, TableColumn<Product,Button> editCol, TableColumn<Product, Button> deleteCol, TextField barcodeSearch, Button findBtn, Button checkout,
+                         Button plusBtn,Button minusBtn,TableView smartList,Button multiply,Button zero, Button one,Button two,
+                         Button three,Button four,Button five,Button six,Button seven,Button eight,Button nine,Button doubleO,JFXButton clearBtn,JFXButton backSpaceBtn) {
         this.productsTable=productsTable;
         this.nameCol=nameCol;
         this.countCol=countCol;
@@ -52,7 +75,64 @@ public class SalesPOSModel {
         this.editCol=editCol;
         this.deleteCol=deleteCol;
         this.barcodeSearch=barcodeSearch;
+        this.checkoutBtn=checkout;
+        this.zero=zero;
+        this.one=one;
+        this.two=two;
+        this.three=three;
+        this.four=four;
+        this.five=five;
+        this.six=six;
+        this.seven=seven;
+        this.doubleO=doubleO;
+        this.eight=eight;
+        this.nine=nine;
+        this.multiply=multiply;
+        this.backSpaceBtn=backSpaceBtn;
+        this.clearBtn=clearBtn;
+        this.plusBtn=plusBtn;
+        this.minusBtn=minusBtn;
+
+        checkout.setOnAction(e->checkOutTicket());
         loadData();
+        onScreenKeys();
+    }
+
+
+    public void onScreenKeys(){
+        if (!barcodeSearch.getText().isEmpty()){
+            backSpaceBtn.setOnAction(e -> barcodeSearch.setText(barcodeSearch.getText().substring(0, barcodeSearch.getText().length() - 1)));
+            clearBtn.setOnAction(e -> barcodeSearch.clear());
+        }
+        backSpaceBtn.setOnAction(e -> barcodeSearch.setText(barcodeSearch.getText().substring(0, barcodeSearch.getText().length() - 1)));
+        zero.setOnAction(e -> barcodeSearch.appendText("0"));
+        one.setOnAction(e -> barcodeSearch.appendText("1"));
+        two.setOnAction(e -> barcodeSearch.appendText("2"));
+        three.setOnAction(e -> barcodeSearch.appendText("3"));
+        four.setOnAction(e -> barcodeSearch.appendText("4"));
+        five.setOnAction(e -> barcodeSearch.appendText("5"));
+        six.setOnAction(e -> barcodeSearch.appendText("6"));
+        seven.setOnAction(e -> barcodeSearch.appendText("7"));
+        eight.setOnAction(e -> barcodeSearch.appendText("8"));
+        nine.setOnAction(e -> barcodeSearch.appendText("9"));
+        clearBtn.setOnAction(e -> barcodeSearch.clear());
+        add_minusCount();
+    }
+
+    public void add_minusCount(){
+        plusBtn.setOnAction(e->productsTable.getSelectionModel().getSelectedItem().setCount(
+                productsTable.getSelectionModel().getSelectedItem().getCount()+1
+        ));
+        minusBtn.setOnAction(e->{
+            if (productsTable.getSelectionModel().getSelectedItem().getCount()<=0){
+                productsTable.getSelectionModel().getSelectedItem().setCount(0);
+            }else {
+                productsTable.getSelectionModel().getSelectedItem().setCount(
+                        productsTable.getSelectionModel().getSelectedItem().getCount()-1
+                );
+            }
+        });
+
     }
 
     public void loadData(){
@@ -85,11 +165,17 @@ public class SalesPOSModel {
 
 
     public void deleteProduct(){
-        System.out.println("erfjk4nrgvd");
         List<Product> products = this.products;
         for (Product product : products){
             Button deleteBtn= product.getDelete();
-            deleteBtn.setOnAction(e-> new ScreenLoader().load("/com/jpos/pos/ProductEditUI.fxml",false, StageStyle.TRANSPARENT,"/images/product.png"));
+            Button editBtn= product.getEdit();
+            editBtn.setOnAction(e-> new ScreenLoader().load("/com/jpos/pos/ProductEditUI.fxml",false, StageStyle.TRANSPARENT,"/images/product.png"));
+            deleteBtn.setOnAction(e->{
+                product.deleteProduct();
+                this.products.remove(product);
+                productsTable.setItems(this.products);
+                productsTable.refresh();
+            });
         }
     }
 
@@ -99,11 +185,17 @@ public class SalesPOSModel {
             String code=barcodeSearch.getText();
             if (!code.isEmpty()){
                 products=connector.loadProducts("select * from biz_hub_product_master where barcode ="+code+";");
-                productsTable.getItems().clear();
                 productsTable.setItems(products);
             }
             System.out.println("Empty");
         });
+    }
+
+    public void checkOutTicket(){
+        for (Product product:this.products){
+            System.out.println(product.getProductName()+"  Price ="+product.getPrice() +" Count ="+product.getCount());
+            //implement
+        }
     }
 
 }

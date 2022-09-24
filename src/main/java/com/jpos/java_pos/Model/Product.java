@@ -86,9 +86,8 @@ public class Product {
         this.price.set(price);
     }
 
-    public void printClick(){
-        edit.setOnAction(e->  System.out.println("Button Clicked"));
-        delete.setOnAction(e->  System.out.println("Button Clicked"));
-
+    public void deleteProduct(){
+       new DbConnector().updateStatements("delete from biz_hub_product_master where product_name='"+getProductName()+"';");
+        System.out.println("Deleted Successfully");
     }
 }

@@ -40,24 +40,28 @@ public class POSController implements Initializable {
     public TextField barcodeSearch;
     @FXML
     public Button findBtn;
+    public JFXButton backSpaceBtn;
+    public JFXButton clearBtn;
+    public Button one;
+    public Button two;
+    public Button three;
+    public Button four;
+    public Button five;
+    public Button six;
+    public Button seven;
+    public Button eight;
+    public Button nine;
+    public Button doubleO;
+    public Button zero;
+    public Button multiply;
+    public Button plusBtn;
+    public Button minusBtn;
+    public TableView smartList;
+    public Button checkout;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        new SalesPOSModel(productsTable,nameCol,countCol,priceCol,totalCol,editCol,deleteCol,barcodeSearch,findBtn);
-        selectedItemEvent();
+        new SalesPOSModel(productsTable,nameCol,countCol,priceCol,totalCol,editCol,deleteCol,barcodeSearch,findBtn,checkout,
+        plusBtn,minusBtn,smartList,multiply,zero,one,two,three,four,five,six,seven,eight,nine,doubleO,clearBtn,backSpaceBtn);
     }
-
-    public void selectedItemEvent(){
-        productsTable.getSelectionModel().selectedItemProperty()
-                .addListener((observable, oldValue, newValue) -> {
-
-                    barcodeSearch.setText(newValue.getProductName() + " "
-                            + newValue.getProductName());
-                    // If you want to get the value of a selected student cell at
-                    // anytime, even if it hasn't changed. Just do e.g.
-                    // studentsTable.getSelectionModel().getSelectedItem().getFirstName()
-                });
-    }
-
-
 }

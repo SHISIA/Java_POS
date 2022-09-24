@@ -46,16 +46,15 @@ public class DbConnector {
 
 
 //    universally insert and update statements
-    public String updateStatements(String statement){
+    public void updateStatements(String statement){
         try {
             PreparedStatement statement1=getConnection().prepareStatement(statement);
             statement1.execute();
             connection.close();
+            System.out.println("Execution Success");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return "Execution Success";
-
     }
 
     public ObservableList<Product> loadProducts(String sql){

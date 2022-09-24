@@ -316,7 +316,7 @@
                         <TableColumn prefWidth="541.0" text="C1" />
                     </columns>
                   </TableView>
-                  <Button fx:id="checkoutBtn" mnemonicParsing="false" prefHeight="59.0" prefWidth="121.0" text="Check Out" HBox.hgrow="ALWAYS">
+                  <Button fx:id="checkout" mnemonicParsing="false" prefHeight="59.0" prefWidth="121.0" text="Check Out" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets bottom="100.0" left="100.0" right="100.0" top="150.0" />
                      </HBox.margin>
