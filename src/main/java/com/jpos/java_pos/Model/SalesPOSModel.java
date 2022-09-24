@@ -1,5 +1,8 @@
 package com.jpos.java_pos.Model;
 
+import com.github.anastaciocintra.escpos.EscPos;
+import com.github.anastaciocintra.escpos.barcode.BarCode;
+import com.github.anastaciocintra.output.PrinterOutputStream;
 import com.jfoenix.controls.JFXButton;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -10,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.StageStyle;
 
+import javax.print.PrintService;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -192,16 +196,14 @@ public class SalesPOSModel {
                 products=connector.loadProducts("select * from biz_hub_product_master where barcode ="+code+";");
                 productsTable.setItems(products);
             }
-            System.out.println("Empty");
         });
     }
 
     public void checkOutTicket(){
-
+        String printer="";
        try {
-           for (Product product:this.products){
-               System.out.println(product.getProductName()+"  Price ="+product.getPrice() +" Count ="+product.getCount());
-               //implement
+           for (Product product : this.products) {
+               System.out.println(product.getProductName() + "  Price =" + product.getPrice() + " Count =" + product.getCount());
                ClassLoader classLoader = getClass().getClassLoader();
                InputStream inputStream = classLoader.getResourceAsStream("selected.txt");
                InputStreamReader streamReader =
@@ -211,10 +213,22 @@ public class SalesPOSModel {
 
                String line;
                while ((line = reader.readLine()) != null) {
-                   System.out.println(line);
+                   printer = line;
                }
            }
-       } catch (IOException e) {
+           PrintService printService = PrinterOutputStream.getPrintServiceByName(printer);
+           PrinterOutputStream printerOutputStream = new PrinterOutputStream(printService);
+           EscPos escpos = new EscPos(printerOutputStream);
+           escpos.writeLF("Hello world");
+           escpos.feed(5).cut(EscPos.CutMode.FULL);
+           escpos.close();
+           BarCode barcode = new BarCode();
+           escpos.write(barcode, "hello barcode");
+       }
+       catch (IllegalArgumentException e){
+           System.out.println("No Printer with such name");
+       }
+       catch (IOException e) {
            throw new RuntimeException(e);
        }
     }

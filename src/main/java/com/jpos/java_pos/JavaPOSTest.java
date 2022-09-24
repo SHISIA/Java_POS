@@ -16,10 +16,6 @@ public class JavaPOSTest {
             for(String printServiceName: printServicesNames){
                 System.out.println(printServiceName);
             }
-
-           // System.exit(0);
-        //}
-
         PrintService printService = PrinterOutputStream.getPrintServiceByName(printerName);
         PrinterOutputStream printerOutputStream = new PrinterOutputStream(printService);
         EscPos escpos = new EscPos(printerOutputStream);

@@ -1,5 +1,7 @@
 package com.jpos.java_pos.Controller;
 
+import com.github.anastaciocintra.escpos.EscPos;
+import com.github.anastaciocintra.output.PrinterOutputStream;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXListView;
 import javafx.fxml.FXML;
@@ -37,30 +39,22 @@ public class SettingController implements Initializable {
                     printersDropDown.getItems().add(name);
                 }
             }
-            printersDropDown.getItems().add("dfewhjbfwef");
     }
 
     public void activePrinter() {
         try {
-            File file = new File(
-                    getClass().getClassLoader().getResource("selected.txt").getFile()
-            );
-            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
-            writer.write("Numberjhgf" );
-            writer.flush();
-            writer.close();
+            if (!printersDropDown.getSelectionModel().isEmpty()){
+                File file = new File(
+                        getClass().getClassLoader().getResource("selected.txt").getFile()
+                );
+                BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+                writer.write((String) printersDropDown.getSelectionModel().getSelectedItem());
+                writer.flush();
+                writer.close();
+            }else {
 
-            ClassLoader classLoader = getClass().getClassLoader();
-            InputStream inputStream = classLoader.getResourceAsStream("selected.txt");
-            InputStreamReader streamReader =
-                    new InputStreamReader(inputStream, StandardCharsets.UTF_8);
+            }
 
-            BufferedReader reader = new BufferedReader(streamReader);
-
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    System.out.println(line);
-                }
         } catch (IOException exp) {
             System.out.println("Exception in generateFile " + exp);
         }

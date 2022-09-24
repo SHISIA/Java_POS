@@ -23,8 +23,10 @@ public class LoginScreen implements Initializable {
 
     @FXML
     public void logIn(){
-        new ScreenLoader().load("/com/jpos/pos/Home.fxml",true, StageStyle.DECORATED,"/images/pos_icon.png");
         closeWindow();
+        new ScreenLoader().load("/com/jpos/pos/Home.fxml",true, StageStyle.DECORATED,"/images/pos_icon.png");
+        new ScreenLoader().loadPopUp("/com/jpos/pos/PopUp.fxml",StageStyle.TRANSPARENT);
+
     }
 
     public void closeWindow() {
