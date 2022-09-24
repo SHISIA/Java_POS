@@ -221,9 +221,10 @@ public class SalesPOSModel {
            EscPos escpos = new EscPos(printerOutputStream);
            escpos.writeLF("Hello world");
            escpos.feed(5).cut(EscPos.CutMode.FULL);
-           escpos.close();
            BarCode barcode = new BarCode();
            escpos.write(barcode, "hello barcode");
+           escpos.close();
+           System.out.println("Printing Complete");
        }
        catch (IllegalArgumentException e){
            System.out.println("No Printer with such name");

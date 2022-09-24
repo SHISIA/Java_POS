@@ -43,9 +43,18 @@ public class SplashModel {
     }
 
     public void loadLogin(){
+        Connection connection= connector.getConnection();
         closeBtn.setOnAction(e-> closeWindow());
         connect.setOnAction(f->{
-            connector.loadProducts("select * from biz_hub_product_master");
+            try {
+                ResultSet res=connection.createStatement().executeQuery("select * from biz_hub_product_master");
+                while (res.next()){
+                    System.out.println("Data "+res.getString(2));
+                }
+                connection.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
             new ScreenLoader().load("/com/jpos/pos/LoginScreen.fxml",false, StageStyle.UNDECORATED,"/images/pos_icon.png");
             closeWindow();
         });

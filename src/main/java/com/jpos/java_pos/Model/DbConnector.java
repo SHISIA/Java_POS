@@ -30,7 +30,7 @@ public class DbConnector {
 
     public Connection getConnection() {
         try {
-            setPassword("pw517ue");
+            setPassword("Pw517uE");
             setUserName("root");
             Class.forName("com.mysql.cj.jdbc.Driver");
              connection= DriverManager.getConnection(
