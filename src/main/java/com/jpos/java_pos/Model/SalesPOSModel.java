@@ -10,6 +10,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.StageStyle;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class SalesPOSModel {
@@ -192,10 +197,26 @@ public class SalesPOSModel {
     }
 
     public void checkOutTicket(){
-        for (Product product:this.products){
-            System.out.println(product.getProductName()+"  Price ="+product.getPrice() +" Count ="+product.getCount());
-            //implement
-        }
+
+       try {
+           for (Product product:this.products){
+               System.out.println(product.getProductName()+"  Price ="+product.getPrice() +" Count ="+product.getCount());
+               //implement
+               ClassLoader classLoader = getClass().getClassLoader();
+               InputStream inputStream = classLoader.getResourceAsStream("selected.txt");
+               InputStreamReader streamReader =
+                       new InputStreamReader(inputStream, StandardCharsets.UTF_8);
+
+               BufferedReader reader = new BufferedReader(streamReader);
+
+               String line;
+               while ((line = reader.readLine()) != null) {
+                   System.out.println(line);
+               }
+           }
+       } catch (IOException e) {
+           throw new RuntimeException(e);
+       }
     }
 
 }

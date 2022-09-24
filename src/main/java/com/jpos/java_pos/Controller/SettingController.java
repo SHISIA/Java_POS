@@ -46,24 +46,22 @@ public class SettingController implements Initializable {
                     getClass().getClassLoader().getResource("selected.txt").getFile()
             );
             BufferedWriter writer = new BufferedWriter(new FileWriter(file));
-            writer.write("Number of words: " );
-            writer.newLine();
-            writer.write("Number of sentences: ");
-            writer.newLine();
+            writer.write("Numberjhgf" );
             writer.flush();
             writer.close();
-//            ClassLoader classLoader = getClass().getClassLoader();
-//            InputStream inputStream = classLoader.getResourceAsStream("selected.txt");
-//            InputStreamReader streamReader =
-//                    new InputStreamReader(inputStream, StandardCharsets.UTF_8);
-//
-//            BufferedReader reader = new BufferedReader(streamReader);
-//
-//                String line;
-//                while ((line = reader.readLine()) != null) {
-//                    System.out.println(line);
-//                }
-        } catch (Exception exp) {
+
+            ClassLoader classLoader = getClass().getClassLoader();
+            InputStream inputStream = classLoader.getResourceAsStream("selected.txt");
+            InputStreamReader streamReader =
+                    new InputStreamReader(inputStream, StandardCharsets.UTF_8);
+
+            BufferedReader reader = new BufferedReader(streamReader);
+
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    System.out.println(line);
+                }
+        } catch (IOException exp) {
             System.out.println("Exception in generateFile " + exp);
         }
     }
