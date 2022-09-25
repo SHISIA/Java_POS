@@ -56,10 +56,10 @@ public class SettingController implements Initializable {
     }
 
     public void setDBAttributes(){
-            if (!(serverDbHostField.getText().isEmpty()||serverSchemaField.getText().isEmpty())){
+        DbConnector connector=new DbConnector();
+        if (!(serverDbHostField.getText().isEmpty()||serverSchemaField.getText().isEmpty())){
                 serverTestBtn.setOnAction(e->{
                     try {
-                        DbConnector connector=new DbConnector();
                         connector.setSchema(serverSchemaField.getText());
                         connector.setHostName(serverDbHostField.getText());
                         ResultSet set=connector.getConnection().createStatement().executeQuery("select version();");
@@ -75,8 +75,11 @@ public class SettingController implements Initializable {
             }
             if (!(serverUsernameField.getText().isEmpty()||serverPasswordField.getText().isEmpty())){
                 serverCredBtn.setOnAction(e->{
+                    connector.setPassword(serverPasswordField.getText());
+                    connector.setUserName(serverUsernameField.getText());
                     textWriter("username",serverUsernameField.getText());
                     textWriter("password",serverPasswordField.getText());
+
                 });
             }
     }

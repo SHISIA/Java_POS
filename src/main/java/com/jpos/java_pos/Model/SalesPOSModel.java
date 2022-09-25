@@ -203,22 +203,31 @@ public class SalesPOSModel {
         });
     }
 
+    public String streamReader(String filename){
+        String text = "";
+       try {
+           ClassLoader classLoader = getClass().getClassLoader();
+           InputStream inputStream = classLoader.getResourceAsStream("selected.txt");
+           InputStreamReader streamReader =
+                   new InputStreamReader(inputStream, StandardCharsets.UTF_8);
+
+           BufferedReader reader = new BufferedReader(streamReader);
+           String line;
+           while ((line = reader.readLine()) != null) {
+               text=line;
+           }
+       } catch (IOException e) {
+           throw new RuntimeException(e);
+       }
+       return text;
+    }
+
     public void checkOutTicket(){
         String printer="";
        try {
            for (Product product : this.products) {
                System.out.println(product.getProductName() + "  Price =" + product.getPrice() + " Count =" + product.getCount());
-               ClassLoader classLoader = getClass().getClassLoader();
-               InputStream inputStream = classLoader.getResourceAsStream("selected.txt");
-               InputStreamReader streamReader =
-                       new InputStreamReader(inputStream, StandardCharsets.UTF_8);
-
-               BufferedReader reader = new BufferedReader(streamReader);
-
-               String line;
-               while ((line = reader.readLine()) != null) {
-                   printer = line;
-               }
+              printer=streamReader("selected.txt");
            }
            PrintService printService = PrinterOutputStream.getPrintServiceByName(printer);
            PrinterOutputStream printerOutputStream = new PrinterOutputStream(printService);

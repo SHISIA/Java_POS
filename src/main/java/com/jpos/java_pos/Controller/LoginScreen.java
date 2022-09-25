@@ -1,6 +1,7 @@
 package com.jpos.java_pos.Controller;
 
 import com.jfoenix.controls.JFXButton;
+import com.jpos.java_pos.Model.Notification;
 import com.jpos.java_pos.Model.ScreenLoader;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -39,5 +40,8 @@ public class LoginScreen implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         logo.setImage(new Image(getClass().getResource("/images/pos.png").toString()));
 
+    }
+
+    public void start() throws Exception {
     }
 }

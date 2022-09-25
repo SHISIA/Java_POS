@@ -56,17 +56,7 @@ public class SplashModel {
     }
 
     public void refreshDropDown(){
-        Connection connection= connector.getConnection();
-        try {
-            ResultSet resultSet=connection.createStatement().executeQuery("select * from DBs");
-            while (resultSet.next()){
-                paths.put(resultSet.getString(1),resultSet.getString(2));
-                dropDown.getItems().addAll(resultSet.getString(1));
-            }
-            connection.close();
-        }catch (SQLException ex) {
-            throw new RuntimeException(ex);
-        }
+
     }
 
     public void loadDatabase(){
@@ -77,13 +67,15 @@ public class SplashModel {
                     new FileChooser.ExtensionFilter("DB Files", "*.db")
                     ,new FileChooser.ExtensionFilter("SQL Files", "*.sql")
             );
-            try {
-                PreparedStatement statement = connector.getConnection().prepareStatement("insert into DBs value ('"+file.getName().replace(".sql","")+"','"+ file.getPath() +"');");
-                statement.execute();
-                statement.close();
-                dropDown.getItems().clear();
-            } catch (SQLException ex) {
-                throw new RuntimeException(ex);
+            if (file!=null){
+                try {
+                    PreparedStatement statement = connector.getConnection().prepareStatement("insert into DBs value ('"+file.getName().replace(".sql","")+"','"+ file.getPath() +"');");
+                    statement.execute();
+                    statement.close();
+                    dropDown.getItems().clear();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
             //refreshDropDown();
         });
