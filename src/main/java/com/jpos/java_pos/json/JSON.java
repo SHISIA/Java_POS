@@ -7,15 +7,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class JSON {
-    public void writeJSON(String jsonFileName,String server,String username,String password,String hostName,String schemaName) {
+    public void writeJSON(String jsonFileName,String server,String key,String value,String key1,String value1) {
         //First server
         JSONObject serverDetails = new JSONObject();
-        serverDetails.put("username", username);
-        serverDetails.put("password", password);
-        serverDetails.put("hostName", hostName);
-        serverDetails.put("schema", schemaName);
+        serverDetails.put(key, value);
+        serverDetails.put(key1, value1);
         JSONObject object = new JSONObject();
-        object.put("server", jsonFileName);
+        object.put(server, serverDetails);
         //Add server to list
         JSONArray serverList = new JSONArray();
         serverList.add(object);

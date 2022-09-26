@@ -1,5 +1,6 @@
 package com.jpos.java_pos.Model;
 
+import com.jpos.java_pos.Controller.SettingController;
 import com.jpos.java_pos.json.JSONReader;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -59,18 +60,16 @@ public class DbConnector {
             JSONObject jsonObject=new JSONReader().read("data.json","server");
             setSchema((String) jsonObject.get("schema"));
             setHostName((String) jsonObject.get("hostName"));
-            setPassword((String) jsonObject.get("password"));
-            setUserName((String) jsonObject.get("username"));
+            JSONObject jsonObject1=new JSONReader().read("data_.json","server");
+            setPassword((String) jsonObject1.get("password"));
+            setUserName((String) jsonObject1.get("username"));
             Class.forName("com.mysql.cj.jdbc.Driver");
              connection= DriverManager.getConnection(
                     "jdbc:mysql://"+getHostName()+":3306/"+getSchema(),getUserName(),getPassword());
             System.out.println("Connected to database");
 
         }catch (Exception e){
-            e.printStackTrace();
-            Notification notification=new Notification();
-            notification.setMessage("Error!! Check Details");
-            notification.setImageIcon("error.png");
+            new SettingController().notification("DB Connection Error","error.png",7);
         }
         return connection;
     }
@@ -123,20 +122,6 @@ public class DbConnector {
             throw new RuntimeException(e);
         }
         return products;
-    }
-    //saves lines to .txt files
-    public void writeText(String textName,String content){
-        try {
-            URL url = getClass().getResource(textName);
-            BufferedWriter writer = new BufferedWriter(new FileWriter(new File(url.toURI())));
-            writer.write(content);
-            writer.flush();
-            writer.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
-        }
     }
 
 

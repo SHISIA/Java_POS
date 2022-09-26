@@ -3,8 +3,10 @@ package com.jpos.java_pos.Controller;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
+import com.jpos.java_pos.Model.DBManager;
 import com.jpos.java_pos.Model.DbConnector;
 import com.jpos.java_pos.Model.Notification;
+import com.jpos.java_pos.json.JSON;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -59,39 +61,51 @@ public class SettingController implements Initializable {
     }
 
     public void setDBAttributes(){
-                DbConnector connector=new DbConnector();
+                JSON json=new JSON();
+                String schema=serverSchemaField.getText();
+                String host=serverDbHostField.getText();
+                String username=serverUsernameField.getText();
+                String password=serverPasswordField.getText();
                 serverTestBtn.setOnAction(e->{
-                    if (!(serverDbHostField.getText().isEmpty()&&serverSchemaField.getText().isEmpty())){
-                        Connection connection=connector.getConnection();
+                    if (!(serverDbHostField.getText().isEmpty()&&serverSchemaField.getText().isEmpty()
+                            &&serverUsernameField.getText().isEmpty()&&serverPasswordField.getText().isEmpty())){
                         try {
-                        String schema=serverSchemaField.getText();
-                        String host=serverDbHostField.getText();
-                        ResultSet set=connection.createStatement().executeQuery("select version();");
-                        while (set.next()){
-                            System.out.println("Success!! Version: "+set.getString(1));
+                            DbConnector connector=new DbConnector();
+                            connector.setUserName(username);
+                            connector.setHostName(host);
+                            connector.setPassword(password);
+                            connector.setSchema(schema);
+                            Connection connection=connector.getConnection();
+                            ResultSet set=connection.createStatement().executeQuery("select version();");
+                            while (set.next()){
+                                 System.out.println("Test Success!! MySQL Version: "+set.getString(1));
+                                }
+                            connection.close();
+                        } catch (Exception ex) {
+                            notification("Failed","error.png",5);
                         }
-                        connection.close();
-                    } catch (SQLException | NullPointerException ex) {
-                            ex.printStackTrace();
-                    } catch (Exception ex) {
-                            throw new RuntimeException(ex);
-                        }
-                }
+                    }
                 });
                 serverCredBtn.setOnAction(e->{
                     if (!(serverUsernameField.getText().isEmpty()&&serverPasswordField.getText().isEmpty())){
-                    String username=serverUsernameField.getText();
-                    String password=serverPasswordField.getText();
+                        json.writeJSON("data.json","server","schema",schema,"hostName",host);
+                        json.writeJSON("data_.json","server","username",username,"password",password);                        System.out.println("successfully written");
+                        notification("Successfully Saved","success.png",5);
                     }
                 });
 
     }
-    public void testTxtContent(){
-        DbConnector connector=new DbConnector();
-        System.out.println(connector.streamReader("username.txt"));
-        System.out.println(connector.streamReader("password.txt"));
-        System.out.println(connector.streamReader("schema.txt"));
-        System.out.println(connector.streamReader("hostName.txt"));
+    public void notification(String message,String imgPath,int time){
+        Notification notification=new Notification();
+        notification.setImageIcon(imgPath);
+        notification.setSeconds(time);
+        notification.setMessage(message);
+        try {
+            Stage stage=new Stage();
+            notification.start(stage);
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
     public void activePrinter(){

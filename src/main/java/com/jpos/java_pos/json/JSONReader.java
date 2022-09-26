@@ -32,9 +32,6 @@ public class JSONReader {
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
-        System.out.println(object2.get("username"));
-        System.out.println(object2.get("password"));
-
         return object2;
     }
 }
