@@ -4,33 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cbce7a9-e94a-4b3d-b76b-47e73dc1b1c2" name="Changes" comment="Added the controller">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Controller/HomeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Controller/LoginScreen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Model/DBManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Model/DBSelector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Model/ScreenLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Model/SplashModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/pos_icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Controller/SplashController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Controller/SplashController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Model/DbConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Model/DbConnector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Splash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Splash.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/jpos/java_pos/BarCodeEntry.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/jpos/pos/BarCodeEntry.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/jpos/java_pos/Calculator.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/jpos/pos/Calculator.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/jpos/java_pos/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/jpos/pos/Home.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/jpos/java_pos/LoginScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/jpos/pos/LoginScreen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/jpos/java_pos/SalesPOS.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/jpos/pos/SalesPOS.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/jpos/java_pos/Setttings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/jpos/pos/Settings.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/jpos/java_pos/SideBar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/jpos/pos/SideBar.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/jpos/java_pos/Splash.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/jpos/pos/Splash.fxml" afterDir="false" />
+    <list default="true" id="3cbce7a9-e94a-4b3d-b76b-47e73dc1b1c2" name="Changes" comment="Successfully connected to json files, added popup error message changes and icon additions">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/success.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/username.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,18 +42,77 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/apple/Documents/Java_POS/src/main/resources/docs&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/docs" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/com/jpos/pos" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/json" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/resources/images" />
+      <recent name="$PROJECT_DIR$/src/main/resources/docs" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/jpos/pos" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Splash">
+    <configuration name="ArrayTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.jpos.java_pos.ArrayTest" />
+      <module name="Java_POS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jpos.java_pos.json.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JSON" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.jpos.java_pos.json.JSON" />
+      <module name="Java_POS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jpos.java_pos.json.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JSONReader" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.jpos.java_pos.json.JSONReader" />
+      <module name="Java_POS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jpos.java_pos.json.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Notification" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.jpos.java_pos.Model.Notification" />
+      <module name="Java_POS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jpos.java_pos.Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Splash" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.jpos.java_pos.Splash" />
       <module name="Java_POS" />
@@ -94,6 +130,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Splash" />
+        <item itemvalue="Application.Notification" />
+        <item itemvalue="Application.JSONReader" />
+        <item itemvalue="Application.JSON" />
+        <item itemvalue="Application.ArrayTest" />
       </list>
     </recent_temporary>
   </component>
@@ -120,7 +160,98 @@
       <option name="project" value="LOCAL" />
       <updated>1663136228808</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Edit Panel Scene Functionality">
+      <created>1663784133008</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1663784133008</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added printerCheckFunctionality">
+      <created>1663991393228</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1663991393228</updated>
+    </task>
+    <task id="LOCAL-00005" summary="set up checkout button functionality">
+      <created>1663999462370</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1663999462370</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Remaining UI Refactor and CSS styling">
+      <created>1664012469073</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1664012469073</updated>
+    </task>
+    <task id="LOCAL-00007" summary="conncted to db and added sql files to be tested on windows machine. new SettingsNew.fxml to recreate responsive UI">
+      <created>1664020872574</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1664020872574</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Made the Settings.fxml UI screen responsive">
+      <created>1664026239268</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1664026239268</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Made the SalesPOS.fxml UI screen responsive">
+      <created>1664028617513</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1664028617513</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Made the SalesPOS.fxml UI screen responsive">
+      <created>1664040331583</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1664040331583</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Made the SalesPOS.fxml UI screen responsive">
+      <created>1664041929729</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1664041929729</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Set up the server database settings and txt for temporary credential  storage">
+      <created>1664053392766</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1664053392766</updated>
+    </task>
+    <task id="LOCAL-00013" summary="reading from text files, linking them to dropdown menus, arrays and database connections">
+      <created>1664097256774</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1664097256774</updated>
+    </task>
+    <task id="LOCAL-00014" summary="removed txt files because of read and write issues. Replaced with JSON files for easy operations">
+      <created>1664192413181</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1664192413181</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Successfully connected to json files, added popup error message changes and icon additions">
+      <created>1664202474598</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1664202474598</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -138,7 +269,18 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="The First Commit with UI updates and skeletons" />
     <MESSAGE value="Added the controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added the controller" />
+    <MESSAGE value="Edit Panel Scene Functionality" />
+    <MESSAGE value="Added printerCheckFunctionality" />
+    <MESSAGE value="set up checkout button functionality" />
+    <MESSAGE value="Remaining UI Refactor and CSS styling" />
+    <MESSAGE value="conncted to db and added sql files to be tested on windows machine. new SettingsNew.fxml to recreate responsive UI" />
+    <MESSAGE value="Made the Settings.fxml UI screen responsive" />
+    <MESSAGE value="Made the SalesPOS.fxml UI screen responsive" />
+    <MESSAGE value="Set up the server database settings and txt for temporary credential  storage" />
+    <MESSAGE value="reading from text files, linking them to dropdown menus, arrays and database connections" />
+    <MESSAGE value="removed txt files because of read and write issues. Replaced with JSON files for easy operations" />
+    <MESSAGE value="Successfully connected to json files, added popup error message changes and icon additions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Successfully connected to json files, added popup error message changes and icon additions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

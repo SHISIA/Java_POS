@@ -3,7 +3,6 @@ package com.jpos.java_pos.Controller;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
-import com.jpos.java_pos.Model.DBManager;
 import com.jpos.java_pos.Model.DbConnector;
 import com.jpos.java_pos.Model.Notification;
 import com.jpos.java_pos.json.JSON;
@@ -19,7 +18,6 @@ import java.io.*;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class SettingController implements Initializable {
