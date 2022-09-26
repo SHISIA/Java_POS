@@ -1,5 +1,6 @@
 package com.jpos.java_pos.Model;
 
+import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -9,6 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 
 import java.awt.*;
 
@@ -36,6 +38,8 @@ public class Notification extends Application {
         hBox.getChildren().addAll(icon,messageLabel);
         Scene scene=new Scene(hBox,200,50);
         stage.setScene(scene);
+        PauseTransition transition=new PauseTransition(Duration.millis(3000));
+
         stage.show();
     }
 

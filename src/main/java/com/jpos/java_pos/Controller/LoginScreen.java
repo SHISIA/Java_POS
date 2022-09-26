@@ -1,6 +1,7 @@
 package com.jpos.java_pos.Controller;
 
 import com.jfoenix.controls.JFXButton;
+import com.jpos.java_pos.Model.DbConnector;
 import com.jpos.java_pos.Model.Notification;
 import com.jpos.java_pos.Model.ScreenLoader;
 import javafx.fxml.FXML;
@@ -42,6 +43,4 @@ public class LoginScreen implements Initializable {
 
     }
 
-    public void start() throws Exception {
-    }
 }

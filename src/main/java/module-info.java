@@ -11,6 +11,8 @@ module com.jpos.java_pos {
     requires mysql.connector.java;
     requires java.desktop;
     requires escpos.coffee;
+    requires com.google.protobuf;
+    requires json.simple;
 
     opens com.jpos.java_pos to javafx.fxml, javafx.controls,com.jfoenix;
     opens com.jpos.java_pos.Model to javafx.fxml;
@@ -19,4 +21,6 @@ module com.jpos.java_pos {
     exports com.jpos.java_pos.Model;
     exports com.jpos.java_pos.Controller;
     opens com.jpos.java_pos.Controller to javafx.fxml;
+    exports com.jpos.java_pos.json;
+    opens com.jpos.java_pos.json to com.jfoenix, javafx.controls, javafx.fxml;
 }

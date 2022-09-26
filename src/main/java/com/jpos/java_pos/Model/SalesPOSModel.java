@@ -14,11 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.StageStyle;
 
 import javax.print.PrintService;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class SalesPOSModel {
@@ -69,6 +65,7 @@ public class SalesPOSModel {
     public Button findBtn;
 
     DbConnector connector=new DbConnector();
+
     ObservableList<Product> products;
 
     public SalesPOSModel(TableView<Product> productsTable, TableColumn<Product,String> nameCol, TableColumn<Product,Number> countCol, TableColumn<Product,Number> priceCol
@@ -101,7 +98,6 @@ public class SalesPOSModel {
         this.clearBtn=clearBtn;
         this.plusBtn=plusBtn;
         this.minusBtn=minusBtn;
-
         checkout.setOnAction(e->checkOutTicket());
         loadData();
         onScreenKeys();
@@ -133,18 +129,22 @@ public class SalesPOSModel {
     }
 
     public void add_minusCount(){
-        plusBtn.setOnAction(e->productsTable.getSelectionModel().getSelectedItem().setCount(
-                productsTable.getSelectionModel().getSelectedItem().getCount()+1
-        ));
-        minusBtn.setOnAction(e->{
-            if (productsTable.getSelectionModel().getSelectedItem().getCount()<=0){
-                productsTable.getSelectionModel().getSelectedItem().setCount(0);
-            }else {
-                productsTable.getSelectionModel().getSelectedItem().setCount(
-                        productsTable.getSelectionModel().getSelectedItem().getCount()-1
-                );
-            }
-        });
+       try {
+           plusBtn.setOnAction(e->productsTable.getSelectionModel().getSelectedItem().setCount(
+                   productsTable.getSelectionModel().getSelectedItem().getCount()+1
+           ));
+           minusBtn.setOnAction(e->{
+               if (productsTable.getSelectionModel().getSelectedItem().getCount()<=0){
+                   productsTable.getSelectionModel().getSelectedItem().setCount(0);
+               }else {
+                   productsTable.getSelectionModel().getSelectedItem().setCount(
+                           productsTable.getSelectionModel().getSelectedItem().getCount()-1
+                   );
+               }
+           });
+       }catch (NullPointerException np){
+           System.out.println("nullpointer. no product selected");
+       }
 
     }
 
@@ -203,31 +203,13 @@ public class SalesPOSModel {
         });
     }
 
-    public String streamReader(String filename){
-        String text = "";
-       try {
-           ClassLoader classLoader = getClass().getClassLoader();
-           InputStream inputStream = classLoader.getResourceAsStream("selected.txt");
-           InputStreamReader streamReader =
-                   new InputStreamReader(inputStream, StandardCharsets.UTF_8);
-
-           BufferedReader reader = new BufferedReader(streamReader);
-           String line;
-           while ((line = reader.readLine()) != null) {
-               text=line;
-           }
-       } catch (IOException e) {
-           throw new RuntimeException(e);
-       }
-       return text;
-    }
 
     public void checkOutTicket(){
         String printer="";
        try {
            for (Product product : this.products) {
                System.out.println(product.getProductName() + "  Price =" + product.getPrice() + " Count =" + product.getCount());
-              printer=streamReader("selected.txt");
+              printer=new DbConnector().streamReader("selected.txt");
            }
            PrintService printService = PrinterOutputStream.getPrintServiceByName(printer);
            PrinterOutputStream printerOutputStream = new PrinterOutputStream(printService);
