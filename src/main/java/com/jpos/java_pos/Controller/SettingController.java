@@ -60,23 +60,20 @@ public class SettingController implements Initializable {
 
     public void setDBAttributes(){
                 JSON json=new JSON();
-                String schema=serverSchemaField.getText();
-                String host=serverDbHostField.getText();
-                String username=serverUsernameField.getText();
-                String password=serverPasswordField.getText();
                 serverTestBtn.setOnAction(e->{
                     if (!(serverDbHostField.getText().isEmpty()&&serverSchemaField.getText().isEmpty()
                             &&serverUsernameField.getText().isEmpty()&&serverPasswordField.getText().isEmpty())){
                         try {
                             DbConnector connector=new DbConnector();
-                            connector.setUserName(username);
-                            connector.setHostName(host);
-                            connector.setPassword(password);
-                            connector.setSchema(schema);
+                            connector.setUserName(serverUsernameField.getText());
+                            connector.setHostName(serverDbHostField.getText());
+                            connector.setPassword(serverPasswordField.getText());
+                            connector.setSchema(serverSchemaField.getText());
+                            System.out.println(serverPasswordField.getText());
                             Connection connection=connector.getConnection();
                             ResultSet set=connection.createStatement().executeQuery("select version();");
                             while (set.next()){
-                                 System.out.println("Test Success!! MySQL Version: "+set.getString(1));
+                                notification("Success SQL Version :"+set.getString(1),"success.png",5);
                                 }
                             connection.close();
                         } catch (Exception ex) {
@@ -85,9 +82,15 @@ public class SettingController implements Initializable {
                     }
                 });
                 serverCredBtn.setOnAction(e->{
-                    if (!(serverUsernameField.getText().isEmpty()&&serverPasswordField.getText().isEmpty())){
+                    if (!(serverDbHostField.getText().isEmpty()&&serverSchemaField.getText().isEmpty()
+                            &&serverUsernameField.getText().isEmpty()&&serverPasswordField.getText().isEmpty())){
+                        String schema=serverSchemaField.getText();
+                        String host=serverDbHostField.getText();
+                        String username=serverUsernameField.getText();
+                        String password=serverPasswordField.getText();
                         json.writeJSON("data.json","server","schema",schema,"hostName",host);
-                        json.writeJSON("data_.json","server","username",username,"password",password);                        System.out.println("successfully written");
+                        json.writeJSON("data_.json","server","username",username,"password",password);
+                        System.out.println("successfully written");
                         notification("Successfully Saved","success.png",5);
                     }
                 });

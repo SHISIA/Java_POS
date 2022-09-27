@@ -21,8 +21,6 @@ public class SplashController implements Initializable{
     @FXML
     public JFXButton connectDBBtn;
     @FXML
-    public Hyperlink loadDBlink;
-    @FXML
     public JFXButton closeBtn;
 
 
@@ -31,6 +29,6 @@ public class SplashController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        new SplashModel(connectDBBtn,closeBtn,loadDBlink,dropDown,splashLogo);
+        new SplashModel(connectDBBtn,closeBtn,dropDown,splashLogo);
     }
 }

@@ -80,6 +80,6 @@ public class POSController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         new SalesPOSModel(productsTable,nameCol,countCol,priceCol,totalCol,editCol,deleteCol,barcodeSearch,findBtn,checkout,
-        plusBtn,minusBtn,smartList,multiply,zero,one,two,three,four,five,six,seven,eight,nine,doubleO,clearBtn,backSpaceBtn);
+        plusBtn,minusBtn,smartList,multiply,zero,one,two,logOutBtn,three,four,five,six,seven,eight,nine,doubleO,clearBtn,backSpaceBtn,deleteTicket);
     }
 }

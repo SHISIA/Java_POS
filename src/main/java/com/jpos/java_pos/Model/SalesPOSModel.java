@@ -4,6 +4,8 @@ import com.github.anastaciocintra.escpos.EscPos;
 import com.github.anastaciocintra.escpos.barcode.BarCode;
 import com.github.anastaciocintra.output.PrinterOutputStream;
 import com.jfoenix.controls.JFXButton;
+import com.jpos.java_pos.Controller.HomeController;
+import com.jpos.java_pos.Controller.SettingController;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
@@ -11,6 +13,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import javax.print.PrintService;
@@ -70,8 +73,8 @@ public class SalesPOSModel {
 
     public SalesPOSModel(TableView<Product> productsTable, TableColumn<Product,String> nameCol, TableColumn<Product,Number> countCol, TableColumn<Product,Number> priceCol
             , TableColumn<Product,Number> totalCol, TableColumn<Product,Button> editCol, TableColumn<Product, Button> deleteCol, TextField barcodeSearch, Button findBtn, JFXButton checkout,
-                         Button plusBtn,Button minusBtn,TableView smartList,Button multiply,Button zero, Button one,Button two,
-                         Button three,Button four,Button five,Button six,Button seven,Button eight,Button nine,Button doubleO,JFXButton clearBtn,JFXButton backSpaceBtn) {
+                         Button plusBtn,Button minusBtn,TableView smartList,Button multiply,Button zero, Button one,Button two,JFXButton logOutBtn,
+                         Button three,Button four,Button five,Button six,Button seven,Button eight,Button nine,Button doubleO,JFXButton clearBtn,JFXButton backSpaceBtn,JFXButton deleteTicket) {
         this.productsTable=productsTable;
         this.nameCol=nameCol;
         this.countCol=countCol;
@@ -98,9 +101,21 @@ public class SalesPOSModel {
         this.clearBtn=clearBtn;
         this.plusBtn=plusBtn;
         this.minusBtn=minusBtn;
+        this.deleteTicket=deleteTicket;
+        this.logOutBtn=logOutBtn;
+        connector.setCredentials();
         checkout.setOnAction(e->checkOutTicket());
-        loadData();
         onScreenKeys();
+        logOut();
+    }
+
+    void logOut(){
+        logOutBtn.setOnAction(e->{
+            Stage stage=(Stage) logOutBtn.getScene().getWindow();
+            stage.close();
+            new ScreenLoader().load("/com/jpos/pos/Splash.fxml",false, StageStyle.UNDECORATED,"/images/pos_icon.png");
+        }
+      );
     }
 
 
@@ -122,18 +137,25 @@ public class SalesPOSModel {
         nine.setOnAction(e -> barcodeSearch.appendText("9"));
         clearBtn.setOnAction(e -> {
             barcodeSearch.clear();
-            loadData();
           }
         );
-        add_minusCount();
+        deleteTicket.setOnAction(e->{
+                products.clear();
+                productsTable.getItems().clear();
+        });
+        findProductByCode();
     }
 
-    public void add_minusCount(){
-       try {
-           plusBtn.setOnAction(e->productsTable.getSelectionModel().getSelectedItem().setCount(
-                   productsTable.getSelectionModel().getSelectedItem().getCount()+1
-           ));
+    public void add_minus_Count(){
+           plusBtn.setOnAction(e->{
+        if (!(productsTable.getSelectionModel().getSelectedItem()==null)){
+            productsTable.getSelectionModel().getSelectedItem().setCount(productsTable.getSelectionModel().getSelectedItem().getCount()+1);
+        }else {
+            new SettingController().notification("Please Select a product","warning.png",2);
+        }
+           });
            minusBtn.setOnAction(e->{
+               if (!(productsTable.getSelectionModel().getSelectedItem()==null)){
                if (productsTable.getSelectionModel().getSelectedItem().getCount()<=0){
                    productsTable.getSelectionModel().getSelectedItem().setCount(0);
                }else {
@@ -141,50 +163,34 @@ public class SalesPOSModel {
                            productsTable.getSelectionModel().getSelectedItem().getCount()-1
                    );
                }
+           }else {
+                   new SettingController().notification("Please Select a product","warning.png",2);
+               }
            });
-       }catch (NullPointerException np){
-           System.out.println("nullpointer. no product selected");
-       }
 
     }
 
     public void loadData(){
         //add your data to the table here.
-        products=connector.loadProducts("select * from biz_hub_product_master;");
-        productsTable.setItems(products);
-
+        productsTable.getItems().addAll(products);
         nameCol.setCellValueFactory(cellData -> cellData.getValue().productNameProperty());
         countCol.setCellValueFactory(cell -> cell.getValue().countProperty());
         priceCol.setCellValueFactory(cell -> cell.getValue().priceProperty());
         totalCol.setCellValueFactory(cell -> cell.getValue().totalProperty());
         editCol.setCellValueFactory(new PropertyValueFactory<>("Edit"));
         deleteCol.setCellValueFactory(new PropertyValueFactory<>("Delete"));
-
-        // add your data here from any source
-        products.addListener((ListChangeListener<? super Product>) change -> {
-            while (change.next()) {
-                if (change.wasAdded()) {
-                    System.out.println(change.getAddedSubList().get(0)
-                            + " was added to the list!");
-                } else if (change.wasRemoved()) {
-                    System.out.println(change.getRemoved().get(0)
-                            + " was removed from the list!");
-                }
-            }
-        });
-        deleteProduct();
-        findProductByCode();
+        add_minus_Count();
+        delete_Edit_Product();
     }
 
 
-    public void deleteProduct(){
+    public void delete_Edit_Product(){
         List<Product> products = this.products;
         for (Product product : products){
             Button deleteBtn= product.getDelete();
             Button editBtn= product.getEdit();
             editBtn.setOnAction(e-> new ScreenLoader().load("/com/jpos/pos/ProductEditUI.fxml",false, StageStyle.TRANSPARENT,"/images/product.png"));
             deleteBtn.setOnAction(e->{
-                product.deleteProduct();
                 this.products.remove(product);
                 productsTable.setItems(this.products);
                 productsTable.refresh();
@@ -192,34 +198,39 @@ public class SalesPOSModel {
         }
     }
 
-
     public void findProductByCode(){
         findBtn.setOnAction(e->{
             String code=barcodeSearch.getText();
             if (!code.isEmpty()){
                 products=connector.loadProducts("select * from biz_hub_product_master where barcode ="+code+";");
-                productsTable.setItems(products);
+                    loadData();
             }
         });
     }
 
 
     public void checkOutTicket(){
-        String printer="";
-       try {
-           for (Product product : this.products) {
+        String printer= new DbConnector().streamReader("selected.txt");;
+        try {
+            PrintService printService = PrinterOutputStream.getPrintServiceByName(printer);
+            PrinterOutputStream printerOutputStream = new PrinterOutputStream(printService);
+            EscPos escpos = new EscPos(printerOutputStream);
+            for (Product product : this.products) {
                System.out.println(product.getProductName() + "  Price =" + product.getPrice() + " Count =" + product.getCount());
-              printer=new DbConnector().streamReader("selected.txt");
+               escpos.writeLF(product.getProductName());
+               escpos.writeLF("-----------------");
+               escpos.writeLF(String.valueOf(product.getPrice()));
+               escpos.writeLF("-----------------");
+               escpos.writeLF(String.valueOf(product.getCount()));
+               escpos.writeLF("-----------------");
+               escpos.writeLF("-----------------");
+               escpos.feed(5).cut(EscPos.CutMode.FULL);
+               BarCode barcode = new BarCode();
+               escpos.write(barcode, String.valueOf(product.getTotal()));
+               escpos.close();
+               System.out.println("Printing Complete");
            }
-           PrintService printService = PrinterOutputStream.getPrintServiceByName(printer);
-           PrinterOutputStream printerOutputStream = new PrinterOutputStream(printService);
-           EscPos escpos = new EscPos(printerOutputStream);
-           escpos.writeLF("Hello world");
-           escpos.feed(5).cut(EscPos.CutMode.FULL);
-           BarCode barcode = new BarCode();
-           escpos.write(barcode, "hello barcode");
-           escpos.close();
-           System.out.println("Printing Complete");
+
        }
        catch (IllegalArgumentException e){
            System.out.println("No Printer with such name");

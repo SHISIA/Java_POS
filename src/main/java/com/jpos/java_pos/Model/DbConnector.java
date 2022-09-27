@@ -57,12 +57,6 @@ public class DbConnector {
 
     public Connection getConnection() {
         try {
-            JSONObject jsonObject=new JSONReader().read("data.json","server");
-            setSchema((String) jsonObject.get("schema"));
-            setHostName((String) jsonObject.get("hostName"));
-            JSONObject jsonObject1=new JSONReader().read("data_.json","server");
-            setPassword((String) jsonObject1.get("password"));
-            setUserName((String) jsonObject1.get("username"));
             Class.forName("com.mysql.cj.jdbc.Driver");
              connection= DriverManager.getConnection(
                     "jdbc:mysql://"+getHostName()+":3306/"+getSchema(),getUserName(),getPassword());
@@ -72,6 +66,15 @@ public class DbConnector {
             new SettingController().notification("DB Connection Error","error.png",7);
         }
         return connection;
+    }
+
+    public void setCredentials(){
+        JSONObject jsonObject=new JSONReader().read("data.json","server");
+        setSchema((String) jsonObject.get("schema"));
+        setHostName((String) jsonObject.get("hostName"));
+        JSONObject jsonObject1=new JSONReader().read("data_.json","server");
+        setPassword((String) jsonObject1.get("password"));
+        setUserName((String) jsonObject1.get("username"));
     }
 
     public String streamReader(String filename){

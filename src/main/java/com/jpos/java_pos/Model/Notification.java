@@ -1,9 +1,7 @@
 package com.jpos.java_pos.Model;
 
-import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.application.Application;
-import javafx.geometry.Bounds;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -13,8 +11,6 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
-
-import java.awt.*;
 
 public class Notification extends Application {
     Label messageLabel=new Label();

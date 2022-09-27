@@ -24,10 +24,6 @@ public class HomeController {
     @FXML
     public JFXButton btnLogout;
 
-    public HomeController(){
-
-    }
-
     public void setContainer(String url){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(url));
         container.getChildren().remove(container.getCenter()); //remove existing fxml from center.
@@ -48,7 +44,7 @@ public class HomeController {
     void setBtnLogout(){
         Stage stage=(Stage) btnLogout.getScene().getWindow();
         stage.close();
-        new ScreenLoader().load("/com/jpos/pos/LoginScreen.fxml",false, StageStyle.UNDECORATED,"/images/pos_icon.png");
+        new ScreenLoader().load("/com/jpos/pos/Splash.fxml",false, StageStyle.UNDECORATED,"/images/pos_icon.png");
         }
 
     }

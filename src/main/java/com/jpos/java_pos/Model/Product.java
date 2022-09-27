@@ -85,9 +85,4 @@ public class Product {
     public void setPrice(double price) {
         this.price.set(price);
     }
-
-    public void deleteProduct(){
-       new DbConnector().updateStatements("delete from biz_hub_product_master where product_name='"+getProductName()+"';");
-        System.out.println("Deleted Successfully");
-    }
 }

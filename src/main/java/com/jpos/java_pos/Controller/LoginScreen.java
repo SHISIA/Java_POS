@@ -14,8 +14,10 @@ import javafx.stage.StageStyle;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/*
+placed here in case Login functionality will be required
+ */
 public class LoginScreen implements Initializable {
-
     @FXML
     public JFXButton loginBtn;
     @FXML
@@ -27,8 +29,6 @@ public class LoginScreen implements Initializable {
     public void logIn(){
         closeWindow();
         new ScreenLoader().load("/com/jpos/pos/Home.fxml",true, StageStyle.DECORATED,"/images/pos_icon.png");
-        new ScreenLoader().loadPopUp("/com/jpos/pos/PopUp.fxml",StageStyle.TRANSPARENT);
-
     }
 
     public void closeWindow() {
