@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -48,4 +49,9 @@
          <Tooltip text="Connect to Choosen Database" />
       </tooltip>
    </JFXButton>
+   <Hyperlink fx:id="setUpDb" alignment="CENTER" prefHeight="25.0" prefWidth="132.0" text="Set up New Database" wrapText="true" VBox.vgrow="ALWAYS">
+      <VBox.margin>
+         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+      </VBox.margin>
+   </Hyperlink>
 </VBox>

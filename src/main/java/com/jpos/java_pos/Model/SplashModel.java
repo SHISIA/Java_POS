@@ -28,25 +28,28 @@ public class SplashModel {
     public JFXButton closeBtn;
     public JFXButton connect;
 
-    static File file;
+    Hyperlink setUpDbLink;
+
     DbConnector connector=new DbConnector();
 
-    static HashMap<String,String> paths=new HashMap<>();
+    static String selectedDB;
 
-    public SplashModel(JFXButton connect,JFXButton closeBtn,JFXComboBox comboBox,ImageView splashLogo){
+    public SplashModel(JFXButton connect,JFXButton closeBtn,JFXComboBox comboBox,ImageView splashLogo,Hyperlink setUpDbLink){
         this.connect=connect;
         this.splashLogo=splashLogo;
         this.dropDown=comboBox;
+        this.setUpDbLink=setUpDbLink;
         this.closeBtn=closeBtn;
         loadHome();
         loadDatabase();
+        dbSetup();
     }
 
     public void loadHome(){
             closeBtn.setOnAction(e-> closeWindow());
             connect.setOnAction(f->{
                 if (!(dropDown.getSelectionModel().getSelectedItem()==null)){
-                new ScreenLoader().load("/com/jpos/pos/Home.fxml",true, StageStyle.DECORATED,"/images/pos_icon.png");
+                new ScreenLoader().load("/com/jpos/pos/Home.fxml",false, StageStyle.TRANSPARENT,"/images/pos_icon.png");
                 closeWindow();
             } else {
                     new SettingController().notification("Please Choose a Database","warning.png",3);
@@ -54,7 +57,7 @@ public class SplashModel {
     }
 
     public void dbSetup(){
-
+        setUpDbLink.setOnAction(e-> new ScreenLoader().load("/com/jpos/pos/DBSetup.fxml",true, StageStyle.DECORATED,"/images/pos_icon.png"));
     }
 
     protected void closeWindow(){
@@ -65,8 +68,8 @@ public class SplashModel {
 
     public void loadDatabase(){
         JSONObject object=new JSONReader().read("dbs.json","database");
-        String name= (String) object.get("name");
         String schema=(String) object.get("schema");
+        selectedDB=schema;
         dropDown.getItems().add(schema);
     }
 }

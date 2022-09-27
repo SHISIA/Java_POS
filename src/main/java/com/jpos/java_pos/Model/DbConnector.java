@@ -70,7 +70,8 @@ public class DbConnector {
 
     public void setCredentials(){
         JSONObject jsonObject=new JSONReader().read("data.json","server");
-        setSchema((String) jsonObject.get("schema"));
+        setSchema(SplashModel.selectedDB);
+        System.out.println("Selected: "+SplashModel.selectedDB);
         setHostName((String) jsonObject.get("hostName"));
         JSONObject jsonObject1=new JSONReader().read("data_.json","server");
         setPassword((String) jsonObject1.get("password"));
