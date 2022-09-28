@@ -37,6 +37,10 @@ public class Product {
         this.total=new SimpleDoubleProperty(total);
         this.edit=edit;
         this.delete=delete;
+        delete.setStyle("-fx-background-color:black;"+
+                "-fx-text-fill:white;");
+        edit.setStyle("-fx-background-color:black;"+
+                "-fx-text-fill:white;");
     }
     public int getCount() {
         return count.get();

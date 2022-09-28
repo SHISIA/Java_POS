@@ -18,6 +18,7 @@ import javafx.stage.StageStyle;
 
 import javax.print.PrintService;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SalesPOSModel {
@@ -140,8 +141,10 @@ public class SalesPOSModel {
           }
         );
         deleteTicket.setOnAction(e->{
-                products.clear();
-                productsTable.getItems().clear();
+               if (!(products==null&&productsTable.getItems().isEmpty())){
+                   products.clear();
+                   productsTable.getItems().clear();
+               }
         });
         findProductByCode();
     }
@@ -204,6 +207,7 @@ public class SalesPOSModel {
             if (!code.isEmpty()){
                 products=connector.loadProducts("select * from biz_hub_product_master where barcode ="+code+";");
                     loadData();
+
             }
         });
     }
@@ -228,12 +232,12 @@ public class SalesPOSModel {
                BarCode barcode = new BarCode();
                escpos.write(barcode, String.valueOf(product.getTotal()));
                escpos.close();
-               System.out.println("Printing Complete");
+               new SettingController().notification("Printer: "+printer+" Success!!","success.png",2);
            }
 
        }
        catch (IllegalArgumentException e){
-           System.out.println("No Printer with such name");
+           new SettingController().notification("No Printer Available","puzzled.png",2);
        }
        catch (IOException e) {
            throw new RuntimeException(e);

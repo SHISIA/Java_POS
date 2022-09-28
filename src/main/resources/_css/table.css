@@ -1,0 +1,50 @@
+.table-view {
+    -fx-background-color:white;
+   -fx-text-background-color: green;
+
+}
+.table-view .column-header-background .filler {
+    -fx-background-color: transparent;
+}
+
+.table-view .corner {
+    -fx-background-color: transparent;
+}
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+.table-view .column-header-background{
+    -fx-background-color:#202735;
+    -fx-background-radius: 7px 7px 0px 0px;
+    -fx-background-insets: 0 11px 0 0;
+    -fx-padding: 0 0 5px 0;
+}
+.table-view .table-cell{
+    -fx-border-color: transparent;
+    -fx-padding: 2 0 2 10px;
+}
+
+.table-row-cell: hover {
+    -fx-background-color: #93f9b911;
+    -fx-text-background-color: black;
+}
+.table-row-cell: odd{
+    -fx-background-color: white;
+    -fx-border-color:transparent;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+
+.table-row-cell: even{
+    -fx-background-color: #e3e3e3;
+    -fx-border-color:transparent;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+.table-row-cell:selected {
+   -fx-background-color: steelblue;
+}
+.table-row-cell:selected .text {
+       -fx-text-fill:  #0c0222;
+
+}

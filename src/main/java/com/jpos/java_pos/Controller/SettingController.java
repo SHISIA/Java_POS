@@ -3,8 +3,10 @@ package com.jpos.java_pos.Controller;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
+import com.jpos.java_pos.Model.DBSetup;
 import com.jpos.java_pos.Model.DbConnector;
 import com.jpos.java_pos.Model.Notification;
+import com.jpos.java_pos.Model.SplashModel;
 import com.jpos.java_pos.json.JSON;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -59,7 +61,7 @@ public class SettingController implements Initializable {
     }
 
     public void setDBAttributes(){
-                JSON json=new JSON();
+        JSON json=new JSON();
                 serverTestBtn.setOnAction(e->{
                     if (!(serverDbHostField.getText().isEmpty()&&serverSchemaField.getText().isEmpty()
                             &&serverUsernameField.getText().isEmpty()&&serverPasswordField.getText().isEmpty())){

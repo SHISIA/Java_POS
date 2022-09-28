@@ -1,0 +1,21 @@
+.button{
+ -fx-background-color:black;
+ -fx-text-fill:white;
+}
+#backSpaceBtn{
+ -fx-background-color:black;
+ -fx-text-fill:white;
+}
+#clearBtn{
+ -fx-background-color:black;
+ -fx-text-fill:white;
+}
+
+.jfx-button{
+ -fx-background-color: transparent;
+ -fx-text-fill:black;
+ -fx-font-weight:bold;
+ -fx-border-color:grey;
+ -fx-border-radius:4;
+ -fx-background-radius:4;
+}

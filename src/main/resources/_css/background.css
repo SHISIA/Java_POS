@@ -1,0 +1,10 @@
+.root{
+ -fx-background-color:#E6E8EC;
+}
+
+#field{
+ -fx-background-color:transparent;
+}
+#vbox{
+ -fx-background-color:white;
+}

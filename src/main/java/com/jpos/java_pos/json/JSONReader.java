@@ -9,7 +9,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class JSONReader {
+public class JSONReader implements _JSON {
+    @Override
     public JSONObject read(String fileName,String server)
     {
         JSONObject object2 = new JSONObject();
@@ -33,5 +34,26 @@ public class JSONReader {
             throw new RuntimeException(e);
         }
         return object2;
+    }
+
+    @Override
+    public JSONArray reader(String fileName) {
+        JSONArray serverList=new JSONArray();
+        JSONParser jsonParser = new JSONParser();
+        try
+        {
+            //Read JSON file
+            FileReader reader = new FileReader(fileName);
+            Object obj = jsonParser.parse(reader);
+             serverList = (JSONArray) obj;
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        return serverList;
     }
 }

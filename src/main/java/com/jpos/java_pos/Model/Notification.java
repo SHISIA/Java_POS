@@ -35,6 +35,7 @@ public class Notification extends Application {
     public void start(Stage stage) {
         icon.setFitWidth(80);
         icon.setFitHeight(80);
+        messageLabel.setAlignment(Pos.CENTER);
         HBox hBox=new HBox();
         hBox.setStyle("-fx-border-color:black;");
         hBox.setSpacing(50);

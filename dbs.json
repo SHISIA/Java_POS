@@ -1,1 +1,1 @@
-[{"database":{"name":"database1","schema":"JavaPOS"}},{"database":{"name":"database2","schema":"JavaPOS"}}]
+[{"database":{"schema":"TestDB","name":1}},{"database":{"schema":"JavaPOS","name":2}}]

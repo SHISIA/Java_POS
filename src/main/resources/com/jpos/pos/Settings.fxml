@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="652.0" prefWidth="1191.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jpos.java_pos.Controller.SettingController">
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="652.0" prefWidth="1191.0" stylesheets="@../../../_css/background.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jpos.java_pos.Controller.SettingController">
    <children>
       <JFXTabPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="844.0" prefWidth="1215.0" VBox.vgrow="ALWAYS">
          <VBox.margin>
@@ -50,15 +50,15 @@
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="35.0" />
                                  </VBox.margin>
                                  <children>
-                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="205.0" text="Card Machine:" HBox.hgrow="ALWAYS">
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="205.0" text="Card Machine:" textFill="#835c5c" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                                        </HBox.margin>
                                        <font>
-                                          <Font size="24.0" />
+                                          <Font size="22.0" />
                                        </font>
                                     </Label>
-                                    <JFXTextField labelFloat="true" prefHeight="27.0" prefWidth="749.0" HBox.hgrow="ALWAYS">
+                                    <JFXTextField labelFloat="true" prefHeight="27.0" prefWidth="749.0" unFocusColor="#110101" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="30.0" left="30.0" right="100.0" top="30.0" />
                                        </HBox.margin>
@@ -67,15 +67,15 @@
                               </HBox>
                               <HBox layoutX="12.0" layoutY="12.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="143.0" prefWidth="1181.0" spacing="40.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="220.0" text="Mag Card Reader:" HBox.hgrow="ALWAYS">
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="258.0" text="Mag Card Reader:" textFill="#835c5c" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                                        </HBox.margin>
                                        <font>
-                                          <Font size="24.0" />
+                                          <Font size="23.0" />
                                        </font>
                                     </Label>
-                                    <JFXTextField labelFloat="true" prefHeight="27.0" prefWidth="749.0" HBox.hgrow="ALWAYS">
+                                    <JFXTextField labelFloat="true" prefHeight="27.0" prefWidth="749.0" unFocusColor="#110101" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="30.0" left="30.0" right="100.0" top="30.0" />
                                        </HBox.margin>
@@ -87,15 +87,15 @@
                               </HBox>
                               <HBox layoutX="10.0" layoutY="157.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="143.0" prefWidth="1181.0" spacing="40.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="207.0" text="Receipt Printer:" HBox.hgrow="ALWAYS">
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="207.0" text="Receipt Printer:" textFill="#835c5c" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                                        </HBox.margin>
                                        <font>
-                                          <Font size="24.0" />
+                                          <Font size="22.0" />
                                        </font>
                                     </Label>
-                                    <JFXComboBox fx:id="printersDropDown" labelFloat="true" prefHeight="27.0" prefWidth="753.0" HBox.hgrow="ALWAYS">
+                                    <JFXComboBox fx:id="printersDropDown" labelFloat="true" prefHeight="27.0" prefWidth="753.0" promptText="Select Printer" unFocusColor="#0a0202" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="30.0" left="30.0" right="100.0" top="30.0" />
                                        </HBox.margin>
@@ -107,15 +107,15 @@
                               </HBox>
                               <HBox layoutX="10.0" layoutY="300.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="143.0" prefWidth="1181.0" spacing="40.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="218.0" text="Customer Display:" HBox.hgrow="ALWAYS">
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="218.0" text="Customer Display:" textFill="#835c5c" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                                        </HBox.margin>
                                        <font>
-                                          <Font size="24.0" />
+                                          <Font size="22.0" />
                                        </font>
                                     </Label>
-                                    <JFXTextField labelFloat="true" prefHeight="27.0" prefWidth="749.0" HBox.hgrow="ALWAYS">
+                                    <JFXTextField labelFloat="true" prefHeight="27.0" prefWidth="749.0" unFocusColor="#110101" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="30.0" left="30.0" right="100.0" top="30.0" />
                                        </HBox.margin>
@@ -148,7 +148,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
                            <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="54.0" prefWidth="219.0" text="Cloud DB" VBox.vgrow="ALWAYS">
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="54.0" prefWidth="219.0" text="Cloud DB" textFill="#ab7474" VBox.vgrow="ALWAYS">
                                  <VBox.margin>
                                     <Insets bottom="1.0" left="1.0" right="900.0" top="1.0" />
                                  </VBox.margin>
@@ -158,7 +158,7 @@
                               </Label>
                               <HBox prefHeight="48.0" prefWidth="1075.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="37.0" prefWidth="115.0" text="Host" HBox.hgrow="ALWAYS">
+                                    <Label alignment="CENTER" prefHeight="37.0" prefWidth="115.0" text="Host" textFill="#795656" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </HBox.margin>
@@ -166,12 +166,12 @@
                                           <Font name="System Bold" size="20.0" />
                                        </font>
                                     </Label>
-                                    <JFXTextField HBox.hgrow="ALWAYS">
+                                    <JFXTextField unFocusColor="#221111" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="30.0" right="100.0" top="5.0" />
                                        </HBox.margin>
                                     </JFXTextField>
-                                    <Label alignment="CENTER" layoutX="15.0" layoutY="15.0" prefHeight="37.0" prefWidth="115.0" text="Schema" HBox.hgrow="ALWAYS">
+                                    <Label alignment="CENTER" layoutX="15.0" layoutY="15.0" prefHeight="37.0" prefWidth="115.0" text="Schema" textFill="#795656" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </HBox.margin>
@@ -179,12 +179,12 @@
                                           <Font name="System Bold" size="20.0" />
                                        </font>
                                     </Label>
-                                    <JFXTextField layoutX="135.0" layoutY="10.0" prefHeight="27.0" prefWidth="220.0" HBox.hgrow="ALWAYS">
+                                    <JFXTextField layoutX="135.0" layoutY="10.0" prefHeight="27.0" prefWidth="220.0" unFocusColor="#221111" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="30.0" right="100.0" top="5.0" />
                                        </HBox.margin>
                                     </JFXTextField>
-                                    <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="81.0" text="Test" HBox.hgrow="ALWAYS">
+                                    <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="81.0" stylesheets="@../../../_css/button.css" text="Test" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </HBox.margin>
@@ -196,7 +196,7 @@
                               </HBox>
                               <HBox layoutX="15.0" layoutY="90.0" prefHeight="48.0" prefWidth="1075.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="37.0" prefWidth="115.0" text="Username" HBox.hgrow="ALWAYS">
+                                    <Label alignment="CENTER" prefHeight="37.0" prefWidth="115.0" text="Username" textFill="#795656" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </HBox.margin>
@@ -204,12 +204,12 @@
                                           <Font name="System Bold" size="20.0" />
                                        </font>
                                     </Label>
-                                    <JFXTextField HBox.hgrow="ALWAYS">
+                                    <JFXTextField unFocusColor="#221111" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="30.0" right="100.0" top="5.0" />
                                        </HBox.margin>
                                     </JFXTextField>
-                                    <Label alignment="CENTER" layoutX="15.0" layoutY="15.0" prefHeight="37.0" prefWidth="115.0" text="Password" HBox.hgrow="ALWAYS">
+                                    <Label alignment="CENTER" layoutX="15.0" layoutY="15.0" prefHeight="37.0" prefWidth="115.0" text="Password" textFill="#795656" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </HBox.margin>
@@ -217,12 +217,12 @@
                                           <Font name="System Bold" size="20.0" />
                                        </font>
                                     </Label>
-                                    <JFXTextField layoutX="135.0" layoutY="10.0" prefHeight="27.0" prefWidth="220.0" HBox.hgrow="ALWAYS">
+                                    <JFXTextField layoutX="135.0" layoutY="10.0" prefHeight="27.0" prefWidth="220.0" unFocusColor="#221111" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="30.0" right="100.0" top="5.0" />
                                        </HBox.margin>
                                     </JFXTextField>
-                                    <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="81.0" text="Save" HBox.hgrow="ALWAYS">
+                                    <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="81.0" stylesheets="@../../../_css/button.css" text="Save" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </HBox.margin>
@@ -239,7 +239,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
                            <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="55.0" prefWidth="177.0" text="Server DB" VBox.vgrow="ALWAYS">
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="55.0" prefWidth="177.0" text="Server DB" textFill="#ab7474" VBox.vgrow="ALWAYS">
                                  <VBox.margin>
                                     <Insets bottom="1.0" left="1.0" right="900.0" top="1.0" />
                                  </VBox.margin>
@@ -249,7 +249,7 @@
                               </Label>
                               <HBox prefHeight="48.0" prefWidth="1075.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="37.0" prefWidth="115.0" text="Host" HBox.hgrow="ALWAYS">
+                                    <Label alignment="CENTER" prefHeight="37.0" prefWidth="115.0" text="Host" textFill="#795656" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </HBox.margin>
@@ -257,12 +257,12 @@
                                           <Font name="System Bold" size="20.0" />
                                        </font>
                                     </Label>
-                                    <JFXTextField fx:id="serverDbHostField" HBox.hgrow="ALWAYS">
+                                    <JFXTextField fx:id="serverDbHostField" unFocusColor="#221111" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="30.0" right="100.0" top="5.0" />
                                        </HBox.margin>
                                     </JFXTextField>
-                                    <Label alignment="CENTER" layoutX="15.0" layoutY="15.0" prefHeight="37.0" prefWidth="115.0" text="Schema" HBox.hgrow="ALWAYS">
+                                    <Label alignment="CENTER" layoutX="15.0" layoutY="15.0" prefHeight="37.0" prefWidth="115.0" text="Schema" textFill="#795656" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </HBox.margin>
@@ -270,12 +270,12 @@
                                           <Font name="System Bold" size="20.0" />
                                        </font>
                                     </Label>
-                                    <JFXTextField fx:id="serverSchemaField" layoutX="135.0" layoutY="10.0" prefHeight="27.0" prefWidth="220.0" HBox.hgrow="ALWAYS">
+                                    <JFXTextField fx:id="serverSchemaField" layoutX="135.0" layoutY="10.0" prefHeight="27.0" prefWidth="220.0" unFocusColor="#221111" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="30.0" right="100.0" top="5.0" />
                                        </HBox.margin>
                                     </JFXTextField>
-                                    <Button fx:id="serverTestBtn" mnemonicParsing="false" prefHeight="27.0" prefWidth="81.0" text="Test" HBox.hgrow="ALWAYS">
+                                    <Button fx:id="serverTestBtn" mnemonicParsing="false" prefHeight="27.0" prefWidth="81.0" stylesheets="@../../../_css/button.css" text="Test" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </HBox.margin>
@@ -287,7 +287,7 @@
                               </HBox>
                               <HBox layoutX="15.0" layoutY="90.0" prefHeight="48.0" prefWidth="1075.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="37.0" prefWidth="115.0" text="Username" HBox.hgrow="ALWAYS">
+                                    <Label alignment="CENTER" prefHeight="37.0" prefWidth="115.0" text="Username" textFill="#795656" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </HBox.margin>
@@ -295,12 +295,12 @@
                                           <Font name="System Bold" size="20.0" />
                                        </font>
                                     </Label>
-                                    <JFXTextField fx:id="serverUsernameField" HBox.hgrow="ALWAYS">
+                                    <JFXTextField fx:id="serverUsernameField" unFocusColor="#221111" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="30.0" right="100.0" top="5.0" />
                                        </HBox.margin>
                                     </JFXTextField>
-                                    <Label alignment="CENTER" layoutX="15.0" layoutY="15.0" prefHeight="37.0" prefWidth="115.0" text="Password" HBox.hgrow="ALWAYS">
+                                    <Label alignment="CENTER" layoutX="15.0" layoutY="15.0" prefHeight="37.0" prefWidth="115.0" text="Password" textFill="#795656" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </HBox.margin>
@@ -308,12 +308,12 @@
                                           <Font name="System Bold" size="20.0" />
                                        </font>
                                     </Label>
-                                    <JFXTextField fx:id="serverPasswordField" layoutX="135.0" layoutY="10.0" prefHeight="27.0" prefWidth="220.0" HBox.hgrow="ALWAYS">
+                                    <JFXTextField fx:id="serverPasswordField" layoutX="135.0" layoutY="10.0" prefHeight="27.0" prefWidth="220.0" unFocusColor="#221111" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="30.0" right="100.0" top="5.0" />
                                        </HBox.margin>
                                     </JFXTextField>
-                                    <Button fx:id="serverCredBtn" mnemonicParsing="false" prefHeight="27.0" prefWidth="81.0" text="Save" HBox.hgrow="ALWAYS">
+                                    <Button fx:id="serverCredBtn" mnemonicParsing="false" prefHeight="27.0" prefWidth="81.0" stylesheets="@../../../_css/button.css" text="Save" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </HBox.margin>
@@ -333,7 +333,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
                            <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="55.0" prefWidth="189.0" text="Backup DB" VBox.vgrow="ALWAYS">
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="55.0" prefWidth="189.0" text="Backup DB" textFill="#ab7474" VBox.vgrow="ALWAYS">
                                  <VBox.margin>
                                     <Insets bottom="1.0" left="1.0" right="900.0" top="1.0" />
                                  </VBox.margin>
@@ -343,7 +343,7 @@
                               </Label>
                               <HBox prefHeight="48.0" prefWidth="1075.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="37.0" prefWidth="115.0" text="Host" HBox.hgrow="ALWAYS">
+                                    <Label alignment="CENTER" prefHeight="37.0" prefWidth="115.0" text="Host" textFill="#795656" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </HBox.margin>
@@ -351,12 +351,12 @@
                                           <Font name="System Bold" size="20.0" />
                                        </font>
                                     </Label>
-                                    <JFXTextField HBox.hgrow="ALWAYS">
+                                    <JFXTextField unFocusColor="#221111" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="30.0" right="100.0" top="5.0" />
                                        </HBox.margin>
                                     </JFXTextField>
-                                    <Label alignment="CENTER" layoutX="15.0" layoutY="15.0" prefHeight="37.0" prefWidth="115.0" text="Schema" HBox.hgrow="ALWAYS">
+                                    <Label alignment="CENTER" layoutX="15.0" layoutY="15.0" prefHeight="37.0" prefWidth="115.0" text="Schema" textFill="#795656" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </HBox.margin>
@@ -364,12 +364,12 @@
                                           <Font name="System Bold" size="20.0" />
                                        </font>
                                     </Label>
-                                    <JFXTextField layoutX="135.0" layoutY="10.0" prefHeight="27.0" prefWidth="220.0" HBox.hgrow="ALWAYS">
+                                    <JFXTextField layoutX="135.0" layoutY="10.0" prefHeight="27.0" prefWidth="220.0" unFocusColor="#221111" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="30.0" right="100.0" top="5.0" />
                                        </HBox.margin>
                                     </JFXTextField>
-                                    <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="81.0" text="Test" HBox.hgrow="ALWAYS">
+                                    <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="81.0" stylesheets="@../../../_css/button.css" text="Test" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </HBox.margin>
@@ -381,7 +381,7 @@
                               </HBox>
                               <HBox layoutX="15.0" layoutY="90.0" prefHeight="48.0" prefWidth="1075.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="37.0" prefWidth="115.0" text="Username" HBox.hgrow="ALWAYS">
+                                    <Label alignment="CENTER" prefHeight="37.0" prefWidth="115.0" text="Username" textFill="#795656" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </HBox.margin>
@@ -389,12 +389,12 @@
                                           <Font name="System Bold" size="20.0" />
                                        </font>
                                     </Label>
-                                    <JFXTextField HBox.hgrow="ALWAYS">
+                                    <JFXTextField unFocusColor="#221111" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="30.0" right="100.0" top="5.0" />
                                        </HBox.margin>
                                     </JFXTextField>
-                                    <Label alignment="CENTER" layoutX="15.0" layoutY="15.0" prefHeight="37.0" prefWidth="115.0" text="Password" HBox.hgrow="ALWAYS">
+                                    <Label alignment="CENTER" layoutX="15.0" layoutY="15.0" prefHeight="37.0" prefWidth="115.0" text="Password" textFill="#795656" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </HBox.margin>
@@ -402,12 +402,12 @@
                                           <Font name="System Bold" size="20.0" />
                                        </font>
                                     </Label>
-                                    <JFXTextField layoutX="135.0" layoutY="10.0" prefHeight="27.0" prefWidth="220.0" HBox.hgrow="ALWAYS">
+                                    <JFXTextField layoutX="135.0" layoutY="10.0" prefHeight="27.0" prefWidth="220.0" unFocusColor="#221111" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="30.0" right="100.0" top="5.0" />
                                        </HBox.margin>
                                     </JFXTextField>
-                                    <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="81.0" text="Save" HBox.hgrow="ALWAYS">
+                                    <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="81.0" stylesheets="@../../../_css/button.css" text="Save" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </HBox.margin>
@@ -451,12 +451,12 @@
                               </JFXListView>
                               <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <JFXButton prefHeight="39.0" prefWidth="119.0" text="New User" HBox.hgrow="ALWAYS">
+                                    <JFXButton prefHeight="39.0" prefWidth="119.0" stylesheets="@../../../_css/button.css" text="New User" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="20.0" left="350.0" right="20.0" top="20.0" />
                                        </HBox.margin>
                                     </JFXButton>
-                                    <JFXButton layoutX="30.0" layoutY="30.0" prefHeight="41.0" prefWidth="122.0" text="Refresh" HBox.hgrow="ALWAYS">
+                                    <JFXButton layoutX="30.0" layoutY="30.0" prefHeight="41.0" prefWidth="122.0" stylesheets="@../../../_css/button.css" text="Refresh" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="20.0" left="5.0" right="20.0" top="20.0" />
                                        </HBox.margin>

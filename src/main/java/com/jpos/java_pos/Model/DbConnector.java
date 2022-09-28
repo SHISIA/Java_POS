@@ -7,9 +7,10 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
 import org.json.simple.JSONObject;
 
-import java.io.*;
-import java.net.URISyntaxException;
-import java.net.URL;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.sql.*;
 
@@ -71,7 +72,6 @@ public class DbConnector {
     public void setCredentials(){
         JSONObject jsonObject=new JSONReader().read("data.json","server");
         setSchema(SplashModel.selectedDB);
-        System.out.println("Selected: "+SplashModel.selectedDB);
         setHostName((String) jsonObject.get("hostName"));
         JSONObject jsonObject1=new JSONReader().read("data_.json","server");
         setPassword((String) jsonObject1.get("password"));
@@ -123,7 +123,7 @@ public class DbConnector {
             }
             connection.close();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            new SettingController().notification("Logout and Check/Select Schema","puzzled.png",3);
         }
         return products;
     }

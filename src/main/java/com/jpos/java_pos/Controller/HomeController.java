@@ -4,13 +4,19 @@ import com.jfoenix.controls.JFXButton;
 import com.jpos.java_pos.Model.ScreenLoader;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class HomeController {
+public class HomeController implements Initializable {
     @FXML
     public BorderPane container;
     @FXML
@@ -23,6 +29,7 @@ public class HomeController {
     public JFXButton btnSettings;
     @FXML
     public JFXButton btnLogout;
+    public Circle avatar;
 
     public void setContainer(String url){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(url));
@@ -47,4 +54,10 @@ public class HomeController {
         new ScreenLoader().load("/com/jpos/pos/Splash.fxml",false, StageStyle.UNDECORATED,"/images/pos_icon.png");
         }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        URL url1 = getClass().getResource("/images/pos.png");
+        avatar.setFill(new ImagePattern(new Image(String.valueOf(url1))));
+        setBtnPOS();
     }
+}

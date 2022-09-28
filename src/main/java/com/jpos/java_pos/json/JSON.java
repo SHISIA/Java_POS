@@ -6,13 +6,20 @@ import org.json.simple.JSONObject;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class JSON {
+public class JSON implements JSONWriter {
+
+    @Override
     public void writeJSON(String jsonFileName,String server,String key,String value,String key1,String value1) {
         //First server
+        JSONArray jsonArray=new JSONReader().reader(jsonFileName);
         JSONObject serverDetails = new JSONObject();
         serverDetails.put(key, value);
         serverDetails.put(key1, value1);
         JSONObject object = new JSONObject();
+        for (Object object1:jsonArray){
+            JSONObject object2=(JSONObject) object1;
+            object.put(server,object2);
+        }
         object.put(server, serverDetails);
         //Add server to list
         JSONArray serverList = new JSONArray();
@@ -21,6 +28,30 @@ public class JSON {
         try  {
             FileWriter file = new FileWriter(jsonFileName);
             //We can write any JSONArray or JSONObject instance to the file
+            file.write(serverList.toString());
+            file.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void writeJSON(String jsonFileName,String server,String key,int value,String key1,String value1) {
+        JSONObject serverDetails = new JSONObject();
+        JSONArray saver1=new JSONReader().reader(jsonFileName);
+        serverDetails.put(key, value);
+        serverDetails.put(key1, value1);
+        JSONObject object = new JSONObject();
+        object.put(server, serverDetails);
+        JSONArray serverList = new JSONArray();
+        for (Object object1:saver1){
+            JSONObject object2=(JSONObject) object1;
+            serverList.add(object2);
+        }
+        serverList.add(object);
+        //Write JSON file
+        try  {
+            FileWriter file = new FileWriter(jsonFileName);
             file.write(serverList.toString());
             file.flush();
         } catch (IOException e) {
