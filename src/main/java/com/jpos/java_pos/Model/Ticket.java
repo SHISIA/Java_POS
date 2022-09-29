@@ -64,23 +64,25 @@ public class Ticket {
     }
 
     public void printTicket(){
+        PrintService service=SettingController.printService;
         try {
-            PrinterOutputStream printerOutputStream = new PrinterOutputStream(SettingController.printService);
+            PrinterOutputStream printerOutputStream = new PrinterOutputStream(service);
             EscPos escpos = new EscPos(printerOutputStream);
-            JSONReader reader=new JSONReader();
-            JSONArray object=reader.reader("Ticket.json");
-            ArrayList<JSONObject> objectArrayList=new ArrayList<>();
-            for (Object object1: object){
-                JSONObject object2=(JSONObject) object1;
-                JSONObject dbObject= (JSONObject) object2.get("Tickets");
+            JSONReader reader = new JSONReader();
+            JSONArray object = reader.reader("Ticket.json");
+            ArrayList<JSONObject> objectArrayList = new ArrayList<>();
+            for (Object object1 : object) {
+                JSONObject object2 = (JSONObject) object1;
+                JSONObject dbObject = (JSONObject) object2.get("Tickets");
                 objectArrayList.add(dbObject);
             }
-            for (JSONObject object1:objectArrayList){
-                String content=(String) object1.get("Data");
-                escpos.writeLF("* "+content+" *");
-                escpos.writeLF("               ");
+            for (JSONObject object1 : objectArrayList) {
+                String content = (String) object1.get("Data");
+                escpos.writeLF("* " + content + " *");
             }
             printEnd(escpos);
+        } catch (IllegalArgumentException e){
+                new SettingController().notification("Printer UnAvailable","puzzled.png",2);
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -90,13 +92,14 @@ public class Ticket {
 
     public void printEnd(EscPos escpos){
         try {
+            escpos.writeLF("               ");
             escpos.writeLF("-----------------");
             escpos.writeLF("-----------------");
             escpos.feed(5).cut(EscPos.CutMode.FULL);
             BarCode barcode = new BarCode();
             escpos.write(barcode, "ExampleBarCode");
             escpos.close();
-            new SettingController().notification("Printer: Success!!","success.png",2);
+           // new SettingController().notification("Printer: Success!!","success.png",2);
         }
         catch (IllegalArgumentException e){
             new SettingController().notification("Printer UnAvailable","puzzled.png",2);
