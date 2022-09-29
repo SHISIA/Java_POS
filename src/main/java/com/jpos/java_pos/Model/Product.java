@@ -8,6 +8,11 @@ import javafx.scene.control.Button;
 public class Product {
     private SimpleIntegerProperty count;
     private SimpleStringProperty productName;
+
+    public void setTotal(double total) {
+        this.total.set(total);
+    }
+
     private SimpleDoubleProperty total;
     private SimpleDoubleProperty price;
     private Button edit;
@@ -16,16 +21,8 @@ public class Product {
         return edit;
     }
 
-    public void setEdit(Button edit) {
-        this.edit = edit;
-    }
-
     public Button getDelete() {
         return delete;
-    }
-
-    public void setDelete(Button delete) {
-        this.delete = delete;
     }
 
     private Button delete;
@@ -38,9 +35,9 @@ public class Product {
         this.edit=edit;
         this.delete=delete;
         delete.setStyle("-fx-background-color:black;"+
-                "-fx-text-fill:white;");
+                "-fx-text-fill:red;");
         edit.setStyle("-fx-background-color:black;"+
-                "-fx-text-fill:white;");
+                "-fx-text-fill:orange;");
     }
     public int getCount() {
         return count.get();
@@ -62,20 +59,12 @@ public class Product {
         return productName;
     }
 
-    public void setProductName(String productName) {
-        this.productName.set(productName);
-    }
-
     public double getTotal() {
         return total.get();
     }
 
     public SimpleDoubleProperty totalProperty() {
         return total;
-    }
-
-    public void setTotal(double total) {
-        this.total.set(total);
     }
 
     public double getPrice() {
@@ -86,7 +75,4 @@ public class Product {
         return price;
     }
 
-    public void setPrice(double price) {
-        this.price.set(price);
-    }
 }

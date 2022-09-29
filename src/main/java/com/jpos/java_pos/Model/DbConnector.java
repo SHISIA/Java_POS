@@ -120,6 +120,7 @@ public class DbConnector {
                 double price= rs.getInt(4);
                 double total=price*quantity;
                 products.add(new Product(name,quantity, price,total,new Button("Edit"),new Button("Delete")));
+
             }
             connection.close();
         } catch (SQLException e) {

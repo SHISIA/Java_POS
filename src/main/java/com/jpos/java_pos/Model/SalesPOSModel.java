@@ -70,8 +70,6 @@ public class SalesPOSModel {
 
     DbConnector connector=new DbConnector();
 
-    ObservableList<Product> products;
-
     public SalesPOSModel(TableView<Product> productsTable, TableColumn<Product,String> nameCol, TableColumn<Product,Number> countCol, TableColumn<Product,Number> priceCol
             , TableColumn<Product,Number> totalCol, TableColumn<Product,Button> editCol, TableColumn<Product, Button> deleteCol, TextField barcodeSearch, Button findBtn, JFXButton checkout,
                          Button plusBtn,Button minusBtn,TableView smartList,Button multiply,Button zero, Button one,Button two,JFXButton logOutBtn,
@@ -105,7 +103,7 @@ public class SalesPOSModel {
         this.deleteTicket=deleteTicket;
         this.logOutBtn=logOutBtn;
         connector.setCredentials();
-        checkout.setOnAction(e->checkOutTicket());
+        checkoutBtn.setOnAction(e->checkOutTicket());
         onScreenKeys();
         logOut();
     }
@@ -141,9 +139,10 @@ public class SalesPOSModel {
           }
         );
         deleteTicket.setOnAction(e->{
-               if (!(products==null&&productsTable.getItems().isEmpty())){
-                   products.clear();
+               if (!(productsTable.getItems().isEmpty())){
                    productsTable.getItems().clear();
+
+                   //add saved json functionality
                }
         });
         findProductByCode();
@@ -153,6 +152,7 @@ public class SalesPOSModel {
            plusBtn.setOnAction(e->{
         if (!(productsTable.getSelectionModel().getSelectedItem()==null)){
             productsTable.getSelectionModel().getSelectedItem().setCount(productsTable.getSelectionModel().getSelectedItem().getCount()+1);
+            syncTotal();
         }else {
             new SettingController().notification("Please Select a product","warning.png",2);
         }
@@ -161,21 +161,29 @@ public class SalesPOSModel {
                if (!(productsTable.getSelectionModel().getSelectedItem()==null)){
                if (productsTable.getSelectionModel().getSelectedItem().getCount()<=0){
                    productsTable.getSelectionModel().getSelectedItem().setCount(0);
+                                  syncTotal();
                }else {
                    productsTable.getSelectionModel().getSelectedItem().setCount(
                            productsTable.getSelectionModel().getSelectedItem().getCount()-1
                    );
+                   syncTotal();
                }
            }else {
                    new SettingController().notification("Please Select a product","warning.png",2);
                }
            });
+    }
 
+    public void syncTotal(){
+        productsTable.getSelectionModel().getSelectedItem().setTotal(
+                productsTable.getSelectionModel().getSelectedItem().getCount()
+                        *
+                        productsTable.getSelectionModel().getSelectedItem().getPrice()
+        );
     }
 
     public void loadData(){
         //add your data to the table here.
-        productsTable.getItems().addAll(products);
         nameCol.setCellValueFactory(cellData -> cellData.getValue().productNameProperty());
         countCol.setCellValueFactory(cell -> cell.getValue().countProperty());
         priceCol.setCellValueFactory(cell -> cell.getValue().priceProperty());
@@ -188,14 +196,14 @@ public class SalesPOSModel {
 
 
     public void delete_Edit_Product(){
-        List<Product> products = this.products;
+        ObservableList<Product> products = productsTable.getItems();
         for (Product product : products){
             Button deleteBtn= product.getDelete();
             Button editBtn= product.getEdit();
             editBtn.setOnAction(e-> new ScreenLoader().load("/com/jpos/pos/ProductEditUI.fxml",false, StageStyle.TRANSPARENT,"/images/product.png"));
             deleteBtn.setOnAction(e->{
-                this.products.remove(product);
-                productsTable.setItems(this.products);
+                products.remove(product);
+                productsTable.setItems(products);
                 productsTable.refresh();
             });
         }
@@ -205,43 +213,43 @@ public class SalesPOSModel {
         findBtn.setOnAction(e->{
             String code=barcodeSearch.getText();
             if (!code.isEmpty()){
-                products=connector.loadProducts("select * from biz_hub_product_master where barcode ="+code+";");
-                    loadData();
-
+                productsTable.getItems().addAll(connector.loadProducts("select * from biz_hub_product_master where barcode ="+code+";"));
+                loadData();
             }
         });
     }
 
 
     public void checkOutTicket(){
-        String printer= new DbConnector().streamReader("selected.txt");;
-        try {
-            PrintService printService = PrinterOutputStream.getPrintServiceByName(printer);
-            PrinterOutputStream printerOutputStream = new PrinterOutputStream(printService);
-            EscPos escpos = new EscPos(printerOutputStream);
-            for (Product product : this.products) {
-               System.out.println(product.getProductName() + "  Price =" + product.getPrice() + " Count =" + product.getCount());
-               escpos.writeLF(product.getProductName());
-               escpos.writeLF("-----------------");
-               escpos.writeLF(String.valueOf(product.getPrice()));
-               escpos.writeLF("-----------------");
-               escpos.writeLF(String.valueOf(product.getCount()));
-               escpos.writeLF("-----------------");
-               escpos.writeLF("-----------------");
-               escpos.feed(5).cut(EscPos.CutMode.FULL);
-               BarCode barcode = new BarCode();
-               escpos.write(barcode, String.valueOf(product.getTotal()));
-               escpos.close();
-               new SettingController().notification("Printer: "+printer+" Success!!","success.png",2);
-           }
-
-       }
-       catch (IllegalArgumentException e){
-           new SettingController().notification("No Printer Available","puzzled.png",2);
-       }
-       catch (IOException e) {
-           throw new RuntimeException(e);
-       }
+        Stage stage=new Stage();
+        Confirmation confirmation=new Confirmation();
+        confirmation.setMessage("Are you sure to Check Out, Print Ticket and Clear Data?");
+        confirmation.setImageIcon("pos_icon.png");
+        confirmation.getYesButton().setOnAction(print->{
+            finalCheckout();
+//            Stage stage1=(Stage) confirmation.getYesButton().getScene().getWindow();
+            stage.close();
+        });
+        confirmation.start(stage);
+    }
+    /*this method sets the ticket details and eventually prints it to printer
+     after "yes" confirmation
+     */
+    public void finalCheckout(){
+        ObservableList<Product> products1=productsTable.getItems();
+        if (!(products1.isEmpty())){
+            for (Product product:products1){
+                Ticket ticket=new Ticket();
+                ticket.setTicketName(product.getProductName());
+                ticket.setProductCount(product.getCount());
+                ticket.setProductPrice(product.getPrice());
+                ticket.setProductTotal(product.getTotal());
+                ticket.appendDetails();
+            }
+            new Ticket().printTicket();
+        }else {
+            new SettingController().notification("Ticket Empty","puzzled.png",2);
+        }
     }
 
 }
