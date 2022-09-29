@@ -23,10 +23,8 @@ public class Ticket {
     HashMap<String,String> stringHashMap=new HashMap<>();
 
     StringBuilder stringBuilder;
-
-    public double getProductTotal() {
-        return productTotal;
-    }
+    JSON json=new JSON();
+    JSONReader reader = new JSONReader();
 
     public void setProductTotal(double productTotal) {
         this.productTotal = productTotal;
@@ -40,16 +38,8 @@ public class Ticket {
         this.ticketName = ticketName;
     }
 
-    public double getProductPrice() {
-        return productPrice;
-    }
-
     public void setProductPrice(double productPrice) {
         this.productPrice = productPrice;
-    }
-
-    public int getProductCount() {
-        return productCount;
     }
 
     public void setProductCount(int productCount) {
@@ -57,9 +47,8 @@ public class Ticket {
     }
 
     public void appendDetails(){
-        stringBuilder=new StringBuilder(ticketName+" :"+productPrice+" x "+productCount+" = "+productTotal);
+        stringBuilder=new StringBuilder(ticketName+": "+productPrice+" x "+productCount+" = "+productTotal);
         stringHashMap.put(getTicketName(),stringBuilder.toString());
-        JSON json=new JSON();
         json.appendJSON("Ticket.json","Tickets","TicketName",getTicketName(),"Data",stringBuilder.toString());
     }
 
@@ -69,7 +58,6 @@ public class Ticket {
             PrintService printService = PrinterOutputStream.getPrintServiceByName(printer);
             PrinterOutputStream printerOutputStream = new PrinterOutputStream(printService);
             EscPos escpos = new EscPos(printerOutputStream);
-            JSONReader reader = new JSONReader();
             JSONArray object = reader.reader("Ticket.json");
             ArrayList<JSONObject> objectArrayList = new ArrayList<>();
             for (Object object1 : object) {
@@ -100,13 +88,28 @@ public class Ticket {
             BarCode barcode = new BarCode();
             escpos.write(barcode, "ExampleBarCode");
             escpos.close();
-           // new SettingController().notification("Printer: Success!!","success.png",2);
+            new SettingController().notification("Printer: Success!!","success.png",2);
         }
         catch (IllegalArgumentException e){
             new SettingController().notification("Printer UnAvailable","puzzled.png",2);
         }
         catch (IOException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public void backUp(){
+        JSONArray array=reader.reader("Ticket.json");
+        ArrayList<JSONObject> objectArrayList = new ArrayList<>();
+        for (Object object1 : array) {
+            JSONObject object2 = (JSONObject) object1;
+            JSONObject dbObject = (JSONObject) object2.get("Tickets");
+            objectArrayList.add(dbObject);
+        }
+        for (JSONObject object1 : objectArrayList) {
+            String data = (String) object1.get("Data");
+            String ticket = (String) object1.get("TicketName");
+            json.appendJSON("TicketBackup.json","Tickets","TicketName",ticket,"Data",data);
         }
     }
 }

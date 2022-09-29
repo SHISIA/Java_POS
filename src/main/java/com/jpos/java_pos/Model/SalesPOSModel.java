@@ -6,6 +6,8 @@ import com.github.anastaciocintra.output.PrinterOutputStream;
 import com.jfoenix.controls.JFXButton;
 import com.jpos.java_pos.Controller.HomeController;
 import com.jpos.java_pos.Controller.SettingController;
+import com.jpos.java_pos.json.JSON;
+import com.jpos.java_pos.json.JSONReader;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
@@ -15,6 +17,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import javax.print.PrintService;
 import java.io.IOException;
@@ -236,6 +240,7 @@ public class SalesPOSModel {
      after "yes" confirmation
      */
     public void finalCheckout(){
+        Ticket tickets=new Ticket();
         ObservableList<Product> products1=productsTable.getItems();
         if (!(products1.isEmpty())){
             for (Product product:products1){
@@ -246,7 +251,12 @@ public class SalesPOSModel {
                 ticket.setProductTotal(product.getTotal());
                 ticket.appendDetails();
             }
-            new Ticket().printTicket();
+
+          tickets.printTicket();
+          //clears the Ticket.json data and resets it to default values
+          new JSON().writeJSON("Ticket.json","Tickets","TicketName","","Data","");
+          //backup Data to the tickets printed
+            tickets.backUp();
         }else {
             new SettingController().notification("Ticket Empty","puzzled.png",2);
         }
