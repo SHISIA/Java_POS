@@ -5,6 +5,7 @@ import org.json.simple.JSONObject;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class JSON implements JSONWriter {
 
@@ -77,6 +78,32 @@ public class JSON implements JSONWriter {
         try  {
             FileWriter file = new FileWriter(jsonFileName);
             file.write(serverList.toString());
+            file.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void updateJSON(String jsonFileName, String key) {
+        JSONReader reader=new JSONReader();
+        JSONArray object = reader.reader(jsonFileName);
+        ArrayList<JSONObject> objectArrayList = new ArrayList<>();
+        for (Object object1 : object) {
+            JSONObject object2 = (JSONObject) object1;
+            JSONObject dbObject = (JSONObject) object2.get("Tickets");
+            objectArrayList.add(dbObject);
+        }
+        for (JSONObject object1 : objectArrayList) {
+            String content = (String) object1.get("Data");
+            if (content==key){
+                objectArrayList.remove(object1);
+            }
+        }
+        //Write JSON file
+        try  {
+            FileWriter file = new FileWriter(jsonFileName);
+            file.write(objectArrayList.toString());
             file.flush();
         } catch (IOException e) {
             e.printStackTrace();

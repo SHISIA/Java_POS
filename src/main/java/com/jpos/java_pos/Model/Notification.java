@@ -42,7 +42,7 @@ public class Notification extends Application {
         hBox.setAlignment(Pos.CENTER);
         stage.initStyle(StageStyle.TRANSPARENT);
         hBox.getChildren().addAll(icon,messageLabel);
-        Scene scene=new Scene(hBox,300,100);
+        Scene scene=new Scene(hBox,400,100);
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.show();

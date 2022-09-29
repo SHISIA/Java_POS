@@ -14,7 +14,6 @@ public class PopUp implements Initializable {
     public ImageView imgErrorIcon;
     @FXML
     public Label messageLabel;
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         new MessageModel(imgErrorIcon,messageLabel);

@@ -115,16 +115,16 @@ public class DbConnector {
         try {
             ResultSet rs=getConnection().createStatement().executeQuery(sql);;
             while (rs.next()){
-                String name=rs.getString(2);
-                int quantity=rs.getInt(3);
-                double price= rs.getInt(4);
+                String name=rs.getString(1);
+                int quantity=1;
+                double price= rs.getInt(2);
                 double total=price*quantity;
                 products.add(new Product(name,quantity, price,total,new Button("Edit"),new Button("Delete")));
 
             }
             connection.close();
         } catch (SQLException e) {
-            new SettingController().notification("Logout and Check/Select Schema","puzzled.png",3);
+            new SettingController().notification("Logout and (Check) Select Schema","puzzled.png",3);
         }
         return products;
     }

@@ -208,8 +208,25 @@ public class SalesPOSModel {
             deleteBtn.setOnAction(e->{
                 products.remove(product);
                 productsTable.setItems(products);
+                new JSON().updateJSON("Ticket.json",product.getProductName());
                 productsTable.refresh();
             });
+        }
+    }
+
+    public void updateTicket(){
+        ObservableList<Product> products1=productsTable.getItems();
+        if (!(products1.isEmpty())){
+            for (Product product:products1){
+                Ticket ticket=new Ticket();
+                ticket.setTicketName(product.getProductName());
+                ticket.setProductCount(product.getCount());
+                ticket.setProductPrice(product.getPrice());
+                ticket.setProductTotal(product.getTotal());
+                ticket.appendDetails();
+            }
+        }else {
+            new SettingController().notification("Ticket Empty","puzzled.png",2);
         }
     }
 
@@ -217,7 +234,8 @@ public class SalesPOSModel {
         findBtn.setOnAction(e->{
             String code=barcodeSearch.getText();
             if (!code.isEmpty()){
-                productsTable.getItems().addAll(connector.loadProducts("select * from biz_hub_product_master where barcode ="+code+";"));
+                productsTable.getItems().addAll(connector.loadProducts("select * from biz_hub_product_master where product_barcode ="+code+";"));
+                updateTicket();
                 loadData();
             }
         });
@@ -241,25 +259,12 @@ public class SalesPOSModel {
      */
     public void finalCheckout(){
         Ticket tickets=new Ticket();
-        ObservableList<Product> products1=productsTable.getItems();
-        if (!(products1.isEmpty())){
-            for (Product product:products1){
-                Ticket ticket=new Ticket();
-                ticket.setTicketName(product.getProductName());
-                ticket.setProductCount(product.getCount());
-                ticket.setProductPrice(product.getPrice());
-                ticket.setProductTotal(product.getTotal());
-                ticket.appendDetails();
-            }
+        tickets.printTicket();
+        //backs up the ticket data
+        tickets.backUp();
+        //clears the Ticket.json data and resets it to default values
+        new JSON().writeJSON("Ticket.json","Tickets","TicketName","","Data","");
 
-          tickets.printTicket();
-          //clears the Ticket.json data and resets it to default values
-          new JSON().writeJSON("Ticket.json","Tickets","TicketName","","Data","");
-          //backup Data to the tickets printed
-            tickets.backUp();
-        }else {
-            new SettingController().notification("Ticket Empty","puzzled.png",2);
-        }
     }
 
 }

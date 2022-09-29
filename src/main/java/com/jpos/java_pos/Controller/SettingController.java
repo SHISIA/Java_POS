@@ -9,11 +9,13 @@ import com.jpos.java_pos.Model.DbConnector;
 import com.jpos.java_pos.Model.Notification;
 import com.jpos.java_pos.Model.SplashModel;
 import com.jpos.java_pos.json.JSON;
+import com.jpos.java_pos.json.JSONReader;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import org.json.simple.JSONObject;
 
 import javax.print.PrintService;
 import javax.print.PrintServiceLookup;
@@ -22,6 +24,8 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
+
+import static java.lang.Math.toIntExact;
 
 public class SettingController implements Initializable {
 
@@ -95,6 +99,10 @@ public class SettingController implements Initializable {
                         String password=serverPasswordField.getText();
                         json.writeJSON("data.json","server","schema",schema,"hostName",host);
                         json.writeJSON("data_.json","server","username",username,"password",password);
+                        JSONObject jsonObject=new JSONReader().read("dbs.json","database");
+                        Long aLong=(Long) jsonObject.get("name");
+                        int i=toIntExact(aLong);
+                        json.writeJSON("dbs.json","database","name",i+1,"schema",schema);
                         System.out.println("successfully written");
                         notification("Successfully Saved","success.png",5);
                     }
