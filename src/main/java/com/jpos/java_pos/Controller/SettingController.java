@@ -1,5 +1,6 @@
 package com.jpos.java_pos.Controller;
 
+import com.github.anastaciocintra.output.PrinterOutputStream;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
@@ -42,6 +43,8 @@ public class SettingController implements Initializable {
     public Button serverCredBtn;
     @FXML
     public Button serverTestBtn;
+
+    public static PrintService printService;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -113,6 +116,8 @@ public class SettingController implements Initializable {
 
     public void activePrinter(){
         textWriter("selected.txt",(String) printersDropDown.getSelectionModel().getSelectedItem());
+        String printer= new DbConnector().streamReader("selected.txt");
+        printService = PrinterOutputStream.getPrintServiceByName(printer);
     }
 
     public void textWriter(String textName,String content) {
