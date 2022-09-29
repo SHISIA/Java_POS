@@ -64,9 +64,10 @@ public class Ticket {
     }
 
     public void printTicket(){
-        PrintService service=SettingController.printService;
         try {
-            PrinterOutputStream printerOutputStream = new PrinterOutputStream(service);
+            String printer= new DbConnector().streamReader("selected.txt");
+            PrintService printService = PrinterOutputStream.getPrintServiceByName(printer);
+            PrinterOutputStream printerOutputStream = new PrinterOutputStream(printService);
             EscPos escpos = new EscPos(printerOutputStream);
             JSONReader reader = new JSONReader();
             JSONArray object = reader.reader("Ticket.json");

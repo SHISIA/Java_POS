@@ -224,7 +224,7 @@ public class SalesPOSModel {
         Stage stage=new Stage();
         Confirmation confirmation=new Confirmation();
         confirmation.setMessage("Are you sure to Check Out, Print Ticket and Clear Data?");
-        confirmation.setImageIcon("pos_icon.png");
+        confirmation.setImageIcon("quiz.png");
         confirmation.getYesButton().setOnAction(print->{
             finalCheckout();
 //            Stage stage1=(Stage) confirmation.getYesButton().getScene().getWindow();

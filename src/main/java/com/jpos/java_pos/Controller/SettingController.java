@@ -116,8 +116,7 @@ public class SettingController implements Initializable {
 
     public void activePrinter(){
         textWriter("selected.txt",(String) printersDropDown.getSelectionModel().getSelectedItem());
-        String printer= new DbConnector().streamReader("selected.txt");
-        printService = PrinterOutputStream.getPrintServiceByName(printer);
+
     }
 
     public void textWriter(String textName,String content) {
