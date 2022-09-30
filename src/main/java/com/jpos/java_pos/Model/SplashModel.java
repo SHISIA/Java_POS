@@ -41,7 +41,7 @@ public class SplashModel {
     public void loadHome(){
             closeBtn.setOnAction(e-> closeWindow());
             connect.setOnAction(f->{
-                if (!(dropDown.getSelectionModel().getSelectedItem()==null)){
+                if (!(dropDown.getSelectionModel().getSelectedItem()==null || dropDown.getSelectionModel().getSelectedItem()=="")){
                 new ScreenLoader().load("/com/jpos/pos/Home.fxml",true, StageStyle.DECORATED,"/images/pos_icon.png");
                 closeWindow();
             } else {
