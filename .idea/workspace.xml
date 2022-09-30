@@ -4,19 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cbce7a9-e94a-4b3d-b76b-47e73dc1b1c2" name="Changes" comment="added ticket printing backup Data">
+    <list default="true" id="3cbce7a9-e94a-4b3d-b76b-47e73dc1b1c2" name="Changes" comment="fixed db connections">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ticket.json" beforeDir="false" afterPath="$PROJECT_DIR$/Ticket.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TicketBackup.json" beforeDir="false" afterPath="$PROJECT_DIR$/TicketBackup.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dbs.json" beforeDir="false" afterPath="$PROJECT_DIR$/dbs.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Controller/PopUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Controller/PopUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Controller/SettingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Controller/SettingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Model/DbConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Model/DbConnector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Model/Notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Model/Notification.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Model/SalesPOSModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Model/SalesPOSModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/json/JSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/json/JSON.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/json/JSONWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/json/JSONWriter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -328,7 +322,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664461760756</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="fixed db connections">
+      <created>1664480670465</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1664480670465</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -365,7 +366,8 @@
     <MESSAGE value="printer popup disabled due to background issues" />
     <MESSAGE value="fixed printer functionality" />
     <MESSAGE value="added ticket printing backup Data" />
-    <option name="LAST_COMMIT_MESSAGE" value="added ticket printing backup Data" />
+    <MESSAGE value="fixed db connections" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed db connections" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
