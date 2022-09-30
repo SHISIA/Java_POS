@@ -53,6 +53,7 @@ public class DBSetup implements Initializable {
                 Long aLong=(Long) jsonObject.get("name");
                 int i=toIntExact(aLong);
                 json.writeJSON("dbs.json","database","name",i+1,"schema",nameField.getText());
+                new SettingController().notification("Credentials Successfully Saved","success.png",2);
 
             }else {
                 new SettingController().notification("One or more field(s) Empty","warning.png",2);

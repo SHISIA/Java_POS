@@ -247,7 +247,7 @@ public class SalesPOSModel {
         tickets.backUp();
         //clears the Ticket.json data and resets it to default values
         new JSON().writeJSON("Ticket.json","Tickets","TicketName","","Data","");
-
+        productsTable.getItems().clear();
     }
 
     public void updateTicket(){
