@@ -9,6 +9,7 @@ import com.jpos.java_pos.json.JSON;
 import com.jpos.java_pos.json.JSONReader;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -37,6 +38,7 @@ public class DBSetup implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        logoImg.setImage(new Image(getClass().getResource("/images/pos.png").toString()));
         setUpDb();
         setCloseBtn();
     }
