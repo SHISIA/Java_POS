@@ -1,12 +1,10 @@
 package com.jpos.java_pos.Controller;
 
 import com.jfoenix.controls.JFXListView;
-import com.jpos.java_pos.Model.DBSetup;
 import com.jpos.java_pos.Model.DbConnector;
 import com.jpos.java_pos.Model.ScreenLoader;
 import com.jpos.java_pos.Model.User;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -22,12 +20,12 @@ import java.util.ResourceBundle;
 
 public class AFK implements Initializable {
     public JFXListView<VBox> usersList;
-    public Label nameLabel;
-    public Label roleLabel;
+    public static User activeUser;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadUsers();
+        usersList.setOnMouseClicked(e->keyPad());
     }
 
     public void loadUsers(){
@@ -39,6 +37,7 @@ public class AFK implements Initializable {
 
     public VBox createHBoxLayout(String name, String role) {
         VBox vBox=new VBox();
+        vBox.setId(name);
         vBox.setAlignment(Pos.CENTER_LEFT);
         vBox.setStyle("-fx-border-color: black; " +
                 "-fx-background-color: grey;");
@@ -80,6 +79,11 @@ public class AFK implements Initializable {
     }
 
     public void keyPad(){
-
+        String name=usersList.getSelectionModel().getSelectedItem().getId();
+        ObservableList<User> users=new DbConnector().loadUsers("select * from biz_hub_users where user_name='"+name+"';");
+        for (User user:users){
+            activeUser=user;
+        }
+        new ScreenLoader().load("/com/jpos/pos/KeyPad.fxml",false, StageStyle.TRANSPARENT,"/images/pos_icon.png");
     }
 }

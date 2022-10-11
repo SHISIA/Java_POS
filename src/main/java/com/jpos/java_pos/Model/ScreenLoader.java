@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -24,6 +25,7 @@ public class ScreenLoader {
             stage.initStyle(stageStyle);
             URL url = getClass().getResource(imIcon);
             stage.getIcons().add(new Image(String.valueOf(url)));
+            stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("POS");
             stage.setScene(scene);
             stage.show();

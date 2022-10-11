@@ -1,14 +1,9 @@
 package com.jpos.java_pos.Model;
 
-import com.github.anastaciocintra.escpos.EscPos;
-import com.github.anastaciocintra.escpos.barcode.BarCode;
-import com.github.anastaciocintra.output.PrinterOutputStream;
 import com.jfoenix.controls.JFXButton;
-import com.jpos.java_pos.Controller.HomeController;
+import com.jpos.java_pos.Controller.AFK;
 import com.jpos.java_pos.Controller.SettingController;
 import com.jpos.java_pos.json.JSON;
-import com.jpos.java_pos.json.JSONReader;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -17,13 +12,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-
-import javax.print.PrintService;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class SalesPOSModel {
     public JFXButton backSpaceBtn;
@@ -113,6 +101,7 @@ public class SalesPOSModel {
     }
 
     void logOut(){
+
         logOutBtn.setOnAction(e->{
             Stage stage=(Stage) logOutBtn.getScene().getWindow();
             stage.close();

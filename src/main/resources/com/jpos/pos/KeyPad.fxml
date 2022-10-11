@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="300.0" prefWidth="414.0" style="-fx-border-color: grey;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jpos.java_pos.Controller.KeyPad">
+   <children>
+      <HBox layoutX="12.0" layoutY="53.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="48.0" prefWidth="403.0" spacing="5.0">
+         <children>
+            <Button fx:id="closeBtn" alignment="CENTER" mnemonicParsing="false" prefHeight="35.0" prefWidth="95.0" style="-fx-background-color: red;" text="Close" textFill="#f8f8f8" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets top="2.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <VBox style="-fx-border-color: black;">
+         <children>
+            <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="41.0" prefWidth="394.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="50.0" prefWidth="139.0" text="Login ID">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="codefield" alignment="CENTER" prefHeight="37.0" prefWidth="261.0" promptText="Input ID">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="41.0" prefWidth="394.0" spacing="2.0">
+               <children>
+                  <Button fx:id="clearBtn" mnemonicParsing="false" prefHeight="41.0" prefWidth="198.0" text="Clear">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="backSpaceBtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="205.0" text="Backspace">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="41.0" prefWidth="394.0">
+               <children>
+                  <Button fx:id="one" mnemonicParsing="false" prefHeight="41.0" prefWidth="145.0" text="1" HBox.hgrow="ALWAYS">
+                     <padding>
+                        <Insets bottom="0.01" left="0.01" right="0.01" top="0.01" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets bottom="0.01" left="0.01" right="0.01" top="0.01" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="two" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="127.0" text="2" HBox.hgrow="ALWAYS">
+                     <padding>
+                        <Insets bottom="0.01" left="0.01" right="0.01" top="0.01" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets bottom="0.01" left="0.01" right="0.01" top="0.01" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="three" layoutX="137.0" layoutY="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="132.0" text="3" HBox.hgrow="ALWAYS">
+                     <padding>
+                        <Insets bottom="0.01" left="0.01" right="0.01" top="0.01" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets bottom="0.01" left="0.01" right="0.01" top="0.01" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="41.0" prefWidth="394.0">
+               <children>
+                  <Button fx:id="four" mnemonicParsing="false" prefHeight="41.0" prefWidth="145.0" text="4" HBox.hgrow="ALWAYS">
+                     <padding>
+                        <Insets bottom="0.01" left="0.01" right="0.01" top="0.01" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets bottom="0.01" left="0.01" right="0.01" top="0.01" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="five" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="127.0" text="5" HBox.hgrow="ALWAYS">
+                     <padding>
+                        <Insets bottom="0.01" left="0.01" right="0.01" top="0.01" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets bottom="0.01" left="0.01" right="0.01" top="0.01" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="six" layoutX="137.0" layoutY="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="132.0" text="6" HBox.hgrow="ALWAYS">
+                     <padding>
+                        <Insets bottom="0.01" left="0.01" right="0.01" top="0.01" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets bottom="0.01" left="0.01" right="0.01" top="0.01" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="41.0" prefWidth="394.0">
+               <children>
+                  <Button fx:id="seven" mnemonicParsing="false" prefHeight="41.0" prefWidth="145.0" text="7" HBox.hgrow="ALWAYS">
+                     <padding>
+                        <Insets bottom="0.01" left="0.01" right="0.01" top="0.01" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets bottom="0.01" left="0.01" right="0.01" top="0.01" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="eight" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="127.0" text="8" HBox.hgrow="ALWAYS">
+                     <padding>
+                        <Insets bottom="0.01" left="0.01" right="0.01" top="0.01" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets bottom="0.01" left="0.01" right="0.01" top="0.01" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="nine" layoutX="137.0" layoutY="10.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="132.0" text="9" HBox.hgrow="ALWAYS">
+                     <padding>
+                        <Insets bottom="0.01" left="0.01" right="0.01" top="0.01" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets bottom="0.01" left="0.01" right="0.01" top="0.01" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="41.0" prefWidth="403.0">
+               <children>
+                  <Button fx:id="loginBtn" mnemonicParsing="false" prefHeight="39.0" prefWidth="404.0" text="Login" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets bottom="0.2" left="0.2" right="0.2" top="0.2" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+   <padding>
+      <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+   </padding>
+</VBox>

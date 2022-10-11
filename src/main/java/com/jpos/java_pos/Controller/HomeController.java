@@ -58,6 +58,6 @@ public class HomeController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         URL url1 = getClass().getResource("/images/pos.png");
         avatar.setFill(new ImagePattern(new Image(String.valueOf(url1))));
-        setBtnPOS();
+        setBtnAFK();
     }
 }
