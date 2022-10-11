@@ -5,6 +5,7 @@ import com.jpos.java_pos.Model.ScreenLoader;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.ImagePattern;
@@ -29,16 +30,21 @@ public class HomeController implements Initializable {
     public JFXButton btnSettings;
     @FXML
     public JFXButton btnLogout;
+    @FXML
     public Circle avatar;
+    @FXML
+    public Button sideBarToggle;
 
     public void setContainer(String url){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(url));
-        container.getChildren().remove(container.getCenter()); //remove existing fxml from center.
-        try {
-            container.setCenter(fxmlLoader.load());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }    }
+              container.getChildren().remove(container.getCenter()); //remove existing fxml from center.
+              try {
+                  container.setCenter(fxmlLoader.load());
+              } catch (IOException e) {
+                  e.printStackTrace();
+              }
+    }
+
     @FXML
     void setBtnPOS(){
         if (KeyPad.passCodeStatus) {
@@ -48,6 +54,18 @@ public class HomeController implements Initializable {
 
         }
     }
+
+    @FXML
+    void setToggle(){
+        setContainer("/com/jpos/pos/Toggle.fxml");
+    }
+
+    @FXML
+    void unToggle(){
+        container.getChildren().remove(container.getLeft());
+        setContainer("/com/jpos/pos/SideBar.fxml");//remove existing fxml from center.
+    }
+
     @FXML
     void setBtnAFK(){setContainer("/com/jpos/pos/AFK.fxml");}
     @FXML
@@ -63,8 +81,8 @@ public class HomeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        URL url1 = getClass().getResource("/images/pos.png");
-        avatar.setFill(new ImagePattern(new Image(String.valueOf(url1))));
+//        URL url1 = getClass().getResource("/images/pos.png");
+//        avatar.setFill(new ImagePattern(new Image(String.valueOf(url1))));
         setBtnAFK();
     }
 }
