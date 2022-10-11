@@ -40,7 +40,14 @@ public class HomeController implements Initializable {
             e.printStackTrace();
         }    }
     @FXML
-    void setBtnPOS(){setContainer("/com/jpos/pos/SalesPOS.fxml");}
+    void setBtnPOS(){
+        if (KeyPad.passCodeStatus) {
+            setContainer("/com/jpos/pos/SalesPOS.fxml");
+        }else {
+            new SettingController().notification("Kindly Authenticate First","puzzled.png",2);
+
+        }
+    }
     @FXML
     void setBtnAFK(){setContainer("/com/jpos/pos/AFK.fxml");}
     @FXML

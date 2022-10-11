@@ -1,5 +1,6 @@
 package com.jpos.java_pos.Controller;
 
+import com.jpos.java_pos.Model.Notification;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -26,17 +27,15 @@ public class KeyPad implements Initializable {
     public Button loginBtn;
     public Button closeBtn;
 
+    public static boolean passCodeStatus=false;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         keySetUp();
     }
 
     public void keySetUp(){
-
-        closeBtn.setOnAction(e->{
-            Stage stage=(Stage) closeBtn.getScene().getWindow();
-            stage.close();
-        });
+        closeBtn.setOnAction(e->closeUI());
         backSpaceBtn.setOnAction(e -> codefield.setText(codefield.getText().substring(0, codefield.getText().length() - 1)));
 //        zero.setOnAction(e -> barcodeSearch.appendText("0"));
         one.setOnAction(e -> codefield.appendText("1"));
@@ -48,9 +47,27 @@ public class KeyPad implements Initializable {
         seven.setOnAction(e ->codefield.appendText("7"));
         eight.setOnAction(e ->codefield.appendText("8"));
         nine.setOnAction(e ->codefield.appendText("9"));
-        clearBtn.setOnAction(e -> {
-            codefield.clear();
-        });
+        clearBtn.setOnAction(e -> codefield.clear());
 
+        handleLogin();
+    }
+
+    public void closeUI(){
+            Stage stage=(Stage) closeBtn.getScene().getWindow();
+            stage.close();
+    }
+
+    public void handleLogin(){
+        loginBtn.setOnAction(e->{
+            if (AFK.activeUser.getPassCode().matches(codefield.getText())){
+                new SettingController().notification("Login Success!!","success.png",2);
+                passCodeStatus=true;
+                codefield.clear();
+                closeUI();
+            }else {
+                new SettingController().notification("Passcode Incorrect!!","error.png",2);
+                passCodeStatus=false;
+            }
+        });
     }
 }

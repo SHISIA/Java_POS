@@ -217,13 +217,10 @@
                               </HBox>
                               <HBox alignment="CENTER" layoutX="10.0" layoutY="148.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="61.0" prefWidth="198.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <Button fx:id="doubleO" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" stylesheets="@../../../_css/button.css" text="00" HBox.hgrow="ALWAYS">
+                                    <Button fx:id="multiply" layoutX="128.0" layoutY="31.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="35.0" prefWidth="57.0" stylesheets="@../../../_css/button.css" text="." HBox.hgrow="ALWAYS">
                                        <HBox.margin>
-                                          <Insets bottom="15.0" left="15.0" right="15.0" top="20.0" />
+                                          <Insets bottom="15.0" left="15.0" right="5.0" top="20.0" />
                                        </HBox.margin>
-                                       <font>
-                                          <Font name="Apple SD Gothic Neo Bold" size="13.0" />
-                                       </font>
                                     </Button>
                                     <Button fx:id="zero" layoutX="31.0" layoutY="31.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" stylesheets="@../../../_css/button.css" text="0" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
@@ -233,10 +230,13 @@
                                           <Font name="System Italic" size="18.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="multiply" layoutX="128.0" layoutY="31.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="35.0" prefWidth="66.0" stylesheets="@../../../_css/button.css" text="Multiply" HBox.hgrow="ALWAYS">
+                                    <Button fx:id="doubleO" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" stylesheets="@../../../_css/button.css" text="00" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
-                                          <Insets bottom="15.0" left="15.0" right="5.0" top="20.0" />
+                                          <Insets bottom="15.0" left="15.0" right="15.0" top="20.0" />
                                        </HBox.margin>
+                                       <font>
+                                          <Font name="Apple SD Gothic Neo Bold" size="13.0" />
+                                       </font>
                                     </Button>
                                  </children>
                                  <VBox.margin>

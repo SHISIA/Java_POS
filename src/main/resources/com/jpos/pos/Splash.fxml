@@ -9,6 +9,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <VBox alignment="CENTER" prefHeight="613.0" prefWidth="844.0" spacing="20.0" stylesheets="@../../../_css/background.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jpos.java_pos.Controller.SplashController">
     <padding>
@@ -16,22 +17,25 @@
     </padding>
    <HBox alignment="TOP_CENTER" prefHeight="286.0" prefWidth="984.0" VBox.vgrow="ALWAYS">
       <children>
-         <ImageView fx:id="splashLogo" fitHeight="344.0" fitWidth="831.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
-            <HBox.margin>
-               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-            </HBox.margin>
-            <image>
-               <Image url="@../../../images/pos.png" />
-            </image>
-         </ImageView>
-         <JFXButton fx:id="closeBtn" prefHeight="26.0" prefWidth="25.0" ripplerFill="#eb070700" style="-fx-border-color: black; -fx-border-radius: 14; -fx-background-color: transparent; -fx-background-radius: 14;" text="X" textFill="#fc0707" HBox.hgrow="ALWAYS">
+         <JFXButton fx:id="closeBtn" prefHeight="39.0" prefWidth="38.0" ripplerFill="#eb070700" style="-fx-border-color: black; -fx-border-radius: 14; -fx-background-color: transparent; -fx-background-radius: 14;" text="X" textFill="#1b0202" HBox.hgrow="ALWAYS">
             <tooltip>
                <Tooltip text="Close POS" />
             </tooltip>
             <HBox.margin>
                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
             </HBox.margin>
+            <font>
+               <Font name="System Bold" size="18.0" />
+            </font>
          </JFXButton>
+         <ImageView fx:id="splashLogo" fitHeight="194.0" fitWidth="747.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+            <HBox.margin>
+               <Insets bottom="10.0" left="10.0" right="10.0" top="70.0" />
+            </HBox.margin>
+            <image>
+               <Image url="@../../../images/pos.png" />
+            </image>
+         </ImageView>
       </children>
    </HBox>
    <JFXComboBox fx:id="dropDown" labelFloat="true" prefHeight="27.0" prefWidth="281.0" promptText="Select a Database" VBox.vgrow="ALWAYS">
@@ -41,7 +45,7 @@
       <tooltip>
          <Tooltip maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Choose Database to use" />
       </tooltip></JFXComboBox>
-   <JFXButton fx:id="connectDBBtn" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="36.0" prefWidth="156.0" text="Connect" VBox.vgrow="ALWAYS">
+   <JFXButton fx:id="connectDBBtn" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="53.0" prefWidth="184.0" stylesheets="@../../../_css/button.css" text="Connect" VBox.vgrow="ALWAYS">
       <VBox.margin>
          <Insets left="300.0" right="300.0" top="15.0" />
       </VBox.margin>
