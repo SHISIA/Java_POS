@@ -42,7 +42,7 @@ public class HomeController implements Initializable {
     @FXML
     void setBtnPOS(){setContainer("/com/jpos/pos/SalesPOS.fxml");}
     @FXML
-    void setBtnAFK(){/*setContainer("/com/jpos/pos/SalesPOS.fxml");*/}
+    void setBtnAFK(){setContainer("/com/jpos/pos/AFK.fxml");}
     @FXML
     void setBtnManager(){/*setContainer("/com/jpos/pos/SalesPOS.fxml");*/}
     @FXML

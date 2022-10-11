@@ -3,9 +3,8 @@
 <?import com.jfoenix.controls.JFXListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="688.0" prefWidth="1013.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jpos.pos.AFK">
+<AnchorPane prefHeight="688.0" prefWidth="1013.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jpos.java_pos.Controller.AFK">
    <children>
-      <JFXListView layoutX="5.0" layoutY="4.0" prefHeight="678.0" prefWidth="1002.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="4.0" />
+      <JFXListView fx:id="usersList" layoutX="5.0" layoutY="4.0" prefHeight="678.0" prefWidth="1002.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="4.0" />
    </children>
 </AnchorPane>

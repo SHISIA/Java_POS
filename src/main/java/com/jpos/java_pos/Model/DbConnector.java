@@ -120,13 +120,32 @@ public class DbConnector {
                 double price= rs.getInt(2);
                 double total=price*quantity;
                 products.add(new Product(name,quantity, price,total,new Button("Edit"),new Button("Delete")));
-
             }
             connection.close();
         } catch (SQLException e) {
             new SettingController().notification("Logout and (Check) Select Schema","puzzled.png",3);
         }
         return products;
+    }
+
+    public ObservableList<User> loadUsers(String sql){
+        setCredentials();
+        ObservableList<User> users = FXCollections.observableArrayList();
+        try {
+            ResultSet rs=getConnection().createStatement().executeQuery(sql);
+            while (rs.next()){
+                String role=rs.getString(3);
+                String name=rs.getString(2);
+                String code=rs.getString(4);
+                String passcode=rs.getString(5);
+                String uid=rs.getString(1);
+                users.add(new User(role,name,code,passcode,uid));
+            }
+            connection.close();
+        } catch (SQLException e) {
+            new SettingController().notification("Logout and (Check) Select Schema","puzzled.png",3);
+        }
+        return users;
     }
 
 
