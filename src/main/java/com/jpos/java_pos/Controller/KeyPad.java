@@ -36,8 +36,10 @@ public class KeyPad implements Initializable {
 
     public void keySetUp(){
         closeBtn.setOnAction(e->closeUI());
-        backSpaceBtn.setOnAction(e -> codefield.setText(codefield.getText().substring(0, codefield.getText().length() - 1)));
-//        zero.setOnAction(e -> barcodeSearch.appendText("0"));
+        if (!codefield.getText().isBlank()){
+            backSpaceBtn.setOnAction(e -> codefield.setText(codefield.getText().substring(0, codefield.getText().length() - 1)));
+        }
+//      zero.setOnAction(e -> barcodeSearch.appendText("0"));
         one.setOnAction(e -> codefield.appendText("1"));
         two.setOnAction(e -> codefield.appendText("2"));
         three.setOnAction(e -> codefield.appendText("3"));

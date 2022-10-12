@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXListView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="653.0" prefWidth="938.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jpos.java_pos.Controller.Manager">
+   <children>
+      <Button layoutX="16.0" layoutY="80.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="184.0" text="Manage Users" AnchorPane.bottomAnchor="537.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="738.0" AnchorPane.topAnchor="80.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <JFXListView fx:id="permissionList" layoutX="7.0" layoutY="215.0" orientation="HORIZONTAL" prefHeight="238.0" prefWidth="927.0" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="215.0" />
+      <Label layoutX="16.0" layoutY="146.0" prefHeight="36.0" prefWidth="303.0" text="Permissions" AnchorPane.bottomAnchor="471.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="619.0" AnchorPane.topAnchor="146.0">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
