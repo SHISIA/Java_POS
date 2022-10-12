@@ -6,8 +6,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
@@ -34,6 +37,9 @@ public class HomeController implements Initializable {
     public Circle avatar;
     @FXML
     public Button sideBarToggle;
+    public VBox btnContainer;
+    public HBox sideBar;
+    public VBox toggleContainer;
 
     public void setContainer(String url){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(url));
@@ -51,19 +57,28 @@ public class HomeController implements Initializable {
             setContainer("/com/jpos/pos/SalesPOS.fxml");
         }else {
             new SettingController().notification("Kindly Authenticate First","puzzled.png",2);
-
         }
     }
 
     @FXML
     void setToggle(){
-        setContainer("/com/jpos/pos/Toggle.fxml");
+        leftToggler();
     }
 
-    @FXML
-    void unToggle(){
-        container.getChildren().remove(container.getLeft());
-        setContainer("/com/jpos/pos/SideBar.fxml");//remove existing fxml from center.
+     void leftToggler(){
+        String text=sideBarToggle.getText();
+      if (text.contains("|<")){
+          sideBar.getChildren().remove(btnContainer);
+          sideBar.setPrefWidth(28);
+          sideBarToggle.setText(">|");
+          sideBarToggle.setTooltip(new Tooltip("Click to Show"));
+      }else{
+          sideBar.getChildren().clear();
+          sideBarToggle.setMinWidth(30);
+          sideBar.getChildren().addAll(btnContainer,toggleContainer);
+          sideBarToggle.setText("|<");
+          sideBarToggle.setTooltip(new Tooltip("Click to Hide"));
+      }
     }
 
     @FXML
@@ -74,15 +89,13 @@ public class HomeController implements Initializable {
     void setBtnSettings(){setContainer("/com/jpos/pos/Settings.fxml");}
     @FXML
     void setBtnLogout(){
-        Stage stage=(Stage) btnLogout.getScene().getWindow();
-        stage.close();
-        new ScreenLoader().load("/com/jpos/pos/Splash.fxml",false, StageStyle.UNDECORATED,"/images/pos_icon.png");
+        KeyPad.passCodeStatus=false;
+        setContainer("/com/jpos/pos/AFK.fxml");
         }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        URL url1 = getClass().getResource("/images/pos.png");
-//        avatar.setFill(new ImagePattern(new Image(String.valueOf(url1))));
+        URL url1 = getClass().getResource("/images/pos.png");
+        avatar.setFill(new ImagePattern(new Image(String.valueOf(url1))));
         setBtnAFK();
     }
 }

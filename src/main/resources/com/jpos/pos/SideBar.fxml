@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<HBox prefHeight="915.0" prefWidth="192.0" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="com.jpos.java_pos.Controller.HomeController" xmlns:fx="http://javafx.com/fxml/1">
+<HBox prefHeight="915.0" prefWidth="192.0" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="com.jpos.java_pos.Controller.SideBar" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="915.0" prefWidth="148.0" spacing="1.0" style="-fx-background-color: #B2B2B2;" HBox.hgrow="ALWAYS">
          <children>

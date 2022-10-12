@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Java_POS:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cbce7a9-e94a-4b3d-b76b-47e73dc1b1c2" name="Changes" comment="Stage One POS Complete">
+    <list default="true" id="3cbce7a9-e94a-4b3d-b76b-47e73dc1b1c2" name="Changes" comment="Sorted the toggle button. Remains fixing functionality">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Controller/SideBar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/jpos/pos/Manager.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Controller/AFK.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Controller/AFK.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Controller/Toggle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Controller/Toggle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/jpos/pos/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/jpos/pos/Home.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/jpos/pos/SideBar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/jpos/pos/SideBar.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/jpos/pos/Toggle.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/jpos/pos/Toggle.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,9 +28,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -47,15 +60,16 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/apple/Documents/Java_POS/src/main/resources/docs&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/apple/Documents/Java_POS/src/main/resources/images&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/images" />
       <recent name="$PROJECT_DIR$/src/main/resources/docs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -76,19 +90,6 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.jpos.java_pos.Model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="JSON" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.jpos.java_pos.json.JSON" />
-      <module name="Java_POS" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.jpos.java_pos.json.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -136,13 +137,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.jpos.java_pos.test" />
+      <module name="Java_POS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jpos.java_pos.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Splash" />
+        <item itemvalue="Application.test" />
         <item itemvalue="Application.Confirmation" />
         <item itemvalue="Application.Notification" />
         <item itemvalue="Application.JSONReader" />
-        <item itemvalue="Application.JSON" />
       </list>
     </recent_temporary>
   </component>
@@ -337,7 +351,56 @@
       <option name="project" value="LOCAL" />
       <updated>1664532243879</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Stage One POS Complete">
+      <created>1664533745071</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1664533745071</updated>
+    </task>
+    <task id="LOCAL-00028" summary="icon warning">
+      <created>1664535396605</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1664535396605</updated>
+    </task>
+    <task id="LOCAL-00029" summary="added AFK panel.Confirmed working of Thermal Printer with code">
+      <created>1665490463409</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1665490463409</updated>
+    </task>
+    <task id="LOCAL-00030" summary="set up the user lists and  icon">
+      <created>1665514708644</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1665514708644</updated>
+    </task>
+    <task id="LOCAL-00031" summary="SetUp the KeyPad.fxml, background functionality and Modality to prevent multiple occurrences">
+      <created>1665519434839</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1665519434839</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Adjusted the UI size.Added CSS to splashScreen button ,added authentication in AFK area">
+      <created>1665525188521</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1665525188521</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Sorted the toggle button. Remains fixing functionality">
+      <created>1665529062123</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1665529062123</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -353,13 +416,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="The First Commit with UI updates and skeletons" />
-    <MESSAGE value="Added the controller" />
-    <MESSAGE value="Edit Panel Scene Functionality" />
-    <MESSAGE value="Added printerCheckFunctionality" />
-    <MESSAGE value="set up checkout button functionality" />
-    <MESSAGE value="Remaining UI Refactor and CSS styling" />
-    <MESSAGE value="conncted to db and added sql files to be tested on windows machine. new SettingsNew.fxml to recreate responsive UI" />
     <MESSAGE value="Made the Settings.fxml UI screen responsive" />
     <MESSAGE value="Made the SalesPOS.fxml UI screen responsive" />
     <MESSAGE value="Set up the server database settings and txt for temporary credential  storage" />
@@ -377,7 +433,15 @@
     <MESSAGE value="fixed db connections" />
     <MESSAGE value="fixed db connectionsStage One POS Complete" />
     <MESSAGE value="Stage One POS Complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="Stage One POS Complete" />
+    <MESSAGE value="icon warning" />
+    <MESSAGE value="added AFK panel.Confirmed working of Thermal Printer with code" />
+    <MESSAGE value="set up the user lists and smazy icon" />
+    <MESSAGE value="set up the user lists and  icon" />
+    <MESSAGE value="SetUp the KeyPad.fxml, background functionality and Modality to prevent multiple occurences" />
+    <MESSAGE value="SetUp the KeyPad.fxml, background functionality and Modality to prevent multiple occurrences" />
+    <MESSAGE value="Adjusted the UI size.Added CSS to splashScreen button ,added authentication in AFK area" />
+    <MESSAGE value="Sorted the toggle button. Remains fixing functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sorted the toggle button. Remains fixing functionality" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

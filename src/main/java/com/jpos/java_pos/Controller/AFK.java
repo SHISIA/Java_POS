@@ -82,11 +82,14 @@ public class AFK implements Initializable {
     }
 
     public void keyPad(){
-        String name=usersList.getSelectionModel().getSelectedItem().getId();
-        ObservableList<User> users=new DbConnector().loadUsers("select * from biz_hub_users where user_name='"+name+"';");
-        for (User user:users){
-            activeUser=user;
+        if (usersList.getSelectionModel().getSelectedItem()!=null){
+            String name=usersList.getSelectionModel().getSelectedItem().getId();
+            ObservableList<User> users=new DbConnector().loadUsers("select * from biz_hub_users where user_name='"+name+"';");
+            for (User user:users){
+                activeUser=user;
+            }
+            new ScreenLoader().load("/com/jpos/pos/KeyPad.fxml",false, StageStyle.TRANSPARENT,"/images/pos_icon.png");
+
         }
-        new ScreenLoader().load("/com/jpos/pos/KeyPad.fxml",false, StageStyle.TRANSPARENT,"/images/pos_icon.png");
     }
 }
