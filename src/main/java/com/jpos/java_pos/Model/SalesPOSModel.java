@@ -25,7 +25,7 @@ public class SalesPOSModel {
     public Button seven;
     public Button eight;
     public Button nine;
-    public Button doubleO;
+    public Button dotButton;
     public Button zero;
     public Button multiply;
     public Button plusBtn;
@@ -65,7 +65,7 @@ public class SalesPOSModel {
     public SalesPOSModel(TableView<Product> productsTable, TableColumn<Product,String> nameCol, TableColumn<Product,Number> countCol, TableColumn<Product,Number> priceCol
             , TableColumn<Product,Number> totalCol, TableColumn<Product,Button> editCol, TableColumn<Product, Button> deleteCol, TextField barcodeSearch, Button findBtn, JFXButton checkout,
                          Button plusBtn,Button minusBtn,TableView smartList,Button multiply,Button zero, Button one,Button two,JFXButton logOutBtn,
-                         Button three,Button four,Button five,Button six,Button seven,Button eight,Button nine,Button doubleO,JFXButton clearBtn,JFXButton backSpaceBtn,JFXButton deleteTicket) {
+                         Button three,Button four,Button five,Button six,Button seven,Button eight,Button nine,Button dotButton,JFXButton clearBtn,JFXButton backSpaceBtn,JFXButton deleteTicket) {
         this.productsTable=productsTable;
         this.nameCol=nameCol;
         this.countCol=countCol;
@@ -84,7 +84,7 @@ public class SalesPOSModel {
         this.five=five;
         this.six=six;
         this.seven=seven;
-        this.doubleO=doubleO;
+        this.dotButton=dotButton;
         this.eight=eight;
         this.nine=nine;
         this.multiply=multiply;
@@ -127,6 +127,9 @@ public class SalesPOSModel {
         seven.setOnAction(e -> barcodeSearch.appendText("7"));
         eight.setOnAction(e -> barcodeSearch.appendText("8"));
         nine.setOnAction(e -> barcodeSearch.appendText("9"));
+        dotButton.setOnAction(e->{
+            barcodeSearch.appendText(".");
+        });
         clearBtn.setOnAction(e -> {
             barcodeSearch.clear();
           }

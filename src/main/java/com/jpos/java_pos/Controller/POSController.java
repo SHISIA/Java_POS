@@ -63,8 +63,6 @@ public class POSController implements Initializable {
     @FXML
     public Button nine;
     @FXML
-    public Button doubleO;
-    @FXML
     public Button zero;
     @FXML
     public Button multiply;
@@ -76,10 +74,12 @@ public class POSController implements Initializable {
     public TableView smartList;
     @FXML
     public JFXButton checkout;
+    @FXML
+    public Button dotButton;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         new SalesPOSModel(productsTable,nameCol,countCol,priceCol,totalCol,editCol,deleteCol,barcodeSearch,findBtn,checkout,
-        plusBtn,minusBtn,smartList,multiply,zero,one,two,logOutBtn,three,four,five,six,seven,eight,nine,doubleO,clearBtn,backSpaceBtn,deleteTicket);
+        plusBtn,minusBtn,smartList,multiply,zero,one,two,logOutBtn,three,four,five,six,seven,eight,nine,dotButton,clearBtn,backSpaceBtn,deleteTicket);
     }
 }

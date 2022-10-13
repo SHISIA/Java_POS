@@ -96,7 +96,6 @@ public class Manager implements Initializable {
                 "where permission_uid in (select permission_uid from biz_hub_permissions where permissions_group='POS Manager Tab'));");
         for (User user:users){
             if (user.getName().matches(AFK.activeUser.getName())){
-                System.out.println("User has manager privilege");
                 return true;
             }
           }

@@ -61,7 +61,6 @@ public class DbConnector {
             Class.forName("com.mysql.cj.jdbc.Driver");
              connection= DriverManager.getConnection(
                     "jdbc:mysql://"+getHostName()+":3306/"+getSchema(),getUserName(),getPassword());
-            System.out.println("Connected to database");
 
         }catch (Exception e){
             new SettingController().notification("DB Connection Error","error.png",7);
@@ -70,9 +69,10 @@ public class DbConnector {
     }
 
     public void setCredentials(){
-        JSONObject jsonObject=new JSONReader().read("data.json","server");
+//        JSONObject jsonObject=new JSONReader().read("data.json","server");
         setSchema(SplashModel.selectedDB);
-        setHostName((String) jsonObject.get("hostName"));
+//        setHostName((String) jsonObject.get("hostName"));
+        setHostName(SplashModel.selectedHost);
         JSONObject jsonObject1=new JSONReader().read("data_.json","server");
         setPassword((String) jsonObject1.get("password"));
         setUserName((String) jsonObject1.get("username"));
@@ -104,7 +104,6 @@ public class DbConnector {
             PreparedStatement statement1=getConnection().prepareStatement(statement);
             statement1.execute();
             connection.close();
-            System.out.println("Execution Success");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -124,7 +123,8 @@ public class DbConnector {
             }
             connection.close();
         } catch (SQLException e) {
-            new SettingController().notification("Logout and (Check) Select Schema","puzzled.png",3);
+            new SettingController().notification("Not Found","puzzled.png",3);
+//            e.printStackTrace();
         }
         return products;
     }
