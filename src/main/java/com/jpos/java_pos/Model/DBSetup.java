@@ -35,6 +35,8 @@ public class DBSetup implements Initializable {
     public JFXCheckBox passShowCheck;
     @FXML
     public JFXButton closeBtn;
+    @FXML
+    public JFXTextField hostField;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

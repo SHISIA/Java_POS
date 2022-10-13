@@ -45,6 +45,11 @@
       <tooltip>
          <Tooltip maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Choose Database to use" />
       </tooltip></JFXComboBox>
+   <JFXComboBox fx:id="hostDown" labelFloat="true" layoutX="292.0" layoutY="377.0" prefHeight="27.0" prefWidth="281.0" promptText="Select Database Host">
+      <tooltip>
+         <Tooltip maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Choose Database to use" />
+      </tooltip>
+   </JFXComboBox>
    <JFXButton fx:id="connectDBBtn" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="53.0" prefWidth="184.0" stylesheets="@../../../_css/button.css" text="Connect" VBox.vgrow="ALWAYS">
       <VBox.margin>
          <Insets left="300.0" right="300.0" top="15.0" />

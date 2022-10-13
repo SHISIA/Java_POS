@@ -37,26 +37,54 @@ public class Manager implements Initializable {
         loadManager();
     }
 
-    VBox tileTemplate(String permission){
+    VBox tileTemplate(int number,String permissionName){
         VBox vBox=new VBox();
-        vBox.setAlignment(Pos.CENTER);
-        Label label=new Label(permission);
-        label.setMinWidth(100);
-        label.setMinHeight(150);
-        label.setStyle("-fx-font-size:20;");
-        vBox.setStyle("-fx-border-color: white; " +
-                "-fx-background-color: orange;");
-        vBox.setPadding(new Insets(15,15,15,15));
-        HBox hbox = new HBox();
-        hbox.setPadding(new Insets(4.0,4.0,4.0,4.0));
+        HBox hBox=new HBox();
+        VBox vBox1=new VBox();
+        HBox hBox1=new HBox();
+        HBox hBox2=new HBox();
 
-        hbox.setStyle("-fx-background-color:white;");
-        hbox.prefHeight(195);
-        hbox.prefWidth(195);
-        hbox.getChildren().addAll(label);
-        vBox.getChildren().addAll(hbox);
-        hbox.setMinWidth(200);
-        hbox.minHeight(200);
+        //avatar
+        ImageView avatar=new ImageView(new Image(getClass().getResource("/images/permission.png").toString()));
+        hBox.getChildren().add(avatar);
+
+        Label nameLabel=new Label("No:");
+        Label name=new Label(String.valueOf(number));
+        Label permissionLabel=new Label("Permission:");
+        Label permission=new Label(permissionName);
+
+        hBox1.getChildren().addAll(nameLabel,name);
+        hBox1.setAlignment(Pos.CENTER);
+        hBox1.setSpacing(10);
+        hBox2.setSpacing(10);
+        hBox2.setAlignment(Pos.CENTER);
+        hBox2.getChildren().addAll(permissionLabel,permission);
+        vBox1.getChildren().addAll(hBox1,hBox2);
+        vBox1.setAlignment(Pos.CENTER);
+
+        //styling
+        name.setStyle("-fx-font-size:22;" +
+                "-fx-text-fill:orange;" +
+                "-fx-font-weight:bold;");
+        nameLabel.setStyle("-fx-font-size:18;");
+        permissionLabel.setStyle("-fx-font-size:18;");
+        permission.setStyle("-fx-font-size:22;" +
+                "-fx-text-fill:orange;" +
+                "-fx-font-weight:bold;");
+        vBox.setStyle("-fx-border-color:grey;");
+
+        vBox1.setAlignment(Pos.CENTER);
+
+        vBox1.setPadding(new Insets(5,5,5,5));
+        vBox.setPadding(new Insets(5,5,5,5));
+        vBox.setSpacing(10);
+        hBox.setAlignment(Pos.CENTER);
+        hBox.setPadding(new Insets(2,2,2,2));
+        vBox1.setSpacing(20);
+        vBox.setAlignment(Pos.CENTER);
+        vBox.setPrefSize(300,220);
+        vBox.getChildren().addAll(hBox,vBox1);
+
         return vBox;
     }
 
@@ -86,10 +114,12 @@ public class Manager implements Initializable {
                        String sql="select permission_name from biz_hub_permissions where permissions_group='POS Manager Tab' and permission_uid in\n" +
                                "(select permission_uid from biz_hub_permissions_users where user_uid in(select user_uid from biz_hub_users where user_uid='"+user.getUid()+"'))";
                        Connection connection= connector.getConnection();
-                       ResultSet rs=connection.createStatement().executeQuery(sql);;
+                       ResultSet rs=connection.createStatement().executeQuery(sql);
+                       int num=1;
                        while (rs.next()){
                            String permission=rs.getString(1);
-                           permissionList.getItems().add(tileTemplate(permission));
+                           permissionList.getItems().add(tileTemplate(num,permission));
+                           num++;
                        }
                        connection.close();
                    } catch (SQLException e) {

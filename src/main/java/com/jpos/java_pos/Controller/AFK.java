@@ -1,6 +1,7 @@
 package com.jpos.java_pos.Controller;
 
 import com.jfoenix.controls.JFXListView;
+import com.jpos.java_pos.Model.Confirmation;
 import com.jpos.java_pos.Model.DbConnector;
 import com.jpos.java_pos.Model.ScreenLoader;
 import com.jpos.java_pos.Model.User;
@@ -8,11 +9,13 @@ import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.net.URL;
@@ -91,5 +94,18 @@ public class AFK implements Initializable {
             new ScreenLoader().load("/com/jpos/pos/KeyPad.fxml",false, StageStyle.TRANSPARENT,"/images/pos_icon.png");
 
         }
+    }
+
+    public void close(){
+        Stage stage=new Stage();
+        Confirmation confirmation=new Confirmation();
+        confirmation.setImageIcon("quiz.png");
+        confirmation.setMessage("Are you Shutting the system?");
+        Button button=confirmation.getYesButton();
+        button.setOnAction(e->{
+            System.exit(0);
+        });
+        confirmation.start(stage);
+
     }
 }
