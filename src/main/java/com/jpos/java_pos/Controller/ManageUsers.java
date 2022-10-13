@@ -60,12 +60,12 @@ public class ManageUsers implements Initializable {
         JFXButton button=new JFXButton("Edit");
         button.setOnAction(e->{
             userClicked=user;
-            new ScreenLoader().load("/com/jpos/pos/CreateEdit.fxml",false, StageStyle.TRANSPARENT,"/images/pos.png");
+            new ScreenLoader().load("/com/jpos/pos/Edit.fxml",false, StageStyle.TRANSPARENT,"/images/pos.png");
         });
         JFXButton create=new JFXButton("Create");
         create.setOnAction(e->{
             userClicked=user;
-            new ScreenLoader().load("/com/jpos/pos/CreateEdit.fxml",false, StageStyle.TRANSPARENT,"/images/pos.png");
+            new ScreenLoader().load("/com/jpos/pos/Edit.fxml",false, StageStyle.TRANSPARENT,"/images/pos.png");
 
         });
         hBox3.getChildren().addAll(button,create);
