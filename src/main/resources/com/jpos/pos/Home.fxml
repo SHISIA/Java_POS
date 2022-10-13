@@ -22,7 +22,7 @@
             <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
          </padding>
          <left>
-            <HBox fx:id="sideBar" prefHeight="915.0" prefWidth="197.0" BorderPane.alignment="CENTER">
+            <HBox fx:id="sideBar" prefHeight="915.0" prefWidth="197.0" style="-fx-background-color: #B2B2B2;" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                </BorderPane.margin>
@@ -87,7 +87,7 @@
                         <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                      </HBox.margin>
                   </VBox>
-                  <VBox fx:id="toggleContainer" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                  <VBox fx:id="toggleContainer" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #B2B2B2;" HBox.hgrow="ALWAYS">
                      <children>
                         <Button fx:id="sideBarToggle" alignment="CENTER" mnemonicParsing="false" onAction="#setToggle" prefHeight="114.0" prefWidth="28.0" text="|&lt;" VBox.vgrow="ALWAYS">
                            <font>
