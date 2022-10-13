@@ -1,18 +1,22 @@
 package com.jpos.java_pos.Controller;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
-import com.jpos.java_pos.Model.DBSetup;
-import com.jpos.java_pos.Model.DbConnector;
-import com.jpos.java_pos.Model.Product;
-import com.jpos.java_pos.Model.User;
+import com.jpos.java_pos.Model.*;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.effect.GaussianBlur;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.StageStyle;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -25,10 +29,11 @@ public class Manager implements Initializable {
     public JFXListView permissionList;
 
     public DbConnector connector=new DbConnector();
+    public AnchorPane manager;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        loadUsers();
+        loadManager();
     }
 
     VBox tileTemplate(String permission){
@@ -70,7 +75,7 @@ public class Manager implements Initializable {
         return false;
     }
 
-    public void loadUsers(){
+    public void loadManager(){
         connector.setCredentials();
         ObservableList<User> users=connector.loadUsers("select * from biz_hub_users;");
        if (KeyPad.passCodeStatus){
@@ -93,5 +98,9 @@ public class Manager implements Initializable {
 
            }
        }
+    }
+
+    public void loadUsers(){
+        new ScreenLoader().load("/com/jpos/pos/ManageUsers.fxml",false, StageStyle.TRANSPARENT,"/images/pos.png");
     }
 }

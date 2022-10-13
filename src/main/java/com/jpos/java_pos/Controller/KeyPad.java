@@ -26,7 +26,6 @@ public class KeyPad implements Initializable {
     public Button nine;
     public Button loginBtn;
     public Button closeBtn;
-
     public static boolean passCodeStatus=false;
 
     @Override

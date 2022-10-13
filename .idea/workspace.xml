@@ -9,16 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cbce7a9-e94a-4b3d-b76b-47e73dc1b1c2" name="Changes" comment="Sorted the toggle button. Remains fixing functionality">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Controller/SideBar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/jpos/pos/Manager.fxml" afterDir="false" />
+    <list default="true" id="3cbce7a9-e94a-4b3d-b76b-47e73dc1b1c2" name="Changes" comment="Authentication to Manager tab, user privilege validation">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Controller/ManageUsers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/jpos/pos/ManageUsers.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/avatar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/locked.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Controller/AFK.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Controller/AFK.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Controller/Toggle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Controller/Toggle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/jpos/pos/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/jpos/pos/Home.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/jpos/pos/SideBar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/jpos/pos/SideBar.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/jpos/pos/Toggle.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/jpos/pos/Toggle.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Controller/KeyPad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Controller/KeyPad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Controller/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/Controller/Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jpos/java_pos/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/jpos/pos/Manager.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/jpos/pos/Manager.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +29,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -400,7 +400,28 @@
       <option name="project" value="LOCAL" />
       <updated>1665529062123</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Toggle functionality and toggle settings. Fixed sideBar hide and show">
+      <created>1665605858399</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1665605858400</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Manager Tab">
+      <created>1665610679229</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1665610679229</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Authentication to Manager tab, user privilege validation">
+      <created>1665651819499</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1665651819499</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -416,9 +437,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Made the Settings.fxml UI screen responsive" />
-    <MESSAGE value="Made the SalesPOS.fxml UI screen responsive" />
-    <MESSAGE value="Set up the server database settings and txt for temporary credential  storage" />
     <MESSAGE value="reading from text files, linking them to dropdown menus, arrays and database connections" />
     <MESSAGE value="removed txt files because of read and write issues. Replaced with JSON files for easy operations" />
     <MESSAGE value="Successfully connected to json files, added popup error message changes and icon additions" />
@@ -441,7 +459,10 @@
     <MESSAGE value="SetUp the KeyPad.fxml, background functionality and Modality to prevent multiple occurrences" />
     <MESSAGE value="Adjusted the UI size.Added CSS to splashScreen button ,added authentication in AFK area" />
     <MESSAGE value="Sorted the toggle button. Remains fixing functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sorted the toggle button. Remains fixing functionality" />
+    <MESSAGE value="Toggle functionality and toggle settings. Fixed sideBar hide and show" />
+    <MESSAGE value="Manager Tab" />
+    <MESSAGE value="Authentication to Manager tab, user privilege validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Authentication to Manager tab, user privilege validation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

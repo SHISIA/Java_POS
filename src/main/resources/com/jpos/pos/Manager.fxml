@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="653.0" prefWidth="938.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jpos.java_pos.Controller.Manager">
+<AnchorPane fx:id="manager" prefHeight="653.0" prefWidth="938.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jpos.java_pos.Controller.Manager">
    <children>
-      <Button layoutX="16.0" layoutY="80.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="184.0" text="Manage Users" AnchorPane.bottomAnchor="537.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="738.0" AnchorPane.topAnchor="80.0">
+      <Button layoutX="14.0" layoutY="48.0" mnemonicParsing="false" onAction="#loadUsers" prefHeight="30.0" prefWidth="184.0" text="Manage Users" AnchorPane.bottomAnchor="582.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="740.0" AnchorPane.topAnchor="48.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
