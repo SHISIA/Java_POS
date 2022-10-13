@@ -28,5 +28,10 @@
       <PasswordField fx:id="passField" layoutX="209.0" layoutY="238.0" prefHeight="32.0" prefWidth="305.0" />
       <Button layoutX="220.0" layoutY="359.0" mnemonicParsing="false" onAction="#edit" prefHeight="49.0" prefWidth="134.0" text="Edit" />
       <Button layoutX="392.0" layoutY="359.0" mnemonicParsing="false" onAction="#reset" prefHeight="49.0" prefWidth="134.0" text="Reset" />
+      <Button layoutX="13.0" layoutY="14.0" mnemonicParsing="false" onAction="#close" prefHeight="41.0" prefWidth="43.0" style="-fx-background-radius: 12; -fx-border-radius: 12;" text="X">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
