@@ -1,0 +1,47 @@
+CREATE SCHEMA biz_hub_dev;	
+	
+	
+CREATE TABLE `biz_hub_users` (	
+`user_uid` VARCHAR(256)  ,	
+`user_name` VARCHAR(256)  ,	
+`user_role` VARCHAR(256)  ,	
+`user_code` VARCHAR(256)  ,	
+`user_passcode` VARCHAR(256)  	
+);	
+	
+INSERT INTO biz_hub_users (user_uid,user_name,user_role,user_code,user_passcode) VALUES	
+(1,'Admin','admin',12345,12345),	
+(2,'George','teller',12345,12345);	
+	
+CREATE TABLE `biz_hub_modules` (	
+`module_uid` VARCHAR(256)  ,	
+`module_name` VARCHAR(256)  ,	
+`module_easy_access` BOOLEAN  	
+);	
+	
+INSERT INTO biz_hub_modules(module_uid,module_name,module_easy_access) VALUES	
+('PETTYCASH46431','Petty Cash',TRUE),	
+('COMPLIANCE54254','Compliance',TRUE),	
+('CLOCK564251','Clocking',TRUE),	
+('RRE269649','Refunds Returns Exchanges',TRUE),	
+('POS661616','POS',TRUE);	
+	
+CREATE TABLE `biz_hub_permissions` (	
+`permission_uid` VARCHAR(256)  ,	
+`permission_name` VARCHAR(256)  ,	
+`permissions_group` VARCHAR(256)  ,	
+`permission_module` VARCHAR(256)  	
+);	
+	
+INSERT INTO biz_hub_permissions(permission_uid,permission_name,permissions_group,permission_module) VALUES	
+('POSMAN','Manage Products','POS Manager Tab','POS661616'),	
+('POSUSER','Manage Users','POS Manager Tab','POS661616');	
+	
+CREATE TABLE `biz_hub_permissions_users` (	
+`permission_uid` VARCHAR(256)  ,	
+`user_uid` VARCHAR(256)  ,	
+);	
+	
+INSERT INTO biz_hub_permissions_users(permission_uid,user_uid) VALUES	
+('POSMAN','1'),	
+('POSUSER','1');	

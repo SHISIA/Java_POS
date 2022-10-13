@@ -35,7 +35,6 @@ public class AFK implements Initializable {
     public void loadUsers(){
         String sql="select * from biz_hub_users where user_uid in (select user_uid from biz_hub_permissions_users \n" +
                 "where permission_uid in (select permission_uid from biz_hub_permissions where permission_module='POS661616') )";
-        //String sql="select * from biz_hub_users;";
         ObservableList<User> users=new DbConnector().loadUsers(sql);
         for (User user:users){
             usersList.setTooltip(new Tooltip("Click to Show Keypad"));
