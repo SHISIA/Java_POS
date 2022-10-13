@@ -11,6 +11,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -37,6 +38,7 @@ public class AFK implements Initializable {
         //String sql="select * from biz_hub_users;";
         ObservableList<User> users=new DbConnector().loadUsers(sql);
         for (User user:users){
+            usersList.setTooltip(new Tooltip("Click to Show Keypad"));
             usersList.getItems().add(createHBoxLayout(user.getName(), user.getRole()));
         }
     }
@@ -45,8 +47,8 @@ public class AFK implements Initializable {
         VBox vBox=new VBox();
         vBox.setId(name);
         vBox.setAlignment(Pos.CENTER_LEFT);
-        vBox.setStyle("-fx-border-color: black; " +
-                "-fx-background-color: grey;");
+        vBox.setStyle("-fx-border-color: grey; " +
+                "-fx-background-color: #D9EAF7;");
         vBox.setPadding(new Insets(15,15,15,15));
         HBox hbox = new HBox();
         hbox.setPadding(new Insets(4.0,4.0,4.0,4.0));
@@ -62,15 +64,36 @@ public class AFK implements Initializable {
         imageView1.setFitHeight(60);
         imageView1.setFitWidth(100);
 
+        Label label=new Label("Name:");
         Label nameLabel=new Label(name);
         nameLabel.setPrefHeight(32);
         nameLabel.prefWidth(250);
-        nameLabel.setStyle("-fx-text-fill:#208606;");
+        label.setStyle("-fx-text-fill:black;" +
+                "-fx-font-size:20;" +
+                "-fx-font-weight:bold;");
+        nameLabel.setStyle("-fx-text-fill:#208606;" +
+                "-fx-font-size:20;" +
+                "-fx-font-weight:bold;");
 
+        Label label1=new Label("Role:");
         Label roleLabel=new Label(role);
-        roleLabel.setStyle("-fx-text-fill:#2f720f;");
+        label1.setStyle("-fx-text-fill:black;" +
+                "-fx-font-size:20;" +
+                "-fx-font-weight:bold;");
+        roleLabel.setStyle("-fx-text-fill:#2f720f;" +
+                "-fx-font-size:20;" +
+                "-fx-font-weight:bold;");
         roleLabel.setPrefHeight(33);
         roleLabel.prefWidth(250);
+
+        HBox hBox=new HBox();
+        HBox hBox1=new HBox();
+        hBox.setSpacing(20);
+        hBox1.setAlignment(Pos.CENTER);
+        hBox.getChildren().addAll(label,nameLabel);
+        hBox1.setSpacing(20);
+        hBox.setAlignment(Pos.CENTER);
+        hBox1.getChildren().addAll(label1,roleLabel);
 
         vBox1.setSpacing(20);
         vBox1.setStyle("-fx-background-color:white;");
@@ -78,7 +101,7 @@ public class AFK implements Initializable {
 
         vBox1.setAlignment(Pos.CENTER);
         vBox1.setPadding(new Insets(10,10,10,10));
-        vBox1.getChildren().addAll(nameLabel,roleLabel);
+        vBox1.getChildren().addAll(hBox,hBox1);
         hbox.getChildren().addAll(imageView,vBox1,imageView1);
         vBox.getChildren().addAll(hbox);
         return vBox;

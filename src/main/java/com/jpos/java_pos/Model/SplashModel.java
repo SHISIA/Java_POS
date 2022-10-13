@@ -78,7 +78,11 @@ public class SplashModel {
         }
         for (JSONObject object1:objectArrayList){
             String db=(String) object1.get("schema");
-            dropDown.getItems().add(db);
+            if (!db.matches("")){
+                if (!dropDown.getItems().contains(db)){
+                    dropDown.getItems().add(db);
+                }
+            }
         }
 
         //host
@@ -91,7 +95,11 @@ public class SplashModel {
         }
         for (JSONObject object1:hostArrayList){
             String host=(String) object1.get("host");
-            hostDropDown.getItems().add(host);
+            if (!host.matches("")){
+                if (!hostDropDown.getItems().contains(host)){
+                    hostDropDown.getItems().add(host);
+                }
+            }
         }
 
 

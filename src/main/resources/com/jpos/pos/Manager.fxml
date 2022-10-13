@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="manager" prefHeight="653.0" prefWidth="938.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jpos.java_pos.Controller.Manager">
+<AnchorPane fx:id="manager" prefHeight="653.0" prefWidth="938.0" style="-fx-background-color: #D9EAF7;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jpos.java_pos.Controller.Manager">
    <children>
       <Button layoutX="14.0" layoutY="48.0" mnemonicParsing="false" onAction="#loadUsers" prefHeight="30.0" prefWidth="184.0" text="Manage Users" AnchorPane.bottomAnchor="582.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="740.0" AnchorPane.topAnchor="48.0">
          <font>
