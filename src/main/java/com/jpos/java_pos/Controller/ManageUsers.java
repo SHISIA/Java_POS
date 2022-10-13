@@ -3,6 +3,7 @@ package com.jpos.java_pos.Controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import com.jpos.java_pos.Model.DbConnector;
+import com.jpos.java_pos.Model.ScreenLoader;
 import com.jpos.java_pos.Model.User;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
@@ -14,12 +15,15 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ManageUsers implements Initializable {
     public JFXListView userList;
+
+    public static User userClicked;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -30,12 +34,11 @@ public class ManageUsers implements Initializable {
         String sql="Select * from biz_hub_users;";
         ObservableList<User> users= new DbConnector().loadUsers(sql);
         for (User user:users){
-            VBox userGUIItem=userGUIItem(user.getName(), user.getRole());
-            userGUIItem.setId(user.toString());
+            VBox userGUIItem=userGUIItem(user.getName(), user.getRole(),user);
             userList.getItems().add(userGUIItem);
         }
     }
-    public VBox userGUIItem(String userName, String userRole){
+    public VBox userGUIItem(String userName, String userRole,User user){
         //containers
         VBox vBox=new VBox();
         HBox hBox=new HBox();
@@ -55,8 +58,16 @@ public class ManageUsers implements Initializable {
         HBox hBox3=new HBox();
 
         JFXButton button=new JFXButton("Edit");
+        button.setOnAction(e->{
+            userClicked=user;
+            new ScreenLoader().load("/com/jpos/pos/CreateEdit.fxml",false, StageStyle.TRANSPARENT,"/images/pos.png");
+        });
         JFXButton create=new JFXButton("Create");
+        create.setOnAction(e->{
+            userClicked=user;
+            new ScreenLoader().load("/com/jpos/pos/CreateEdit.fxml",false, StageStyle.TRANSPARENT,"/images/pos.png");
 
+        });
         hBox3.getChildren().addAll(button,create);
         hBox3.setAlignment(Pos.CENTER);
         hBox3.setSpacing(15);
@@ -107,7 +118,4 @@ public class ManageUsers implements Initializable {
         stage.close();
     }
 
-    public void editUser(){
-
-    }
 }

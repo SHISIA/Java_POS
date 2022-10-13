@@ -99,6 +99,7 @@ public class DbConnector {
 
 //  universally insert and update statements
     public void updateStatements(String statement){
+        setCredentials();
         try {
             PreparedStatement statement1=getConnection().prepareStatement(statement);
             statement1.execute();

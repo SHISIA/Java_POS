@@ -7,27 +7,26 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="448.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jpos.pos.CreateEdit">
+<AnchorPane prefHeight="502.0" prefWidth="679.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jpos.java_pos.Controller.CreateEdit">
    <children>
       <Label alignment="CENTER" layoutX="208.0" layoutY="14.0" prefHeight="49.0" prefWidth="224.0" text="Edit">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <Label layoutX="75.0" layoutY="115.0" prefHeight="32.0" prefWidth="125.0" text="Name">
+      <Label layoutX="80.0" layoutY="138.0" prefHeight="32.0" prefWidth="125.0" text="Name">
          <font>
             <Font size="21.0" />
          </font>
       </Label>
-      <Label layoutX="75.0" layoutY="215.0" prefHeight="32.0" prefWidth="125.0" text="Passcode">
+      <Label layoutX="80.0" layoutY="238.0" prefHeight="32.0" prefWidth="125.0" text="Passcode">
          <font>
             <Font size="21.0" />
          </font>
       </Label>
-      <TextField layoutX="204.0" layoutY="118.0" prefHeight="32.0" prefWidth="305.0" />
-      <PasswordField layoutX="204.0" layoutY="215.0" prefHeight="32.0" prefWidth="305.0" />
-      <Button layoutX="215.0" layoutY="336.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="134.0" text="Edit" />
-      <Button layoutX="387.0" layoutY="336.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="134.0" text="Reset" />
+      <TextField fx:id="nameField" layoutX="209.0" layoutY="138.0" prefHeight="32.0" prefWidth="305.0" />
+      <PasswordField fx:id="passField" layoutX="209.0" layoutY="238.0" prefHeight="32.0" prefWidth="305.0" />
+      <Button layoutX="220.0" layoutY="359.0" mnemonicParsing="false" onAction="#edit" prefHeight="49.0" prefWidth="134.0" text="Edit" />
+      <Button layoutX="392.0" layoutY="359.0" mnemonicParsing="false" onAction="#reset" prefHeight="49.0" prefWidth="134.0" text="Reset" />
    </children>
 </AnchorPane>
