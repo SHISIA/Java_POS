@@ -36,6 +36,7 @@ public class Notification extends Application {
         icon.setFitWidth(80);
         icon.setFitHeight(80);
         messageLabel.setAlignment(Pos.CENTER);
+        messageLabel.setStyle("-fx-font-size:20;");
         HBox hBox=new HBox();
         hBox.setStyle("-fx-border-color:black;");
         hBox.setSpacing(50);

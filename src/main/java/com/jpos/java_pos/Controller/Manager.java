@@ -54,27 +54,44 @@ public class Manager implements Initializable {
         return vBox;
     }
 
+    public static boolean checkManagerPrivilege(){
+        if (KeyPad.passCodeStatus){
+        DbConnector connector1=new DbConnector();
+        connector1.setCredentials();
+        ObservableList<User> users=connector1.loadUsers("select * from biz_hub_users where user_uid in (select user_uid from biz_hub_permissions_users \n" +
+                "where permission_uid in (select permission_uid from biz_hub_permissions where permissions_group='POS Manager Tab'));");
+        for (User user:users){
+            if (user.getName().matches(AFK.activeUser.getName())){
+                System.out.println("User has manager privilege");
+                return true;
+            }
+          }
+        }
+        return false;
+    }
+
     public void loadUsers(){
         connector.setCredentials();
-        ObservableList<User> users=connector.loadUsers("select * from biz_hub_users where user_uid in (select user_uid from biz_hub_permissions_users \n" +
-                "where permission_uid in (select permission_uid from biz_hub_permissions where permissions_group='POS Manager Tab') )");
-        for (User user:users){
-            //if (user==AFK.activeUser){
-                try {
-                    String sql="select permission_name from biz_hub_permissions where permission_uid in\n" +
-                            "(select permission_uid from biz_hub_permissions_users where user_uid in(select user_uid from biz_hub_users where user_uid="+user.getUid()+"))";
-                    Connection connection= connector.getConnection();
-                    ResultSet rs=connection.createStatement().executeQuery(sql);;
-                    while (rs.next()){
-                        String permission=rs.getString(1);
-                        permissionList.getItems().add(tileTemplate(permission));
-                         }
-                    connection.close();
-                } catch (SQLException e) {
-                    new SettingController().notification("Error!!","puzzled.png",3);
-                }
-           // }
+        ObservableList<User> users=connector.loadUsers("select * from biz_hub_users;");
+       if (KeyPad.passCodeStatus){
+           for (User user:users){
+               if (user.getName().matches(AFK.activeUser.getName())){
+                   try {
+                       String sql="select permission_name from biz_hub_permissions where permissions_group='POS Manager Tab' and permission_uid in\n" +
+                               "(select permission_uid from biz_hub_permissions_users where user_uid in(select user_uid from biz_hub_users where user_uid='"+user.getUid()+"'))";
+                       Connection connection= connector.getConnection();
+                       ResultSet rs=connection.createStatement().executeQuery(sql);;
+                       while (rs.next()){
+                           String permission=rs.getString(1);
+                           permissionList.getItems().add(tileTemplate(permission));
+                       }
+                       connection.close();
+                   } catch (SQLException e) {
+                       new SettingController().notification("Error!!","puzzled.png",3);
+                   }
+               }
 
-        }
+           }
+       }
     }
 }

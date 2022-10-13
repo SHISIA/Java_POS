@@ -56,7 +56,7 @@ public class HomeController implements Initializable {
         if (KeyPad.passCodeStatus) {
             setContainer("/com/jpos/pos/SalesPOS.fxml");
         }else {
-            new SettingController().notification("Kindly Authenticate First","puzzled.png",2);
+            new SettingController().notification("Kindly Authenticate First","locked.gif",2);
         }
     }
 
@@ -84,7 +84,13 @@ public class HomeController implements Initializable {
     @FXML
     void setBtnAFK(){setContainer("/com/jpos/pos/AFK.fxml");}
     @FXML
-    void setBtnManager(){setContainer("/com/jpos/pos/Manager.fxml");}
+    void setBtnManager(){
+        if (Manager.checkManagerPrivilege()){
+            setContainer("/com/jpos/pos/Manager.fxml");
+          }else {
+            new SettingController().notification("Not Authorized","locked.png",2);
+        }
+    }
     @FXML
     void setBtnSettings(){setContainer("/com/jpos/pos/Settings.fxml");}
     @FXML
