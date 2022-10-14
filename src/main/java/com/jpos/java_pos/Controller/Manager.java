@@ -82,7 +82,7 @@ public class Manager implements Initializable {
         hBox.setPadding(new Insets(2,2,2,2));
         vBox1.setSpacing(20);
         vBox.setAlignment(Pos.CENTER);
-        vBox.setPrefSize(300,220);
+        vBox.setPrefSize(330,220);
         vBox.getChildren().addAll(hBox,vBox1);
 
         return vBox;
