@@ -26,7 +26,7 @@ public class ScreenLoader {
             URL url = getClass().getResource(imIcon);
             stage.getIcons().add(new Image(String.valueOf(url)));
             stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("POS");
+            stage.setTitle("SMAZY POS");
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
