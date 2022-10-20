@@ -47,7 +47,7 @@ public class HomeController implements Initializable {
               try {
                   container.setCenter(fxmlLoader.load());
               } catch (IOException e) {
-                  e.printStackTrace();
+                  System.out.println("Error");
               }
     }
 

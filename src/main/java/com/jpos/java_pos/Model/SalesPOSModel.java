@@ -243,19 +243,25 @@ public class SalesPOSModel {
     }
 
     public void updateTicket(){
-        ObservableList<Product> products1=productsTable.getItems();
-        if (!(products1.isEmpty())){
-            for (Product product:products1){
-                Ticket ticket=new Ticket();
-                ticket.setTicketName(product.getProductName());
-                ticket.setProductCount(product.getCount());
-                ticket.setProductPrice(product.getPrice());
-                ticket.setProductTotal(product.getTotal());
-                ticket.appendDetails();
+        try {
+            //Detect empty ticket
+            if (!(productsTable.getItems().get(0)==null)) {
+                ObservableList<Product> products1 = productsTable.getItems();
+                for (Product product : products1) {
+                    Ticket ticket = new Ticket();
+                    ticket.setTicketName(product.getProductName());
+                    ticket.setProductCount(product.getCount());
+                    ticket.setProductPrice(product.getPrice());
+                    ticket.setProductTotal(product.getTotal());
+                    ticket.appendDetails();
+                }
             }
-        }else {
-            new SettingController().notification("Ticket Empty","puzzled.png",2);
+
+        }catch (IndexOutOfBoundsException ie){
+            new SettingController().notification("Empty Ticket","puzzled.png",4);
+
         }
+
     }
 
 }

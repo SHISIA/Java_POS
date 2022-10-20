@@ -100,10 +100,18 @@ public class SettingController implements Initializable {
                         json.writeJSON("data.json","server","schema",schema,"hostName",host);
                         json.writeJSON("data_.json","server","username",username,"password",password);
                         JSONObject jsonObject=new JSONReader().read("dbs.json","database");
+                        JSONObject jsonObject1=new JSONReader().read("hst.json","hosts");
                         Long aLong=(Long) jsonObject.get("name");
                         int i=toIntExact(aLong);
+                        Long aLong1=(Long) jsonObject1.get("name");
+                        int j=toIntExact(aLong1);
                         json.writeJSON("dbs.json","database","name",i+1,"schema",schema);
-                        System.out.println("successfully written");
+                        json.writeJSON("hst.json","hosts","name",j+1,"host",host);
+
+                        SplashModel.selectedUserName=username;
+                        SplashModel.selectedPass=password;
+                        SplashModel.selectedDB=schema;
+                        SplashModel.selectedHost=host;
                         notification("Successfully Saved","success.png",5);
                     }
                 });

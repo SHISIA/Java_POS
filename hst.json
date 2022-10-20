@@ -1,1 +1,1 @@
-[{"hosts":{"host":"","name":0}},{"hosts":{"name":1,"host":"localhost"}}]
+[{"hosts":{"name":0,"host":""}},{"hosts":{"name":1,"host":"localhost"}},{"hosts":{"name":2,"host":"jdbc:mysql:\/\/localhost:3306\/"}},{"hosts":{"name":3,"host":"localhost"}},{"hosts":{"name":4,"host":"localhost"}},{"hosts":{"name":5,"host":"localhost"}},{"hosts":{"name":6,"host":"jdbc:mysql:\/\/localhost:3306\/"}}]

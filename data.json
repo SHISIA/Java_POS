@@ -1,1 +1,1 @@
-[{"server":{"schema":"biz_hub_dev","hostName":"localhost"}}]
+[{"server":{"schema":"biz_hub_dev","hostName":"jdbc:mysql:\/\/localhost:3306\/"}}]

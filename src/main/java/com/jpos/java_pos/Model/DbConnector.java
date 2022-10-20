@@ -58,12 +58,13 @@ public class DbConnector {
 
     public Connection getConnection() {
         try {
+            //"jdbc:mysql://localhost:3306/"
             Class.forName("com.mysql.cj.jdbc.Driver");
              connection= DriverManager.getConnection(
-                    "jdbc:mysql://"+getHostName()+":3306/"+getSchema(),getUserName(),getPassword());
+                    getHostName()+getSchema(),getUserName(),getPassword());
 
         }catch (Exception e){
-            new SettingController().notification("DB Connection Error","error.png",7);
+            new SettingController().notification("Error. Check and Correct Credentials","error.png",7);
         }
         return connection;
     }
@@ -73,9 +74,11 @@ public class DbConnector {
         setSchema(SplashModel.selectedDB);
 //        setHostName((String) jsonObject.get("hostName"));
         setHostName(SplashModel.selectedHost);
-        JSONObject jsonObject1=new JSONReader().read("data_.json","server");
-        setPassword((String) jsonObject1.get("password"));
-        setUserName((String) jsonObject1.get("username"));
+//        JSONObject jsonObject1=new JSONReader().read("data_.json","server");
+//        setPassword((String) jsonObject1.get("password"));
+//        setUserName((String) jsonObject1.get("username"));
+        setPassword(SplashModel.selectedPass);
+        setUserName(SplashModel.selectedUserName);
     }
 
     public String streamReader(String filename){

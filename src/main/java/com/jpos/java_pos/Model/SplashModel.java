@@ -27,6 +27,8 @@ public class SplashModel {
 
    public static String selectedDB;
    public static String selectedHost;
+   public static String selectedPass;
+   public static String selectedUserName;
 
 
     public SplashModel(JFXButton connect,JFXButton closeBtn,JFXComboBox comboBox,ImageView splashLogo,Hyperlink setUpDbLink,JFXComboBox hostDropDown){
@@ -116,5 +118,10 @@ public class SplashModel {
                 selectedHost= (String) hostDropDown.getSelectionModel().getSelectedItem();
             }
         });
+
+        JSONObject jsonObject1=new JSONReader().read("data_.json","server");
+        selectedPass=(String) jsonObject1.get("password");
+        selectedUserName=(String) jsonObject1.get("username");
     }
+
 }
